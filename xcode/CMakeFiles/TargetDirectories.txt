@@ -1,0 +1,4 @@
+/Users/s1r/Desktop/computer_graphics_hw2/xcode/CMakeFiles/raytrace.dir
+/Users/s1r/Desktop/computer_graphics_hw2/xcode/CMakeFiles/hwlib.dir
+/Users/s1r/Desktop/computer_graphics_hw2/xcode/CMakeFiles/ALL_BUILD.dir
+/Users/s1r/Desktop/computer_graphics_hw2/xcode/CMakeFiles/ZERO_CHECK.dir
