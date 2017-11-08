@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="graphics17b_hw02"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raytrace">
+				<Option output="/Users/s1r/Desktop/computer_graphics_hw2/bin/raytrace" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 raytrace"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raytrace/fast">
+				<Option output="/Users/s1r/Desktop/computer_graphics_hw2/bin/raytrace" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 raytrace/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hwlib">
+				<Option output="/Users/s1r/Desktop/computer_graphics_hw2/bin/libhwlib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 hwlib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hwlib/fast">
+				<Option output="/Users/s1r/Desktop/computer_graphics_hw2/bin/libhwlib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 hwlib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/ext/json.hpp">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/ext/stb_image.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/ext/stb_image_resize.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/ext/stb_image_write.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/ext/tinyexr.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/printData.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/raytrace.cpp">
+			<Option target="raytrace"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_gltf.cpp">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_gltf.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_img.cpp">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_img.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_math.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_obj.cpp">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_obj.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_scn.cpp">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_scn.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_utils.h">
+			<Option target="hwlib"/>
+		</Unit>
+		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

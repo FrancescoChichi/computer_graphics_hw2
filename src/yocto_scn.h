@@ -106,13 +106,13 @@ namespace yscn {
 ///
 /// Property map
 ///
-template <typename T>
-using property_map = std::unordered_map<std::string, std::vector<T>>;
+  template <typename T>
+  using property_map = std::unordered_map<std::string, std::vector<T>>;
 
 ///
 /// Scene Texture
 ///
-struct texture {
+  struct texture {
     /// name
     std::string name;
     /// path
@@ -134,42 +134,42 @@ struct texture {
         if (hdr) return hdr.height();
         return 0;
     }
-};
+  };
 
 ///
 /// Texture wrap mode
 ///
-enum struct texture_wrap {
+  enum struct texture_wrap {
     /// repeat
-    repeat = 1,
+        repeat = 1,
     /// clamp
-    clamp = 2,
+        clamp = 2,
     /// mirror
-    mirror = 3,
-};
+        mirror = 3,
+  };
 
 ///
 /// Texture filter mode
 ///
-enum struct texture_filter {
+  enum struct texture_filter {
     /// linear
-    linear = 1,
+        linear = 1,
     /// nearest
-    nearest = 2,
+        nearest = 2,
     /// linear mipmap linear
-    linear_mipmap_linear = 3,
+        linear_mipmap_linear = 3,
     /// nearest mipmap nearest
-    nearest_mipmap_nearest = 4,
+        nearest_mipmap_nearest = 4,
     /// linear mipmap nearest
-    linear_mipmap_nearest = 5,
+        linear_mipmap_nearest = 5,
     /// nearest mipmap linear
-    nearest_mipmap_linear = 6,
-};
+        nearest_mipmap_linear = 6,
+  };
 
 ///
 /// Scene Texture Additional Information
 ///
-struct texture_info {
+  struct texture_info {
     /// texture pointer
     texture* txt = nullptr;
     /// wrap mode for s coordinate
@@ -187,24 +187,24 @@ struct texture_info {
 
     /// check whether the texture if present
     operator bool() const { return (bool)txt; }
-};
+  };
 
 ///
 /// Material type
 ///
-enum struct material_type {
+  enum struct material_type {
     /// Microfacet material type (OBJ)
-    specular_roughness = 0,
+        specular_roughness = 0,
     /// Base and metallic material (metallic-roughness in glTF)
-    metallic_roughness = 1,
+        metallic_roughness = 1,
     /// Diffuse and specular material (specular-glossness in glTF)
-    specular_glossiness = 2,
-};
+        specular_glossiness = 2,
+  };
 
 ///
 /// Scene Material
 ///
-struct material {
+  struct material {
     // whole material data -------------------
     /// material name
     std::string name;
@@ -258,13 +258,13 @@ struct material {
     // unknown properties ---------------------
     /// unknown string props
     property_map<std::string> unknown_props;
-};
+  };
 
 ///
 /// Shape data represented as an indexed array.
 /// May contain only one of the points/lines/triangles.
 ///
-struct shape {
+  struct shape {
     /// shape name
     std::string name = "";
     /// path (used for saving in glTF)
@@ -310,12 +310,12 @@ struct shape {
     ~shape() {
         if (bvh) delete bvh;
     }
-};
+  };
 
 ///
 /// Shape instance.
 ///
-struct instance {
+  struct instance {
     // name
     std::string name;
     /// transform frame
@@ -329,12 +329,12 @@ struct instance {
 
     /// instance transform as matrix
     ym::mat4f xform() const { return ym::to_mat(frame); }
-};
+  };
 
 ///
 /// Scene Camera
 ///
-struct camera {
+  struct camera {
     /// name
     std::string name;
     /// transform frame
@@ -353,35 +353,35 @@ struct camera {
     float near = 0.01f;
     /// far plane distance
     float far = 10000;
-};
+  };
 
 ///
 /// Envinonment map
 ///
-struct environment {
+  struct environment {
     /// name
     std::string name;
     /// transform frame
     ym::frame3f frame = ym::identity_frame3f;
     /// index of material in material array
     material* mat = nullptr;
-};
+  };
 
 ///
 /// Light, either an instance or an environment.
 /// This is only used internally to avoid looping over all objects every time.
 ///
-struct light {
+  struct light {
     /// instance
     instance* ist = nullptr;
     /// environment
     environment* env = nullptr;
-};
+  };
 
 ///
 /// Scene
 ///
-struct scene {
+  struct scene {
     /// shape array
     std::vector<shape*> shapes;
     /// instance array
@@ -406,12 +406,12 @@ struct scene {
 
     /// cleanup
     ~scene();
-};
+  };
 
 ///
 /// Loading options
 ///
-struct load_options {
+  struct load_options {
     /// Whether to load textures
     bool load_textures = true;
     /// Skip missing files without giving and error
@@ -424,18 +424,18 @@ struct load_options {
     bool obj_flip_tr = true;
     /// whether to preserve quads
     bool preserve_quads = false;
-};
+  };
 
 ///
 /// Loads a scene. For now OBJ or glTF are supported.
 /// Throws an exception if an error occurs.
 ///
-scene* load_scene(const std::string& filename, const load_options& opts = {});
+  scene* load_scene(const std::string& filename, const load_options& opts = {});
 
 ///
 /// Save options
 ///
-struct save_options {
+  struct save_options {
     /// Whether to save textures
     bool save_textures = true;
     /// Skip missing files without giving and error
@@ -446,19 +446,19 @@ struct save_options {
     bool obj_flip_tr = true;
     /// Whether to use separate buffers in gltf
     bool gltf_separate_buffers = false;
-};
+  };
 
 ///
 /// Saves a scene. For now OBJ and glTF are supported.
 /// Throws an exception if an error occurs.
 ///
-void save_scene(
-    const std::string& filename, const scene* scn, const save_options& opts);
+  void save_scene(
+      const std::string& filename, const scene* scn, const save_options& opts);
 
 ///
 /// Add elements options
 ///
-struct add_elements_options {
+  struct add_elements_options {
     /// Add missing normal
     bool smooth_normals = true;
     /// Add missing radius for points and lines (<=0 for no adding)
@@ -482,68 +482,68 @@ struct add_elements_options {
         memset(&opts, 0, sizeof(opts));
         return opts;
     }
-};
+  };
 
 ///
 /// Add elements
 ///
-void add_elements(scene* scn, const add_elements_options& opts = {});
+  void add_elements(scene* scn, const add_elements_options& opts = {});
 
 ///
 /// Merge scene into one another. Note that the objects are _moved_ from
 /// merge_from to merged_into, so merge_from will be empty after this function.
 ///
-void merge_into(scene* merge_into, scene* merge_from);
+  void merge_into(scene* merge_into, scene* merge_from);
 
 ///
 /// Computes a scene bounding box
 ///
-ym::bbox3f compute_bounds(const scene* scn);
+  ym::bbox3f compute_bounds(const scene* scn);
 
 ///
 /// Computes an instance bounding box
 ///
-ym::bbox3f compute_bounds(const instance* ist);
+  ym::bbox3f compute_bounds(const instance* ist);
 
 ///
 /// Computes a shape bounding box
 ///
-ym::bbox3f compute_bounds(const shape* shp);
+  ym::bbox3f compute_bounds(const shape* shp);
 
 ///
 /// Flatten scene instances into separate meshes.
 ///
-void flatten_instances(scene* scn);
+  void flatten_instances(scene* scn);
 
 ///
 /// Initialize the lights
 ///
-void update_lights(scene* scn, bool point_only);
+  void update_lights(scene* scn, bool point_only);
 
 ///
 /// Print scene information
 ///
-void print_info(const scene* scn);
+  void print_info(const scene* scn);
 
 ///
 /// Build a shape BVH
 ///
-void build_bvh(shape* shp, bool equalsize = true);
+  void build_bvh(shape* shp, bool equalsize = true);
 
 ///
 /// Build a scene BVH
 ///
-void build_bvh(scene* scn, bool equalsize = true, bool do_shapes = true);
+  void build_bvh(scene* scn, bool equalsize = true, bool do_shapes = true);
 
 ///
 /// Refits a scene BVH
 ///
-void refit_bvh(shape* shp);
+  void refit_bvh(shape* shp);
 
 ///
 /// Refits a scene BVH
 ///
-void refit_bvh(scene* scn, bool do_shapes = true);
+  void refit_bvh(scene* scn, bool do_shapes = true);
 
 ///
 /// Intersect the shape with a ray. Find any interstion if early_exit,
@@ -559,8 +559,8 @@ void refit_bvh(scene* scn, bool do_shapes = true);
 /// - Returns:
 ///     - whether it intersected
 ///
-bool intersect_ray(const shape* shp, const ym::ray3f& ray, bool early_exit,
-    float& ray_t, int& eid, ym::vec4f& euv);
+  bool intersect_ray(const shape* shp, const ym::ray3f& ray, bool early_exit,
+                     float& ray_t, int& eid, ym::vec4f& euv);
 
 ///
 /// Intersect the instance with a ray. Find any interstion if early_exit,
@@ -576,8 +576,8 @@ bool intersect_ray(const shape* shp, const ym::ray3f& ray, bool early_exit,
 /// - Returns:
 ///     - whether it intersected
 ///
-bool intersect_ray(const instance* ist, const ym::ray3f& ray, bool early_exit,
-    float& ray_t, int& eid, ym::vec4f& euv);
+  bool intersect_ray(const instance* ist, const ym::ray3f& ray, bool early_exit,
+                     float& ray_t, int& eid, ym::vec4f& euv);
 
 ///
 /// Intersect the scene with a ray. Find any interstion if early_exit,
@@ -594,13 +594,13 @@ bool intersect_ray(const instance* ist, const ym::ray3f& ray, bool early_exit,
 /// - Returns:
 ///     - whether it intersected
 ///
-bool intersect_ray(const scene* scn, const ym::ray3f& ray, bool early_exit,
-    float& ray_t, int& iid, int& eid, ym::vec4f& euv);
+  bool intersect_ray(const scene* scn, const ym::ray3f& ray, bool early_exit,
+                     float& ray_t, int& iid, int& eid, ym::vec4f& euv);
 
 ///
 /// Surface point.
 ///
-struct intersection_point {
+  struct intersection_point {
     /// distance of the hit along the ray or from the point
     float dist = 0;
     /// instance index
@@ -612,7 +612,7 @@ struct intersection_point {
 
     /// check if intersection is valid
     operator bool() const { return eid >= 0; }
-};
+  };
 
 ///
 /// Intersect the scene with a ray. Find any interstion if early_exit,
@@ -625,14 +625,14 @@ struct intersection_point {
 /// - Returns:
 ///     - intersection record
 ///
-inline intersection_point intersect_ray(
-    const scene* scn, const ym::ray3f& ray, bool early_exit) {
-    auto isec = intersection_point();
-    if (!intersect_ray(
-            scn, ray, early_exit, isec.dist, isec.iid, isec.eid, isec.euv))
-        return {};
-    return isec;
-}
+  inline intersection_point intersect_ray(
+      const scene* scn, const ym::ray3f& ray, bool early_exit) {
+      auto isec = intersection_point();
+      if (!intersect_ray(
+          scn, ray, early_exit, isec.dist, isec.iid, isec.eid, isec.euv))
+          return {};
+      return isec;
+  }
 
 ///
 /// Finds the closest element that overlaps a point within a given distance.
@@ -648,8 +648,8 @@ inline intersection_point intersect_ray(
 /// - Returns:
 ///     - whether it intersected
 ///
-bool overlap_point(const shape* shp, const ym::vec3f& pos, float max_dist,
-    bool early_exit, float& dist, int& eid, ym::vec4f& euv);
+  bool overlap_point(const shape* shp, const ym::vec3f& pos, float max_dist,
+                     bool early_exit, float& dist, int& eid, ym::vec4f& euv);
 
 ///
 /// Finds the closest element that overlaps a point within a given distance.
@@ -665,8 +665,8 @@ bool overlap_point(const shape* shp, const ym::vec3f& pos, float max_dist,
 /// - Returns:
 ///     - whether it intersected
 ///
-bool overlap_point(const instance* ist, const ym::vec3f& pos, float max_dist,
-    bool early_exit, float& dist, int& eid, ym::vec4f& euv);
+  bool overlap_point(const instance* ist, const ym::vec3f& pos, float max_dist,
+                     bool early_exit, float& dist, int& eid, ym::vec4f& euv);
 
 ///
 /// Finds the closest element that overlaps a point within a given distance.
@@ -683,14 +683,14 @@ bool overlap_point(const instance* ist, const ym::vec3f& pos, float max_dist,
 /// - Returns:
 ///     - whether it intersected
 ///
-bool overlap_point(const scene* scn, const ym::vec3f& pos, float max_dist,
-    bool early_exit, float& dist, int& iid, int& eid, ym::vec4f& euv);
+  bool overlap_point(const scene* scn, const ym::vec3f& pos, float max_dist,
+                     bool early_exit, float& dist, int& iid, int& eid, ym::vec4f& euv);
 
 ///
 /// Find the list of overlaps between instance bounds.
 ///
-void overlap_instance_bounds(const scene* scn1, const scene* scn2,
-    bool skip_duplicates, bool skip_self, std::vector<ym::vec2i>& overlaps);
+  void overlap_instance_bounds(const scene* scn1, const scene* scn2,
+                               bool skip_duplicates, bool skip_self, std::vector<ym::vec2i>& overlaps);
 
 }  // namespace yscn
 
