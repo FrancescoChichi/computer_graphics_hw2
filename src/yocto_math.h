@@ -3843,6 +3843,7 @@ namespace ym {
       tangv[i] = normalize(tangv[i]);
     }
 
+
     for (auto i = 0; i < nverts; i++) {
       tangu[i] = orthonormalize(tangu[i], norm[i]);
       auto s = (dot(cross(norm[i], tangu[i]), tangv[i]) < 0) ? -1.0f : 1.0f;

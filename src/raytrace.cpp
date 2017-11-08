@@ -212,49 +212,6 @@ void displace(yscn::shape* shp, float scale) {
 
   auto tex = shp->mat->disp_txt.txt;
 
-  //shp->triangles = ym::convert_quads_to_triangles(shp->quads);
-  //shp->tangsp.reserve(shp->pos.size()*2);
-  /*std::vector<ym::vec3f> dirpN;
-  dirpN.reserve(shp->pos.size()*2);
-  compute_normal_from_tangsp((int)shp->triangles.size(),shp->triangles.data(),
-                             (int)shp->pos.size(), shp->pos.data(),
-                             shp->norm.data(), shp->texcoord.data(), dirpN.data());
-*/
-  /*ym::compute_tangent_frame((int)shp->triangles.size(),shp->triangles.data(),
-                          (int)shp->pos.size(), shp->pos.data(), shp->norm.data(), shp->texcoord.data(), shp->tangsp.data());
-*/
-  /*std::vector<ym::vec4f> norm;
-
-  for(auto t:shp->triangles)
-  {
-    norm[t]=ym::cross(shp->tangsp[t.x],shp->tangsp[t.y]);
-  }*/
-/*
- for(auto t:shp->triangles)
-  {
-    auto t0 = shp->texcoord[t.x];
-    auto t1 = shp->texcoord[t.y];
-    auto t2 = shp->texcoord[t.z];
-
-    auto tgvX = ym::cross(shp->tangsp[t.x].xyz(),shp->norm[t.x])*ym::vec3f(shp->tangsp[t.x].w);
-    auto tgvY = ym::cross(shp->tangsp[t.y].xyz(),shp->norm[t.y])*ym::vec3f(shp->tangsp[t.y].w);
-    auto tgvZ = ym::cross(shp->tangsp[t.z].xyz(),shp->norm[t.z])*ym::vec3f(shp->tangsp[t.z].w);
-
-    ym::vec3f* p0 = &shp->pos[t.x];
-    ym::vec3f* p1 = &shp->pos[t.y];
-    ym::vec3f* p2 = &shp->pos[t.z];
-
-    auto n0 = cross(shp->tangsp[t.x].xyz(),tgvX);
-    auto n1 = cross(shp->tangsp[t.y].xyz(),tgvY);
-    auto n2 = cross(shp->tangsp[t.z].xyz(),tgvZ);
-
-    *p0+=((eval_texture(tex,t0)).xyz()*scale)*shp->norm[t.x];
-    *p1+=((eval_texture(tex,t1)).xyz()*scale)*shp->norm[t.y];
-    *p2+=((eval_texture(tex,t2)).xyz()*scale)*shp->norm[t.z];
-  }
-
-  ym::compute_normals((int)shp->triangles.size(), shp->triangles.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());*/
-
   for(auto q:shp->quads)
   {
     auto t0 = shp->texcoord[q.x];
@@ -290,7 +247,91 @@ void displace(yscn::shape* shp, float scale) {
 // Implement a different algorithm for quead meshes and triangle meshes.
 //
 void tesselate(yscn::shape* shp, int level) {
-  // YOUR CODE GOES HERE
+  ym::edge_map tesselation=ym::edge_map();
+
+  if(!shp->quads.empty()){
+    //tesselation = ym::edge_map(shp->quads);
+    for(int i=0; i<level; ++i) {
+      tesselation=ym::edge_map();
+      shp->quads.reserve(shp->quads.size()*2 +1);
+
+      for (auto& t : shp->quads) {
+        auto centroid = (t.x+t.y+t.z+t.w)/4;
+        if (t.z == t.w) {
+          tesselation.add_edge({t.x, (t.y+t.x)/2});
+          tesselation.add_edge({(t.y+t.x)/2, t.y});
+          tesselation.add_edge({t.y, (t.y+t.z)/2});
+          tesselation.add_edge({(t.y+t.z)/2, t.z});
+          tesselation.add_edge({t.z, (t.x+t.z)/2});
+          tesselation.add_edge({(t.x+t.z)/2, t.x});
+
+          tesselation.add_edge({(t.y+t.x)/2,centroid});
+          tesselation.add_edge({(t.y+t.z)/2,centroid});
+          tesselation.add_edge({(t.x+t.z)/2,centroid});
+
+        } else {
+          tesselation.add_edge({t.x, (t.y+t.x)/2});
+          tesselation.add_edge({(t.y+t.x)/2, t.y});
+          tesselation.add_edge({t.y, (t.y+t.z)/2});
+          tesselation.add_edge({(t.y+t.z)/2, t.z});
+          tesselation.add_edge({t.z, (t.w+t.z)/2});
+          tesselation.add_edge({(t.w+t.z)/2, t.w});
+          tesselation.add_edge({t.w, (t.x+t.w)/2});
+          tesselation.add_edge({(t.x+t.w)/2, t.x});
+
+          tesselation.add_edge({(t.y+t.x)/2,centroid});
+          tesselation.add_edge({(t.y+t.z)/2,centroid});
+          tesselation.add_edge({(t.w+t.z)/2,centroid});
+          tesselation.add_edge({(t.x+t.w)/2,centroid});
+        }
+      }
+    }
+  }
+  else if(!shp->triangles.empty()){
+    //tesselation = ym::edge_map(shp->triangles);
+    for(int i=0; i<level; ++i) {
+      tesselation=ym::edge_map();
+      shp->triangles.reserve(shp->triangles.size()*2);
+
+
+      for (auto& t : shp->triangles) {
+
+        auto v01=(t.y+t.x)/2;
+        auto v02=(t.y+t.z)/2;
+        auto v12=(t.x+t.z)/2;
+
+        tesselation.add_edge({t.x, (t.y+t.x)/2});
+        tesselation.add_edge({(t.y+t.x)/2, t.y});
+        tesselation.add_edge({t.y, (t.y+t.z)/2});
+        tesselation.add_edge({(t.y+t.z)/2, t.z});
+        tesselation.add_edge({t.z, (t.x+t.z)/2});
+        tesselation.add_edge({(t.x+t.z)/2, t.x});
+
+        tesselation.add_edge({v01,v02});
+        tesselation.add_edge({v02,v12});
+        tesselation.add_edge({v01,v12});
+      }
+    }
+  }
+
+
+
+  /**
+   * // step 1: pseudocode
+for v in mesh->vertex:
+ tesselation->add_vertex(v)
+for e in mesh->edge:
+ if e not in hash:
+ tesselation->add_vertex(centroid(e))
+ hash->add(e)
+for f in mesh->face:
+ tesselation->add_vertex(centroid(f))
+for f: in mesh->face:
+ tesselation->add_face(...)
+ tesselation->add_face(...)
+ tesselation->add_face(...)
+ tesselation->add_face(...)
+   */
 }
 
 //

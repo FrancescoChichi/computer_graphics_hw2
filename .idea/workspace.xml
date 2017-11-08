@@ -13,11 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/printData.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/yocto_math.h" afterPath="$PROJECT_DIR$/src/yocto_math.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/yocto_scn.h" afterPath="$PROJECT_DIR$/src/yocto_scn.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,12 +29,22 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+            <state relative-caret-position="182">
+              <caret line="260" column="37" lean-forward="false" selection-start-line="260" selection-start-column="37" selection-end-line="260" selection-end-column="37" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#137#540#0" expanded="false" />
+                <element signature="e#542#857#0" expanded="false" />
+                <element signature="e#859#1830#0" expanded="false" />
+                <element signature="e#1832#4825#0" expanded="false" />
                 <element signature="e#4827#5882#0" expanded="false" />
                 <element signature="e#5884#7282#0" expanded="false" />
+                <element signature="e#7285#8239#0" expanded="false" />
+                <element signature="e#11169#11541#0" expanded="false" />
+                <element signature="e#11545#11967#0" expanded="false" />
+                <element signature="e#11969#12587#0" expanded="false" />
+                <element signature="e#12589#13167#0" expanded="false" />
+                <element signature="e#13169#13657#0" expanded="false" />
+                <element signature="e#13659#19039#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -46,8 +53,8 @@
       <file leaf-file-name="yocto_math.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="3603" column="13" lean-forward="false" selection-start-line="3603" selection-start-column="13" selection-end-line="3603" selection-end-column="13" />
+            <state relative-caret-position="1893">
+              <caret line="4121" column="14" lean-forward="false" selection-start-line="4121" selection-start-column="14" selection-end-line="4121" selection-end-column="14" />
               <folding>
                 <element signature="e#6307#6319#0" expanded="true" />
                 <element signature="e#6425#6437#0" expanded="true" />
@@ -355,20 +362,20 @@
                 <element signature="e#107942#107967#0" expanded="true" />
                 <element signature="e#108203#108228#0" expanded="true" />
                 <element signature="e#108590#108615#0" expanded="true" />
-                <element signature="e#125785#125845#0" expanded="true" />
-                <element signature="e#128028#128088#0" expanded="true" />
-                <element signature="e#129042#129102#0" expanded="true" />
-                <element signature="e#130100#130187#0" expanded="true" />
-                <element signature="e#131758#131845#0" expanded="true" />
-                <element signature="e#215866#215878#0" expanded="true" />
-                <element signature="e#216109#216121#0" expanded="true" />
-                <element signature="e#228343#228355#0" expanded="true" />
-                <element signature="e#232158#232452#0" expanded="true" />
-                <element signature="e#249681#249700#0" expanded="true" />
-                <element signature="e#254268#254287#0" expanded="true" />
-                <element signature="e#257529#257544#0" expanded="true" />
-                <element signature="e#259571#259593#0" expanded="true" />
-                <element signature="e#272883#272905#0" expanded="true" />
+                <element signature="e#125786#125846#0" expanded="true" />
+                <element signature="e#128029#128089#0" expanded="true" />
+                <element signature="e#129043#129103#0" expanded="true" />
+                <element signature="e#130101#130188#0" expanded="true" />
+                <element signature="e#131759#131846#0" expanded="true" />
+                <element signature="e#215867#215879#0" expanded="true" />
+                <element signature="e#216110#216122#0" expanded="true" />
+                <element signature="e#228344#228356#0" expanded="true" />
+                <element signature="e#232159#232453#0" expanded="true" />
+                <element signature="e#249682#249701#0" expanded="true" />
+                <element signature="e#254269#254288#0" expanded="true" />
+                <element signature="e#257530#257545#0" expanded="true" />
+                <element signature="e#259572#259594#0" expanded="true" />
+                <element signature="e#272884#272906#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -389,6 +396,12 @@
       <find>bernstein</find>
       <find>eval_texture</find>
       <find>shade</find>
+      <find>map</find>
+      <find>edge_map</find>
+      <find>catmull_clark</find>
+      <find>tesselated</find>
+      <find>tesselat</find>
+      <find>tessel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -490,12 +503,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509988637325</updated>
-      <workItem from="1509988639145" duration="28793000" />
+      <workItem from="1509988639145" duration="33274000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28793000" />
+    <option name="totallyTimeSpent" value="33274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -524,7 +537,7 @@
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -533,7 +546,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16319445" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16319445" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -586,10 +599,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/unordered_map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="746" column="27" lean-forward="false" selection-start-line="746" selection-start-column="27" selection-end-line="746" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/utility">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="317" column="8" lean-forward="false" selection-start-line="317" selection-start-column="8" selection-end-line="317" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="3603" column="13" lean-forward="false" selection-start-line="3603" selection-start-column="13" selection-end-line="3603" selection-end-column="13" />
+        <state relative-caret-position="1893">
+          <caret line="4121" column="14" lean-forward="false" selection-start-line="4121" selection-start-column="14" selection-end-line="4121" selection-end-column="14" />
           <folding>
             <element signature="e#6307#6319#0" expanded="true" />
             <element signature="e#6425#6437#0" expanded="true" />
@@ -897,32 +926,42 @@
             <element signature="e#107942#107967#0" expanded="true" />
             <element signature="e#108203#108228#0" expanded="true" />
             <element signature="e#108590#108615#0" expanded="true" />
-            <element signature="e#125785#125845#0" expanded="true" />
-            <element signature="e#128028#128088#0" expanded="true" />
-            <element signature="e#129042#129102#0" expanded="true" />
-            <element signature="e#130100#130187#0" expanded="true" />
-            <element signature="e#131758#131845#0" expanded="true" />
-            <element signature="e#215866#215878#0" expanded="true" />
-            <element signature="e#216109#216121#0" expanded="true" />
-            <element signature="e#228343#228355#0" expanded="true" />
-            <element signature="e#232158#232452#0" expanded="true" />
-            <element signature="e#249681#249700#0" expanded="true" />
-            <element signature="e#254268#254287#0" expanded="true" />
-            <element signature="e#257529#257544#0" expanded="true" />
-            <element signature="e#259571#259593#0" expanded="true" />
-            <element signature="e#272883#272905#0" expanded="true" />
+            <element signature="e#125786#125846#0" expanded="true" />
+            <element signature="e#128029#128089#0" expanded="true" />
+            <element signature="e#129043#129103#0" expanded="true" />
+            <element signature="e#130101#130188#0" expanded="true" />
+            <element signature="e#131759#131846#0" expanded="true" />
+            <element signature="e#215867#215879#0" expanded="true" />
+            <element signature="e#216110#216122#0" expanded="true" />
+            <element signature="e#228344#228356#0" expanded="true" />
+            <element signature="e#232159#232453#0" expanded="true" />
+            <element signature="e#249682#249701#0" expanded="true" />
+            <element signature="e#254269#254288#0" expanded="true" />
+            <element signature="e#257530#257545#0" expanded="true" />
+            <element signature="e#259572#259594#0" expanded="true" />
+            <element signature="e#272884#272906#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state relative-caret-position="182">
+          <caret line="260" column="37" lean-forward="false" selection-start-line="260" selection-start-column="37" selection-end-line="260" selection-end-column="37" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#137#540#0" expanded="false" />
+            <element signature="e#542#857#0" expanded="false" />
+            <element signature="e#859#1830#0" expanded="false" />
+            <element signature="e#1832#4825#0" expanded="false" />
             <element signature="e#4827#5882#0" expanded="false" />
             <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#8239#0" expanded="false" />
+            <element signature="e#11169#11541#0" expanded="false" />
+            <element signature="e#11545#11967#0" expanded="false" />
+            <element signature="e#11969#12587#0" expanded="false" />
+            <element signature="e#12589#13167#0" expanded="false" />
+            <element signature="e#13169#13657#0" expanded="false" />
+            <element signature="e#13659#19039#0" expanded="false" />
           </folding>
         </state>
       </provider>
