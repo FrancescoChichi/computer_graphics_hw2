@@ -4,6 +4,7 @@
 #include "yocto_scn.h"
 #include "yocto_utils.h"
 #include "printData.h"
+#include "tesselation.h"
 
 ym::ray3f eval_camera(const yscn::camera* cam, const ym::vec2f& uv) {
   auto h = 2 * std::tan(cam->yfov / 2);
@@ -210,30 +211,23 @@ ym::image4f raytrace_mt(const yscn::scene* scn, const ym::vec3f& amb,
 //
 void displace(yscn::shape* shp, float scale) {
 
+  scale=0.25f;
   auto tex = shp->mat->disp_txt.txt;
 
   for(auto q:shp->quads)
   {
-    auto t0 = shp->texcoord[q.x];
-    auto t1 = shp->texcoord[q.y];
-    auto t2 = shp->texcoord[q.z];
-    auto t3 = shp->texcoord[q.w];
-
-    ym::vec3f* p0 = &shp->pos[q.x];
-    ym::vec3f* p1 = &shp->pos[q.y];
-    ym::vec3f* p2 = &shp->pos[q.z];
-    ym::vec3f* p3 = &shp->pos[q.w];
-
-    *p0+=((eval_texture(tex,t0)).xyz()*scale)*shp->norm[q.x];
-    *p1+=((eval_texture(tex,t1)).xyz()*scale)*shp->norm[q.y];
-    *p2+=((eval_texture(tex,t2)).xyz()*scale)*shp->norm[q.z];
-    *p2+=((eval_texture(tex,t3)).xyz()*scale)*shp->norm[q.w];
-
+    shp->pos[q.x]+=((eval_texture(tex,shp->texcoord[q.x])).xyz()*scale)*shp->norm[q.x];
+    shp->pos[q.y]+=((eval_texture(tex,shp->texcoord[q.y])).xyz()*scale)*shp->norm[q.y];
+    shp->pos[q.z]+=((eval_texture(tex,shp->texcoord[q.z])).xyz()*scale)*shp->norm[q.z];
+    shp->pos[q.w]+=((eval_texture(tex,shp->texcoord[q.w])).xyz()*scale)*shp->norm[q.w];
   }
 
   ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 
 }
+
+
+
 
 //
 // Linear tesselation thta split each triangle in 4 triangles and each quad in
@@ -247,73 +241,133 @@ void displace(yscn::shape* shp, float scale) {
 // Implement a different algorithm for quead meshes and triangle meshes.
 //
 void tesselate(yscn::shape* shp, int level) {
-  ym::edge_map tesselation=ym::edge_map();
+
+  yscn::shape* new_shp;
+
+  cout<<"level "<<level<<endl;
+  cout<<"quads "<<shp->quads.size()<<endl;
+  cout<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
+
 
   if(!shp->quads.empty()){
-    //tesselation = ym::edge_map(shp->quads);
-    for(int i=0; i<level; ++i) {
-      tesselation=ym::edge_map();
-      shp->quads.reserve(shp->quads.size()*2 +1);
+
+    for(int l=0; l<level; ++l) {
+
+      new_shp = new yscn::shape();
+
+      new_shp->pos.reserve(4*shp->pos.size()+1);
+      new_shp->norm.reserve(4*shp->norm.size()+1);
+      new_shp->texcoord.reserve(4*shp->texcoord.size()+1);
+      new_shp->quads.reserve(4*shp->quads.size());
+      new_shp->triangles.reserve(4*shp->triangles.size());
+      std::vector<ym::vec3f> vp;
+      std::vector<ym::vec3f> nr;
+      std::vector<ym::vec2f> tx;
+      vp.reserve(shp->pos.size()*4 +1);
+      nr.reserve(shp->norm.size()*4 +1);
+      tx.reserve(shp->texcoord.size()*4 +1);
+      std::map<int,ym::vec3f> pose_map;
+      std::map<int,ym::vec3f> norm_map;
+      std::map<int,ym::vec2f> tex_map;
+      auto hm = ym::edge_map();
 
       for (auto& t : shp->quads) {
-        auto centroid = (t.x+t.y+t.z+t.w)/4;
-        if (t.z == t.w) {
-          tesselation.add_edge({t.x, (t.y+t.x)/2});
-          tesselation.add_edge({(t.y+t.x)/2, t.y});
-          tesselation.add_edge({t.y, (t.y+t.z)/2});
-          tesselation.add_edge({(t.y+t.z)/2, t.z});
-          tesselation.add_edge({t.z, (t.x+t.z)/2});
-          tesselation.add_edge({(t.x+t.z)/2, t.x});
 
-          tesselation.add_edge({(t.y+t.x)/2,centroid});
-          tesselation.add_edge({(t.y+t.z)/2,centroid});
-          tesselation.add_edge({(t.x+t.z)/2,centroid});
-
-        } else {
-          tesselation.add_edge({t.x, (t.y+t.x)/2});
-          tesselation.add_edge({(t.y+t.x)/2, t.y});
-          tesselation.add_edge({t.y, (t.y+t.z)/2});
-          tesselation.add_edge({(t.y+t.z)/2, t.z});
-          tesselation.add_edge({t.z, (t.w+t.z)/2});
-          tesselation.add_edge({(t.w+t.z)/2, t.w});
-          tesselation.add_edge({t.w, (t.x+t.w)/2});
-          tesselation.add_edge({(t.x+t.w)/2, t.x});
-
-          tesselation.add_edge({(t.y+t.x)/2,centroid});
-          tesselation.add_edge({(t.y+t.z)/2,centroid});
-          tesselation.add_edge({(t.w+t.z)/2,centroid});
-          tesselation.add_edge({(t.x+t.w)/2,centroid});
+        for (int j = 0; j < 4; ++j) {
+          vp.push_back(shp->pos[t.operator[](j)]);
+          nr.push_back(shp->norm[t.operator[](j)]);
+          tx.push_back(shp->texcoord[t.operator[](j)]);
         }
+
+
+        if (t.z == t.w) {
+        } else {
+
+
+          std::vector<ym::vec4i> new_quads;
+          new_quads.push_back({(int)new_shp->pos.size(),(int)new_shp->pos.size()+1,(int)new_shp->pos.size()+2,(int)new_shp->pos.size()+3});
+          new_quads.push_back({(int)new_shp->pos.size()+4,(int)new_shp->pos.size()+5,(int)new_shp->pos.size()+6,(int)new_shp->pos.size()+7});
+          new_quads.push_back({(int)new_shp->pos.size()+8,(int)new_shp->pos.size()+9,(int)new_shp->pos.size()+10,(int)new_shp->pos.size()+11});
+          new_quads.push_back({(int)new_shp->pos.size()+12,(int)new_shp->pos.size()+13,(int)new_shp->pos.size()+14,(int)new_shp->pos.size()+15});
+
+          ym::vec3f poseC;
+          ym::vec3f normC;
+          ym::vec2f texC;
+
+          for(int e=0;e<4;++e){
+            int p = hm.add_edge({new_quads[e].x, new_quads[e].y});
+            if(pose_map.find(p)==pose_map.end()){
+              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
+              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
+              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
+            }
+            p=hm.add_edge({new_quads[e].y, new_quads[e].z});
+            if(pose_map.find(p)==pose_map.end()){
+              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
+              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
+              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
+            }
+            p=hm.add_edge({new_quads[e].z, new_quads[e].w});
+            if(pose_map.find(p)==pose_map.end()){
+              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
+              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
+              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
+            }
+            p=hm.add_edge({new_quads[e].w, new_quads[e].x});
+            if(pose_map.find(p)==pose_map.end()){
+              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
+              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
+              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
+            }
+
+            poseC+=vp[e];
+            normC+=nr[e];
+            texC+=tx[e];
+          }
+          poseC/=ym::vec3f(4);
+          normC/=ym::vec3f(4);
+          texC/=ym::vec2f(4);
+
+
+          for(int quad=0; quad<4; ++quad){
+            //hm.add_edge({new_quads[quad].x, new_quads[quad].y});
+            //hm.add_edge({new_quads[quad].y, new_quads[quad].z});
+            //hm.add_edge({new_quads[quad].z, new_quads[quad].w});
+            //hm.add_edge({new_quads[quad].w, new_quads[quad].x});
+
+            new_shp->quads.push_back(new_quads[quad]);
+
+            new_shp->pos[new_quads[quad].x]=pose_map[quad];
+            new_shp->pos[new_quads[quad].y]=vp[quad];
+            new_shp->pos[new_quads[quad].z]=pose_map[(quad-1)%4];
+            new_shp->pos[new_quads[quad].w]=poseC;
+
+            new_shp->norm[new_quads[quad].x]=norm_map[quad];
+            new_shp->norm[new_quads[quad].y]=nr[quad];
+            new_shp->norm[new_quads[quad].z]=norm_map[(quad-1)%4];
+            new_shp->norm[new_quads[quad].w]=normC;
+
+            new_shp->texcoord[new_quads[quad].x]=tex_map[quad];
+            new_shp->texcoord[new_quads[quad].y]=tx[quad];
+            new_shp->texcoord[new_quads[quad].z]=tex_map[(quad-1)%4];
+            new_shp->texcoord[new_quads[quad].w]=texC;
+
+          }
+
+        }
+
       }
+
+      cout<<"step "<<l<<" quads "<<new_shp->quads.size()<<endl;
+      cout<<" quads "<<shp->quads.size()<<endl;
+
+      shp = new_shp;
+      cout<<"step quads "<<shp->quads.size()<<endl;
+
     }
   }
-  else if(!shp->triangles.empty()){
-    //tesselation = ym::edge_map(shp->triangles);
-    for(int i=0; i<level; ++i) {
-      tesselation=ym::edge_map();
-      shp->triangles.reserve(shp->triangles.size()*2);
 
-
-      for (auto& t : shp->triangles) {
-
-        auto v01=(t.y+t.x)/2;
-        auto v02=(t.y+t.z)/2;
-        auto v12=(t.x+t.z)/2;
-
-        tesselation.add_edge({t.x, (t.y+t.x)/2});
-        tesselation.add_edge({(t.y+t.x)/2, t.y});
-        tesselation.add_edge({t.y, (t.y+t.z)/2});
-        tesselation.add_edge({(t.y+t.z)/2, t.z});
-        tesselation.add_edge({t.z, (t.x+t.z)/2});
-        tesselation.add_edge({(t.x+t.z)/2, t.x});
-
-        tesselation.add_edge({v01,v02});
-        tesselation.add_edge({v02,v12});
-        tesselation.add_edge({v01,v12});
-      }
-    }
-  }
-
+  cout<<"final quads "<<shp->quads.size()<<endl;
 
 
   /**

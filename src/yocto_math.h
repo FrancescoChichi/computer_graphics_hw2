@@ -3849,6 +3849,7 @@ namespace ym {
       auto s = (dot(cross(norm[i], tangu[i]), tangv[i]) < 0) ? -1.0f : 1.0f;
       tangsp[i] = {tangu[i].x, tangu[i].y, tangu[i].z, s};
     }
+    printf("fine \n");
 
   }
 
@@ -4031,7 +4032,7 @@ namespace ym {
 ///
   struct edge_map {
     /// an empty edge map
-    edge_map();
+    edge_map(){};
 
     /// initialize the edge map with triangles
     edge_map(const std::vector<vec3i>& triangles) {

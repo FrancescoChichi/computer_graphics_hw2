@@ -27,6 +27,13 @@ void printVector(ym::vec<T, N> v){
   }
   printf("\n");
 }
+template <typename T, int N>
+void printVectorInt(ym::vec<T, N> v){
+  for(int i=0; i<N; i++) {
+    printf(" %i;    ", v.operator[](i));
+  }
+  printf("\n");
+}
 #ifndef GRAPHICS17B_HW01_PRINTDATA_H
 #define GRAPHICS17B_HW01_PRINTDATA_H
 
