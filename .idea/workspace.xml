@@ -13,25 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/libhwlib.a" afterPath="$PROJECT_DIR$/bin/libhwlib.a" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/build/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CMakeDetermineCompilerABI_C.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CMakeDetermineCompilerABI_CXX.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdC/CompilerIdC" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdC/CompilerIdC" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/dgph" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/dgph" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdCXX/CompilerIdCXX" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdCXX/CompilerIdCXX" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/dgph" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/3.10.0-rc3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/dgph" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/feature_tests.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeCache.txt" afterPath="$PROJECT_DIR$/xcode/CMakeCache.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/xcode/CMakeFiles/CMakeOutput.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/CMakeScripts/ReRunCMake.make" afterPath="$PROJECT_DIR$/xcode/CMakeScripts/ReRunCMake.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xcode/graphics17b_hw02.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/xcode/graphics17b_hw02.xcodeproj/project.pbxproj" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,39 +31,19 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2283">
-              <caret line="276" column="29" lean-forward="true" selection-start-line="276" selection-start-column="29" selection-end-line="276" selection-end-column="29" />
+            <state relative-caret-position="410">
+              <caret line="273" column="55" lean-forward="true" selection-start-line="273" selection-start-column="32" selection-end-line="273" selection-end-column="55" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#162#565#0" expanded="false" />
                 <element signature="e#4852#5907#0" expanded="false" />
                 <element signature="e#5909#7307#0" expanded="false" />
-                <element signature="e#14756#15128#0" expanded="false" />
-                <element signature="e#15258#15680#0" expanded="false" />
-                <element signature="e#15682#16300#0" expanded="false" />
-                <element signature="e#16302#16880#0" expanded="false" />
-                <element signature="e#16882#17370#0" expanded="false" />
+                <element signature="e#15293#15665#0" expanded="false" />
+                <element signature="e#15795#16217#0" expanded="false" />
+                <element signature="e#16219#16837#0" expanded="false" />
+                <element signature="e#16839#17417#0" expanded="false" />
+                <element signature="e#17419#17907#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yocto_scn.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/yocto_scn.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="1779" column="5" lean-forward="false" selection-start-line="1779" selection-start-column="5" selection-end-line="1779" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yocto_scn.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="535" column="7" lean-forward="false" selection-start-line="535" selection-start-column="7" selection-end-line="535" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -153,11 +118,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/printData.cpp" />
-        <option value="$PROJECT_DIR$/src/yocto_scn.h" />
         <option value="$PROJECT_DIR$/src/tesselation.h" />
         <option value="$PROJECT_DIR$/src/printData.h" />
         <option value="$PROJECT_DIR$/src/yocto_scn.cpp" />
         <option value="$PROJECT_DIR$/src/yocto_math.h" />
+        <option value="$PROJECT_DIR$/src/yocto_scn.h" />
         <option value="$PROJECT_DIR$/src/raytrace.cpp" />
       </list>
     </option>
@@ -247,12 +212,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509988637325</updated>
-      <workItem from="1509988639145" duration="74819000" />
+      <workItem from="1509988639145" duration="76608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74819000" />
+    <option name="totallyTimeSpent" value="76608000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -354,22 +319,6 @@
             <element signature="e#536#555#0" expanded="true" />
             <element signature="e#692#711#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/yocto_scn.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="1779" column="5" lean-forward="false" selection-start-line="1779" selection-start-column="5" selection-end-line="1779" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="535" column="7" lean-forward="false" selection-start-line="535" selection-start-column="7" selection-end-line="535" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,20 +659,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="290" column="27" lean-forward="false" selection-start-line="290" selection-start-column="27" selection-end-line="290" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yocto_scn.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="1779" column="5" lean-forward="false" selection-start-line="1779" selection-start-column="5" selection-end-line="1779" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2283">
-          <caret line="276" column="29" lean-forward="true" selection-start-line="276" selection-start-column="29" selection-end-line="276" selection-end-column="29" />
+        <state relative-caret-position="410">
+          <caret line="273" column="55" lean-forward="true" selection-start-line="273" selection-start-column="32" selection-end-line="273" selection-end-column="55" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#162#565#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#14756#15128#0" expanded="false" />
-            <element signature="e#15258#15680#0" expanded="false" />
-            <element signature="e#15682#16300#0" expanded="false" />
-            <element signature="e#16302#16880#0" expanded="false" />
-            <element signature="e#16882#17370#0" expanded="false" />
+            <element signature="e#15293#15665#0" expanded="false" />
+            <element signature="e#15795#16217#0" expanded="false" />
+            <element signature="e#16219#16837#0" expanded="false" />
+            <element signature="e#16839#17417#0" expanded="false" />
+            <element signature="e#17419#17907#0" expanded="false" />
           </folding>
         </state>
       </provider>

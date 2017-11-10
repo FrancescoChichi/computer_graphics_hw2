@@ -248,11 +248,13 @@ level=1;
   cout<<"quads "<<shp->quads.size()<<endl;
   cout<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
 
-  shp->quads.reserve(shp->quads.size()*(int)pow(4,level));
-  shp->pos.reserve(shp->pos.size()*(int)pow(4,level));
-  shp->texcoord.reserve(shp->pos.size()*(int)pow(4,level));
-  shp->triangles.reserve(shp->pos.size()*(int)pow(4,level));
-  shp->norm.reserve(shp->pos.size()*(int)pow(4,level));
+
+  shp->quads.resize(shp->quads.size()*(int)pow(4,level));
+
+  shp->pos.reserve(shp->quads.size()*(int)pow(4,level)*4);
+  shp->texcoord.resize(shp->pos.size()*(int)pow(4,level));
+  shp->triangles.resize(shp->pos.size()*(int)pow(4,level));
+  shp->norm.resize(shp->pos.size()*(int)pow(4,level));
 
   if(!shp->quads.empty()){
 
@@ -264,14 +266,15 @@ level=1;
       std::vector<ym::vec3f> vp;
       std::vector<ym::vec3f> nr;
 
-      new_shp.pos.reserve(4*shp->pos.size()+1);
-      new_shp.norm.reserve(4*shp->norm.size()+1);
+      new_shp.quads.reserve(shp->quads.size()*(int)pow(4,level));
+
+      new_shp.pos.reserve((shp->quads.size()*(int)pow(4,level))*4);
+      new_shp.norm.reserve((shp->quads.size()*(int)pow(4,level))*4);
       new_shp.texcoord.reserve(4*shp->texcoord.size()+1);
-      new_shp.quads.reserve(4*shp->quads.size());
       new_shp.triangles.reserve(4*shp->triangles.size());
-      vp.reserve(shp->quads.size()*4 +1);
-      nr.reserve(shp->quads.size()*4 +1);
-      tx.reserve(shp->texcoord.size()*4 +1);
+      vp.resize(shp->quads.size()*4 +1);
+      nr.resize(shp->quads.size()*4 +1);
+      tx.resize(shp->texcoord.size()*4 +1);
 
       std::map<int,ym::vec3f> pose_map;
       std::map<int,ym::vec3f> norm_map;
@@ -296,7 +299,7 @@ level=1;
           std::vector<ym::vec4i> new_quads;//errore
           //cout<<"tot "<<total_pos<<endl;
           for (int i = 0; i < 16; i+=4) {
-            new_quads.push_back({total_pos+i,total_pos+(i+1),total_pos+(i+2),total_pos+(i+3)});
+            new_quads.push_back(ym::vec4i({total_pos+i,total_pos+(i+1),total_pos+(i+2),total_pos+(i+3)}));
           }
           total_pos+=16;
           /*new_quads.push_back({(int)shp->pos.size(),(int)shp->pos.size()+1,(int)shp->pos.size()+2,(int)shp->pos.size()+3});
@@ -354,7 +357,7 @@ level=1;
 
           for(int quad=0; quad<4; ++quad){
 
-            //new_shp.quads.push_back(new_quads[quad]);
+            new_shp.quads.push_back(new_quads[quad]);
 
             new_shp.pos[new_quads[quad].x]=pose_map[quad];
             new_shp.pos[new_quads[quad].y]=vp[quad];
@@ -381,30 +384,40 @@ level=1;
         //printVectorInt(q);
 
       shp->texcoord.clear();
-      for(auto t:new_shp.texcoord)
-        shp->texcoord.push_back(t);
+      shp->texcoord.resize(new_shp.texcoord.size());
+      for (int k = 0; k < new_shp.texcoord.size(); ++k)
+        shp->texcoord.at(k)=new_shp.texcoord.at(k);
 
       shp->pos.clear();
-      for(auto p:new_shp.pos)
-        shp->pos.push_back(p);
-      shp->pos=new_shp.pos;
+      shp->pos.resize(new_shp.pos.size());
+      for (int k = 0; k < new_shp.pos.size(); ++k)
+        shp->pos.at(k)=new_shp.pos.at(k);
+      //shp->pos=new_shp.pos;
 
       shp->norm.clear();
-      for(auto n:new_shp.norm)
-        shp->norm.push_back(n);
-      shp->norm=new_shp.norm;
+      shp->norm.resize(new_shp.norm.size());
+      for (int k = 0; k < new_shp.norm.size(); ++k)
+        shp->norm.at(k)=new_shp.norm.at(k);
+      //shp->norm=new_shp.norm;
 
       shp->quads.clear();
-      for(auto q:new_shp.quads)
-        shp->quads.push_back(q);
-      shp->quads=new_shp.quads;
+      //cerr<<new_shp.quads.size()<<endl;
+      shp->quads.resize(new_shp.quads.size());
+      for (int k = 0; k < new_shp.quads.size(); ++k)
+        shp->quads.at(k)=new_shp.quads.at(k);
+
+
+      //shp->quads=new_shp.quads;
 
       shp->triangles.clear();
-      for(auto tr:new_shp.triangles)
-        shp->triangles.push_back(tr);
-      shp->triangles=new_shp.triangles;
-      for(auto q:shp->quads)
-        printVectorInt(q);
+      shp->triangles.resize(new_shp.triangles.size());
+      for (int k = 0; k < new_shp.triangles.size(); ++k)
+        shp->triangles.at(k)=new_shp.triangles.at(k);
+      //shp->triangles=new_shp.triangles;
+
+
+     /* for(auto q:shp->quads)
+        printVectorInt(q);*/
     }
   }
   cout<<"final quads "<<shp->quads.size()<<endl;
