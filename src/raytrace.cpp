@@ -268,10 +268,10 @@ level=1;
 
       new_shp.quads.reserve(shp->quads.size()*(int)pow(4,level));
 
-      new_shp.pos.reserve((shp->quads.size()*(int)pow(4,level))*4);
-      new_shp.norm.reserve((shp->quads.size()*(int)pow(4,level))*4);
+      /*new_shp.pos.reserve((shp->quads.size()*(int)pow(4,level))*4);
+      new_shp.norm.resize((shp->quads.size()*(int)pow(4,level))*4);
       new_shp.texcoord.reserve(4*shp->texcoord.size()+1);
-      new_shp.triangles.reserve(4*shp->triangles.size());
+      new_shp.triangles.reserve(4*shp->triangles.size());*/
       vp.resize(shp->quads.size()*4 +1);
       nr.resize(shp->quads.size()*4 +1);
       tx.resize(shp->texcoord.size()*4 +1);
@@ -302,10 +302,6 @@ level=1;
             new_quads.push_back(ym::vec4i({total_pos+i,total_pos+(i+1),total_pos+(i+2),total_pos+(i+3)}));
           }
           total_pos+=16;
-          /*new_quads.push_back({(int)shp->pos.size(),(int)shp->pos.size()+1,(int)shp->pos.size()+2,(int)shp->pos.size()+3});
-          new_quads.push_back({(int)shp->pos.size()+4,(int)shp->pos.size()+5,(int)shp->pos.size()+6,(int)shp->pos.size()+7});
-          new_quads.push_back({(int)shp->pos.size()+8,(int)shp->pos.size()+9,(int)shp->pos.size()+10,(int)shp->pos.size()+11});
-          new_quads.push_back({(int)shp->pos.size()+12,(int)shp->pos.size()+13,(int)shp->pos.size()+14,(int)shp->pos.size()+15});*/
 
          /* cout<<"x"<<endl;
           printVectorInt(new_quads[0]);
@@ -359,20 +355,39 @@ level=1;
 
             new_shp.quads.push_back(new_quads[quad]);
 
+            new_shp.pos.push_back(pose_map[quad]);
+            new_shp.pos.push_back(vp[quad]);
+            new_shp.pos.push_back(pose_map[(quad-1)%4]);
+            new_shp.pos.push_back(poseC);
+
+            new_shp.norm.push_back(norm_map[quad]);
+            new_shp.norm.push_back(nr[quad]);
+            new_shp.norm.push_back(norm_map[(quad-1)%4]);
+            new_shp.norm.push_back(normC);
+
+            new_shp.texcoord.push_back(tex_map[quad]);
+            new_shp.texcoord.push_back(tx[quad]);
+            new_shp.texcoord.push_back(tex_map[(quad-1)%4]);
+            new_shp.texcoord.push_back(texC);
+
+            /*new_shp.quads.push_back(new_quads[quad]);
+
             new_shp.pos[new_quads[quad].x]=pose_map[quad];
             new_shp.pos[new_quads[quad].y]=vp[quad];
             new_shp.pos[new_quads[quad].z]=pose_map[(quad-1)%4];
             new_shp.pos[new_quads[quad].w]=poseC;
 
-            new_shp.norm[new_quads[quad].x]=norm_map[quad];
-            new_shp.norm[new_quads[quad].y]=nr[quad];
-            new_shp.norm[new_quads[quad].z]=norm_map[(quad-1)%4];
-            new_shp.norm[new_quads[quad].w]=normC;
+            new_shp.norm.at(new_quads[quad].x)=norm_map[quad];
+            new_shp.norm.at(new_quads[quad].y)=nr[quad];
+            new_shp.norm.at(new_quads[quad].z)=norm_map[(quad-1)%4];
+            new_shp.norm.at(new_quads[quad].w)=normC;
+            cerr<<"x "<<new_quads[quad].x<<" y "<<new_quads[quad].y<<" z "<<new_quads[quad].z<<" w "<<new_quads[quad].w<<endl;
+            cerr<<"norm size "<<new_shp.norm.size()<<endl;
 
             new_shp.texcoord[new_quads[quad].x]=tex_map[quad];
             new_shp.texcoord[new_quads[quad].y]=tx[quad];
             new_shp.texcoord[new_quads[quad].z]=tex_map[(quad-1)%4];
-            new_shp.texcoord[new_quads[quad].w]=texC;
+            new_shp.texcoord[new_quads[quad].w]=texC;*/
 
           }
 
@@ -384,35 +399,36 @@ level=1;
         //printVectorInt(q);
 
       shp->texcoord.clear();
-      shp->texcoord.resize(new_shp.texcoord.size());
-      for (int k = 0; k < new_shp.texcoord.size(); ++k)
-        shp->texcoord.at(k)=new_shp.texcoord.at(k);
+      //shp->texcoord.resize(new_shp.texcoord.size());
+      for (auto t:new_shp.texcoord)
+        shp->texcoord.push_back(t);
 
       shp->pos.clear();
-      shp->pos.resize(new_shp.pos.size());
-      for (int k = 0; k < new_shp.pos.size(); ++k)
-        shp->pos.at(k)=new_shp.pos.at(k);
+      //shp->pos.resize(new_shp.pos.size());
+      for (auto p:new_shp.pos)
+        shp->pos.push_back(p);
       //shp->pos=new_shp.pos;
 
       shp->norm.clear();
-      shp->norm.resize(new_shp.norm.size());
-      for (int k = 0; k < new_shp.norm.size(); ++k)
-        shp->norm.at(k)=new_shp.norm.at(k);
+      //shp->norm.resize(new_shp.norm.size());
+
+      for (auto n:new_shp.norm)
+        shp->norm.push_back(n);
       //shp->norm=new_shp.norm;
 
       shp->quads.clear();
       //cerr<<new_shp.quads.size()<<endl;
-      shp->quads.resize(new_shp.quads.size());
-      for (int k = 0; k < new_shp.quads.size(); ++k)
-        shp->quads.at(k)=new_shp.quads.at(k);
+      //shp->quads.resize(new_shp.quads.size());
+      for (auto q:new_shp.quads)
+        shp->quads.push_back(q);
 
 
       //shp->quads=new_shp.quads;
 
       shp->triangles.clear();
-      shp->triangles.resize(new_shp.triangles.size());
-      for (int k = 0; k < new_shp.triangles.size(); ++k)
-        shp->triangles.at(k)=new_shp.triangles.at(k);
+      //shp->triangles.resize(new_shp.triangles.size());
+      for (auto t:new_shp.triangles)
+        shp->triangles.push_back(t);
       //shp->triangles=new_shp.triangles;
 
 
@@ -420,8 +436,11 @@ level=1;
         printVectorInt(q);*/
     }
   }
-  cout<<"final quads "<<shp->quads.size()<<endl;
+  cerr<<"final quads "<<shp->quads.size()<<endl;
 
+  cerr<<"norm "<<shp->norm.size()<<endl;
+  //printVector(shp->norm[0]);
+  cerr<<"pos "<<shp->pos.size()<<endl;
 
 /*
   cout<<"x "<<shp->quads[0].x;
@@ -452,7 +471,7 @@ for f: in mesh->face:
  tesselation->add_face(...)
    */
 
-  //ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
+  ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 }
 
 //
