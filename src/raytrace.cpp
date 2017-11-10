@@ -241,42 +241,51 @@ void displace(yscn::shape* shp, float scale) {
 // Implement a different algorithm for quead meshes and triangle meshes.
 //
 void tesselate(yscn::shape* shp, int level) {
-
-  yscn::shape* new_shp;
+level=1;
+  yscn::shape new_shp = yscn::shape();
 
   cout<<"level "<<level<<endl;
   cout<<"quads "<<shp->quads.size()<<endl;
   cout<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
 
+  shp->quads.reserve(shp->quads.size()*(int)pow(4,level));
+  shp->pos.reserve(shp->pos.size()*(int)pow(4,level));
+  shp->texcoord.reserve(shp->pos.size()*(int)pow(4,level));
+  shp->triangles.reserve(shp->pos.size()*(int)pow(4,level));
+  shp->norm.reserve(shp->pos.size()*(int)pow(4,level));
 
   if(!shp->quads.empty()){
 
     for(int l=0; l<level; ++l) {
 
-      new_shp = new yscn::shape();
+      new_shp = yscn::shape();
 
-      new_shp->pos.reserve(4*shp->pos.size()+1);
-      new_shp->norm.reserve(4*shp->norm.size()+1);
-      new_shp->texcoord.reserve(4*shp->texcoord.size()+1);
-      new_shp->quads.reserve(4*shp->quads.size());
-      new_shp->triangles.reserve(4*shp->triangles.size());
+      std::vector<ym::vec2f> tx;
       std::vector<ym::vec3f> vp;
       std::vector<ym::vec3f> nr;
-      std::vector<ym::vec2f> tx;
-      vp.reserve(shp->pos.size()*4 +1);
-      nr.reserve(shp->norm.size()*4 +1);
+
+      new_shp.pos.reserve(4*shp->pos.size()+1);
+      new_shp.norm.reserve(4*shp->norm.size()+1);
+      new_shp.texcoord.reserve(4*shp->texcoord.size()+1);
+      new_shp.quads.reserve(4*shp->quads.size());
+      new_shp.triangles.reserve(4*shp->triangles.size());
+      vp.reserve(shp->quads.size()*4 +1);
+      nr.reserve(shp->quads.size()*4 +1);
       tx.reserve(shp->texcoord.size()*4 +1);
+
       std::map<int,ym::vec3f> pose_map;
       std::map<int,ym::vec3f> norm_map;
       std::map<int,ym::vec2f> tex_map;
+      int total_pos = 0;
+
       auto hm = ym::edge_map();
 
       for (auto& t : shp->quads) {
 
         for (int j = 0; j < 4; ++j) {
-          vp.push_back(shp->pos[t.operator[](j)]);
-          nr.push_back(shp->norm[t.operator[](j)]);
-          tx.push_back(shp->texcoord[t.operator[](j)]);
+          vp[j]=shp->pos[t.operator[](j)];
+          nr[j]=shp->norm[t.operator[](j)];
+          tx[j]=shp->texcoord[t.operator[](j)];
         }
 
 
@@ -284,11 +293,25 @@ void tesselate(yscn::shape* shp, int level) {
         } else {
 
 
-          std::vector<ym::vec4i> new_quads;
-          new_quads.push_back({(int)new_shp->pos.size(),(int)new_shp->pos.size()+1,(int)new_shp->pos.size()+2,(int)new_shp->pos.size()+3});
-          new_quads.push_back({(int)new_shp->pos.size()+4,(int)new_shp->pos.size()+5,(int)new_shp->pos.size()+6,(int)new_shp->pos.size()+7});
-          new_quads.push_back({(int)new_shp->pos.size()+8,(int)new_shp->pos.size()+9,(int)new_shp->pos.size()+10,(int)new_shp->pos.size()+11});
-          new_quads.push_back({(int)new_shp->pos.size()+12,(int)new_shp->pos.size()+13,(int)new_shp->pos.size()+14,(int)new_shp->pos.size()+15});
+          std::vector<ym::vec4i> new_quads;//errore
+          //cout<<"tot "<<total_pos<<endl;
+          for (int i = 0; i < 16; i+=4) {
+            new_quads.push_back({total_pos+i,total_pos+(i+1),total_pos+(i+2),total_pos+(i+3)});
+          }
+          total_pos+=16;
+          /*new_quads.push_back({(int)shp->pos.size(),(int)shp->pos.size()+1,(int)shp->pos.size()+2,(int)shp->pos.size()+3});
+          new_quads.push_back({(int)shp->pos.size()+4,(int)shp->pos.size()+5,(int)shp->pos.size()+6,(int)shp->pos.size()+7});
+          new_quads.push_back({(int)shp->pos.size()+8,(int)shp->pos.size()+9,(int)shp->pos.size()+10,(int)shp->pos.size()+11});
+          new_quads.push_back({(int)shp->pos.size()+12,(int)shp->pos.size()+13,(int)shp->pos.size()+14,(int)shp->pos.size()+15});*/
+
+         /* cout<<"x"<<endl;
+          printVectorInt(new_quads[0]);
+          cout<<"y"<<endl;
+          printVectorInt(new_quads[1]);
+          cout<<"z"<<endl;
+          printVectorInt(new_quads[2]);
+          cout<<"w"<<endl;
+          printVectorInt(new_quads[3]);*/
 
           ym::vec3f poseC;
           ym::vec3f normC;
@@ -330,45 +353,74 @@ void tesselate(yscn::shape* shp, int level) {
 
 
           for(int quad=0; quad<4; ++quad){
-            //hm.add_edge({new_quads[quad].x, new_quads[quad].y});
-            //hm.add_edge({new_quads[quad].y, new_quads[quad].z});
-            //hm.add_edge({new_quads[quad].z, new_quads[quad].w});
-            //hm.add_edge({new_quads[quad].w, new_quads[quad].x});
 
-            new_shp->quads.push_back(new_quads[quad]);
+            //new_shp.quads.push_back(new_quads[quad]);
 
-            new_shp->pos[new_quads[quad].x]=pose_map[quad];
-            new_shp->pos[new_quads[quad].y]=vp[quad];
-            new_shp->pos[new_quads[quad].z]=pose_map[(quad-1)%4];
-            new_shp->pos[new_quads[quad].w]=poseC;
+            new_shp.pos[new_quads[quad].x]=pose_map[quad];
+            new_shp.pos[new_quads[quad].y]=vp[quad];
+            new_shp.pos[new_quads[quad].z]=pose_map[(quad-1)%4];
+            new_shp.pos[new_quads[quad].w]=poseC;
 
-            new_shp->norm[new_quads[quad].x]=norm_map[quad];
-            new_shp->norm[new_quads[quad].y]=nr[quad];
-            new_shp->norm[new_quads[quad].z]=norm_map[(quad-1)%4];
-            new_shp->norm[new_quads[quad].w]=normC;
+            new_shp.norm[new_quads[quad].x]=norm_map[quad];
+            new_shp.norm[new_quads[quad].y]=nr[quad];
+            new_shp.norm[new_quads[quad].z]=norm_map[(quad-1)%4];
+            new_shp.norm[new_quads[quad].w]=normC;
 
-            new_shp->texcoord[new_quads[quad].x]=tex_map[quad];
-            new_shp->texcoord[new_quads[quad].y]=tx[quad];
-            new_shp->texcoord[new_quads[quad].z]=tex_map[(quad-1)%4];
-            new_shp->texcoord[new_quads[quad].w]=texC;
+            new_shp.texcoord[new_quads[quad].x]=tex_map[quad];
+            new_shp.texcoord[new_quads[quad].y]=tx[quad];
+            new_shp.texcoord[new_quads[quad].z]=tex_map[(quad-1)%4];
+            new_shp.texcoord[new_quads[quad].w]=texC;
 
           }
 
         }
 
-      }
+      }//*******fine quad***********
 
-      cout<<"step "<<l<<" quads "<<new_shp->quads.size()<<endl;
-      cout<<" quads "<<shp->quads.size()<<endl;
+      //for(auto q:shp->quads)
+        //printVectorInt(q);
 
-      shp = new_shp;
-      cout<<"step quads "<<shp->quads.size()<<endl;
+      shp->texcoord.clear();
+      for(auto t:new_shp.texcoord)
+        shp->texcoord.push_back(t);
 
+      shp->pos.clear();
+      for(auto p:new_shp.pos)
+        shp->pos.push_back(p);
+      shp->pos=new_shp.pos;
+
+      shp->norm.clear();
+      for(auto n:new_shp.norm)
+        shp->norm.push_back(n);
+      shp->norm=new_shp.norm;
+
+      shp->quads.clear();
+      for(auto q:new_shp.quads)
+        shp->quads.push_back(q);
+      shp->quads=new_shp.quads;
+
+      shp->triangles.clear();
+      for(auto tr:new_shp.triangles)
+        shp->triangles.push_back(tr);
+      shp->triangles=new_shp.triangles;
+      for(auto q:shp->quads)
+        printVectorInt(q);
     }
   }
-
   cout<<"final quads "<<shp->quads.size()<<endl;
 
+
+/*
+  cout<<"x "<<shp->quads[0].x;
+  cout<<" y "<<shp->quads[0].y;
+  cout<<" z "<<shp->quads[0].z;
+  cout<<" w "<<shp->quads[0].w;
+  for(auto q:shp->quads){
+    printVector(shp->pos[q.x]);
+    printVector(shp->pos[q.y]);
+    printVector(shp->pos[q.z]);
+    printVector(shp->pos[q.w]);
+  }*/
 
   /**
    * // step 1: pseudocode
@@ -386,6 +438,8 @@ for f: in mesh->face:
  tesselation->add_face(...)
  tesselation->add_face(...)
    */
+
+  //ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 }
 
 //
@@ -475,6 +529,8 @@ int main(int argc, char** argv) {
   load_opts.preserve_quads = true;
   auto scn = yscn::load_scene(scenein, load_opts);
 
+  yu::logging::log_info("applying subdivision");
+
   // apply subdivision
   if (subdiv || tesselation) {
     for (auto shp : scn->shapes) {
@@ -492,6 +548,8 @@ int main(int argc, char** argv) {
       }
     }
   }
+  yu::logging::log_info("subdivision applied");
+
 
   // handle displacement
   for (auto shp : scn->shapes) {
