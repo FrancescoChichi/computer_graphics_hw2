@@ -211,7 +211,7 @@ ym::image4f raytrace_mt(const yscn::scene* scn, const ym::vec3f& amb,
 //
 void displace(yscn::shape* shp, float scale) {
 
-  scale=0.25f;
+  //scale=0.25f;
   auto tex = shp->mat->disp_txt.txt;
 
   for(auto q:shp->quads)
@@ -245,17 +245,20 @@ level=1;
   yscn::shape new_shp = yscn::shape();
 
   cout<<"level "<<level<<endl;
-  cout<<"quads "<<shp->quads.size()<<endl;
+  cerr<<"quads "<<shp->quads.size()<<endl;
+  cerr<<"pose "<<shp->pos.size()<<endl;
+  cerr<<"norm "<<shp->norm.size()<<endl;
+  cerr<<"tex "<<shp->texcoord.size()<<endl;
   cout<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
 
 
-  shp->quads.resize(shp->quads.size()*(int)pow(4,level));
+  /*shp->quads.resize(shp->quads.size()*(int)pow(4,level));
 
-  shp->pos.reserve(shp->quads.size()*(int)pow(4,level)*4);
+  shp->pos.reserve(shp->pos.size()*(int)pow(4,level)*4);
   shp->texcoord.resize(shp->pos.size()*(int)pow(4,level));
-  shp->triangles.resize(shp->pos.size()*(int)pow(4,level));
+  //shp->triangles.resize(shp->pos.size()*(int)pow(4,level));
   shp->norm.resize(shp->pos.size()*(int)pow(4,level));
-
+*/
   if(!shp->quads.empty()){
 
     for(int l=0; l<level; ++l) {
@@ -266,128 +269,85 @@ level=1;
       std::vector<ym::vec3f> vp;
       std::vector<ym::vec3f> nr;
 
-      new_shp.quads.reserve(shp->quads.size()*(int)pow(4,level));
+      //new_shp.quads.reserve(shp->quads.size()*(int)pow(4,level));
 
-      /*new_shp.pos.reserve((shp->quads.size()*(int)pow(4,level))*4);
-      new_shp.norm.resize((shp->quads.size()*(int)pow(4,level))*4);
-      new_shp.texcoord.reserve(4*shp->texcoord.size()+1);
-      new_shp.triangles.reserve(4*shp->triangles.size());*/
+      new_shp.pos.resize(shp->pos.size()*4);
+      new_shp.norm.resize(shp->pos.size()*4);
+      new_shp.texcoord.resize(shp->pos.size()*4);
+      //new_shp.triangles.resize(shp->pos.size()*4);
+
       vp.resize(shp->quads.size()*4 +1);
       nr.resize(shp->quads.size()*4 +1);
       tx.resize(shp->texcoord.size()*4 +1);
 
-      std::map<int,ym::vec3f> pose_map;
-      std::map<int,ym::vec3f> norm_map;
-      std::map<int,ym::vec2f> tex_map;
-      int total_pos = 0;
+      std::map<ym::vec3f,int> vec_map;
 
-      auto hm = ym::edge_map();
+      int total_pos = 0;
 
       for (auto& t : shp->quads) {
 
+        ym::vec3f poseC;
+        ym::vec3f normC;
+        ym::vec2f texC;
         for (int j = 0; j < 4; ++j) {
           vp[j]=shp->pos[t.operator[](j)];
           nr[j]=shp->norm[t.operator[](j)];
           tx[j]=shp->texcoord[t.operator[](j)];
+          poseC+=vp[j];
+          normC+=nr[j];
+          texC+=tx[j];
         }
 
+        poseC/=ym::vec3f(4);
+        normC/=ym::vec3f(4);
+        texC/=ym::vec2f(4);
+
+        //add centroid
+        vec_map[poseC]=total_pos;
+        ++total_pos;
 
         if (t.z == t.w) {
         } else {
 
+          vec_map[shp->pos[t.x]]=vec_map[shp->pos[t.x]];
 
-          std::vector<ym::vec4i> new_quads;//errore
-          //cout<<"tot "<<total_pos<<endl;
-          for (int i = 0; i < 16; i+=4) {
-            new_quads.push_back(ym::vec4i({total_pos+i,total_pos+(i+1),total_pos+(i+2),total_pos+(i+3)}));
-          }
-          total_pos+=16;
+          for (int j = 0; j < 4; ++j) {
 
-         /* cout<<"x"<<endl;
-          printVectorInt(new_quads[0]);
-          cout<<"y"<<endl;
-          printVectorInt(new_quads[1]);
-          cout<<"z"<<endl;
-          printVectorInt(new_quads[2]);
-          cout<<"w"<<endl;
-          printVectorInt(new_quads[3]);*/
-
-          ym::vec3f poseC;
-          ym::vec3f normC;
-          ym::vec2f texC;
-
-          for(int e=0;e<4;++e){
-            int p = hm.add_edge({new_quads[e].x, new_quads[e].y});
-            if(pose_map.find(p)==pose_map.end()){
-              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
-              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
-              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
-            }
-            p=hm.add_edge({new_quads[e].y, new_quads[e].z});
-            if(pose_map.find(p)==pose_map.end()){
-              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
-              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
-              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
-            }
-            p=hm.add_edge({new_quads[e].z, new_quads[e].w});
-            if(pose_map.find(p)==pose_map.end()){
-              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
-              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
-              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
-            }
-            p=hm.add_edge({new_quads[e].w, new_quads[e].x});
-            if(pose_map.find(p)==pose_map.end()){
-              pose_map[p]=(vp[e]+vp[(e+1)%4])/ym::vec3f(2);
-              norm_map[p]=(nr[e]+nr[(e+1)%4])/ym::vec3f(2);
-              tex_map[p]=(tx[e]+tx[(e+1)%4])/ym::vec2f(2);
+            //add corner vertex
+            if(vec_map[vp[j]]==0) {
+              vec_map.at(vp[j]) = total_pos;
+              ++total_pos;
             }
 
-            poseC+=vp[e];
-            normC+=nr[e];
-            texC+=tx[e];
-          }
-          poseC/=ym::vec3f(4);
-          normC/=ym::vec3f(4);
-          texC/=ym::vec2f(4);
+            //add first edge vertex
+            if(vec_map[vp[j]+vp[(j+1)%4]]==0){
+              vec_map.at(vp[j]+vp[(j+1)%4])=total_pos;
+              ++total_pos;
+            }
+
+            //add second edge vertex
+            if(vec_map[vp[j]+vp[(j-1)%4]]==0) {
+              vec_map.at(vp[j] + vp[(j - 1) % 4]) = total_pos;
+              ++total_pos;
+            }
+
+            new_shp.quads.push_back(ym::vec4i({vec_map[vp[j]+vp[(j+1)%4]],vec_map[vp[j]],vec_map[vp[j]+vp[(j-1)%4]],vec_map[poseC]}));
 
 
-          for(int quad=0; quad<4; ++quad){
+            new_shp.pos.at(vec_map[vp[j]])=vp[j];//vertex
+            new_shp.pos.at(vec_map[vp[j]+vp[(j+1)%4]])=(vp[j]+vp[(j+1)%4])/ym::vec3f(2);//edge
+            new_shp.pos.at(vec_map[vp[j]+vp[(j-1)%4]])=(vp[j]+vp[(j-1)%4])/ym::vec3f(2);//edge
+            new_shp.pos.at(vec_map[poseC])=poseC;//center
 
-            new_shp.quads.push_back(new_quads[quad]);
+            new_shp.norm.at(vec_map[vp[j]])=nr[j];//vertex
+            new_shp.norm.at(vec_map[vp[j]+vp[(j+1)%4]])=(nr[j]+nr[(j+1)%4])/ym::vec3f(2);//edge
+            new_shp.norm.at(vec_map[vp[j]+vp[(j-1)%4]])=(nr[j]+nr[(j-1)%4])/ym::vec3f(2);//edge
+            new_shp.norm.at(vec_map[poseC])=normC;//center
 
-            new_shp.pos.push_back(pose_map[quad]);
-            new_shp.pos.push_back(vp[quad]);
-            new_shp.pos.push_back(pose_map[(quad-1)%4]);
-            new_shp.pos.push_back(poseC);
-
-            new_shp.norm.push_back(norm_map[quad]);
-            new_shp.norm.push_back(nr[quad]);
-            new_shp.norm.push_back(norm_map[(quad-1)%4]);
-            new_shp.norm.push_back(normC);
-
-            new_shp.texcoord.push_back(tex_map[quad]);
-            new_shp.texcoord.push_back(tx[quad]);
-            new_shp.texcoord.push_back(tex_map[(quad-1)%4]);
-            new_shp.texcoord.push_back(texC);
-
-            /*new_shp.quads.push_back(new_quads[quad]);
-
-            new_shp.pos[new_quads[quad].x]=pose_map[quad];
-            new_shp.pos[new_quads[quad].y]=vp[quad];
-            new_shp.pos[new_quads[quad].z]=pose_map[(quad-1)%4];
-            new_shp.pos[new_quads[quad].w]=poseC;
-
-            new_shp.norm.at(new_quads[quad].x)=norm_map[quad];
-            new_shp.norm.at(new_quads[quad].y)=nr[quad];
-            new_shp.norm.at(new_quads[quad].z)=norm_map[(quad-1)%4];
-            new_shp.norm.at(new_quads[quad].w)=normC;
-            cerr<<"x "<<new_quads[quad].x<<" y "<<new_quads[quad].y<<" z "<<new_quads[quad].z<<" w "<<new_quads[quad].w<<endl;
-            cerr<<"norm size "<<new_shp.norm.size()<<endl;
-
-            new_shp.texcoord[new_quads[quad].x]=tex_map[quad];
-            new_shp.texcoord[new_quads[quad].y]=tx[quad];
-            new_shp.texcoord[new_quads[quad].z]=tex_map[(quad-1)%4];
-            new_shp.texcoord[new_quads[quad].w]=texC;*/
+            new_shp.texcoord.at(vec_map[vp[j]])=tx[j];//vertex
+            new_shp.texcoord.at(vec_map[vp[j]+vp[(j+1)%4]])=(tx[j]+tx[(j+1)%4])/ym::vec2f(2);//edge
+            new_shp.texcoord.at(vec_map[vp[j]+vp[(j-1)%4]])=(tx[j]+tx[(j-1)%4])/ym::vec2f(2);//edge
+            new_shp.texcoord.at(vec_map[poseC])=texC;//center
 
           }
 
@@ -395,50 +355,19 @@ level=1;
 
       }//*******fine quad***********
 
-      //for(auto q:shp->quads)
-        //printVectorInt(q);
 
-      shp->texcoord.clear();
-      //shp->texcoord.resize(new_shp.texcoord.size());
-      for (auto t:new_shp.texcoord)
-        shp->texcoord.push_back(t);
+      shp->quads=new_shp.quads;
+      shp->pos=new_shp.pos;
+      shp->norm=new_shp.norm;
+      shp->texcoord=new_shp.texcoord;
 
-      shp->pos.clear();
-      //shp->pos.resize(new_shp.pos.size());
-      for (auto p:new_shp.pos)
-        shp->pos.push_back(p);
-      //shp->pos=new_shp.pos;
-
-      shp->norm.clear();
-      //shp->norm.resize(new_shp.norm.size());
-
-      for (auto n:new_shp.norm)
-        shp->norm.push_back(n);
-      //shp->norm=new_shp.norm;
-
-      shp->quads.clear();
-      //cerr<<new_shp.quads.size()<<endl;
-      //shp->quads.resize(new_shp.quads.size());
-      for (auto q:new_shp.quads)
-        shp->quads.push_back(q);
-
-
-      //shp->quads=new_shp.quads;
-
-      shp->triangles.clear();
-      //shp->triangles.resize(new_shp.triangles.size());
-      for (auto t:new_shp.triangles)
-        shp->triangles.push_back(t);
-      //shp->triangles=new_shp.triangles;
-
-
-     /* for(auto q:shp->quads)
-        printVectorInt(q);*/
     }
   }
   cerr<<"final quads "<<shp->quads.size()<<endl;
 
   cerr<<"norm "<<shp->norm.size()<<endl;
+  for(auto n:shp->norm)
+     printVector(n);
   //printVector(shp->norm[0]);
   cerr<<"pos "<<shp->pos.size()<<endl;
 
@@ -471,7 +400,7 @@ for f: in mesh->face:
  tesselation->add_face(...)
    */
 
-  ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
+  //ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 }
 
 //
