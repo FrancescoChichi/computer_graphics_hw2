@@ -139,9 +139,6 @@
 		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/raytrace.cpp">
 			<Option target="raytrace"/>
 		</Unit>
-		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/tesselation.h">
-			<Option target="hwlib"/>
-		</Unit>
 		<Unit filename="/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_gltf.cpp">
 			<Option target="hwlib"/>
 		</Unit>

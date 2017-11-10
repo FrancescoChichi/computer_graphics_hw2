@@ -4,7 +4,6 @@
 #include "yocto_scn.h"
 #include "yocto_utils.h"
 #include "printData.h"
-#include "tesselation.h"
 
 ym::ray3f eval_camera(const yscn::camera* cam, const ym::vec2f& uv) {
   auto h = 2 * std::tan(cam->yfov / 2);
@@ -242,7 +241,7 @@ void displace(yscn::shape* shp, float scale) {
 //
 void tesselate(yscn::shape* shp, int level) {
 
-  yscn::shape new_shp = yscn::shape();
+  yscn::shape new_shp;
 
   cout<<"level "<<level<<endl;
   cerr<<"quads "<<shp->quads.size()<<endl;
@@ -251,30 +250,19 @@ void tesselate(yscn::shape* shp, int level) {
   cerr<<"tex "<<shp->texcoord.size()<<endl;
   cerr<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
 
-
-  /*shp->quads.resize(shp->quads.size()*(int)pow(4,level));
-
-  shp->pos.reserve(shp->pos.size()*(int)pow(4,level)*4);
-  shp->texcoord.resize(shp->pos.size()*(int)pow(4,level));
-  //shp->triangles.resize(shp->pos.size()*(int)pow(4,level));
-  shp->norm.resize(shp->pos.size()*(int)pow(4,level));
-*/
   if(!shp->quads.empty()){
 
     for(int l=0; l<level; ++l) {
 
       new_shp = yscn::shape();
 
-      std::vector<ym::vec2f> tx;
       std::vector<ym::vec3f> vp;
       std::vector<ym::vec3f> nr;
-
-      //new_shp.quads.reserve(shp->quads.size()*(int)pow(4,level));
+      std::vector<ym::vec2f> tx;
 
       new_shp.pos.resize(shp->pos.size()*4);
       new_shp.norm.resize(shp->pos.size()*4);
       new_shp.texcoord.resize(shp->pos.size()*4);
-      //new_shp.triangles.resize(shp->pos.size()*4);
 
       vp.resize(shp->quads.size()*4 +1);
       nr.resize(shp->quads.size()*4 +1);
@@ -309,9 +297,7 @@ void tesselate(yscn::shape* shp, int level) {
         if (t.z == t.w) {
         }
         else {
-
           for (int j = 0; j < 4; ++j) {
-
             //add corner vertex
             if(vec_map[vp[j]]==0) {
               vec_map.at(vp[j]) = total_pos;
@@ -339,8 +325,6 @@ void tesselate(yscn::shape* shp, int level) {
               ++total_pos;
             }
 
-            //new_shp.quads.push_back(ym::vec4i({vec_map[vp[j]+vp[(j+1)%4]],vec_map[vp[j]],vec_map[vp[j]+vp[(j-1)%4]],vec_map[poseC]}));
-
             new_shp.pos.at(vec_map[poseC])=poseC;
             new_shp.norm.at(vec_map[poseC])=normC;
             new_shp.texcoord.at(vec_map[poseC])=texC;
@@ -355,57 +339,13 @@ void tesselate(yscn::shape* shp, int level) {
 
       }//*******fine quad***********
 
-
       shp->quads=new_shp.quads;
       shp->pos=new_shp.pos;
       shp->norm=new_shp.norm;
       shp->texcoord=new_shp.texcoord;
-
-      /*shp->norm.resize(total_pos);
-      shp->pos.resize(total_pos);
-      shp->texcoord.resize(total_pos);*/
-      cerr<<"tot "<<total_pos<<" pos "<<endl;
-
-      printVector(shp->pos[total_pos-1],"zeri?");
-      printVector(shp->pos[total_pos+1],"zeri!");
     }
   }
   cerr<<"final quads "<<shp->quads.size()<<endl;
-
-  cerr<<"norm "<<shp->norm.size()<<endl;
-  //for(auto n:shp->norm)
-     //printVector(n);
-
-  cerr<<"pos "<<shp->pos.size()<<endl;
-
-/*
-  cout<<"x "<<shp->quads[0].x;
-  cout<<" y "<<shp->quads[0].y;
-  cout<<" z "<<shp->quads[0].z;
-  cout<<" w "<<shp->quads[0].w;
-  for(auto q:shp->quads){
-    printVector(shp->pos[q.x]);
-    printVector(shp->pos[q.y]);
-    printVector(shp->pos[q.z]);
-    printVector(shp->pos[q.w]);
-  }*/
-
-  /**
-   * // step 1: pseudocode
-for v in mesh->vertex:
- tesselation->add_vertex(v)
-for e in mesh->edge:
- if e not in hash:
- tesselation->add_vertex(centroid(e))
- hash->add(e)
-for f in mesh->face:
- tesselation->add_vertex(centroid(f))
-for f: in mesh->face:
- tesselation->add_face(...)
- tesselation->add_face(...)
- tesselation->add_face(...)
- tesselation->add_face(...)
-   */
 
   ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 }
