@@ -21,12 +21,13 @@ void printMatrix(ym::mat<T, N, M> m){
 }
 
 template <typename T, int N>
-void printVector(ym::vec<T, N> v){
+void printVector(ym::vec<T, N> v,std::string s=""){
   for(int i=0; i<N; i++) {
-    printf(" %.6g;    ", v.operator[](i));
+    printf("%s %.6g;    ",s.c_str(), v.operator[](i));
   }
   printf("\n");
 }
+
 template <typename T, int N>
 void printVectorInt(ym::vec<T, N> v){
   for(int i=0; i<N; i++) {

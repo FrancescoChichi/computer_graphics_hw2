@@ -211,7 +211,7 @@ ym::image4f raytrace_mt(const yscn::scene* scn, const ym::vec3f& amb,
 //
 void displace(yscn::shape* shp, float scale) {
 
-  //scale=0.25f;
+  scale=0.25f;
   auto tex = shp->mat->disp_txt.txt;
 
   for(auto q:shp->quads)
@@ -241,7 +241,7 @@ void displace(yscn::shape* shp, float scale) {
 // Implement a different algorithm for quead meshes and triangle meshes.
 //
 void tesselate(yscn::shape* shp, int level) {
-level=1;
+
   yscn::shape new_shp = yscn::shape();
 
   cout<<"level "<<level<<endl;
@@ -249,7 +249,7 @@ level=1;
   cerr<<"pose "<<shp->pos.size()<<endl;
   cerr<<"norm "<<shp->norm.size()<<endl;
   cerr<<"tex "<<shp->texcoord.size()<<endl;
-  cout<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
+  cerr<<"goal "<<shp->quads.size()*pow(4,level)<<endl;
 
 
   /*shp->quads.resize(shp->quads.size()*(int)pow(4,level));
@@ -307,49 +307,49 @@ level=1;
         ++total_pos;
 
         if (t.z == t.w) {
-        } else {
-
-          vec_map[shp->pos[t.x]]=vec_map[shp->pos[t.x]];
+        }
+        else {
 
           for (int j = 0; j < 4; ++j) {
 
             //add corner vertex
             if(vec_map[vp[j]]==0) {
               vec_map.at(vp[j]) = total_pos;
+              new_shp.pos.at(vec_map[vp[j]])=vp[j];
+              new_shp.norm.at(vec_map[vp[j]])=nr[j];
+              new_shp.texcoord.at(vec_map[vp[j]])=tx[j];
               ++total_pos;
             }
 
             //add first edge vertex
             if(vec_map[vp[j]+vp[(j+1)%4]]==0){
               vec_map.at(vp[j]+vp[(j+1)%4])=total_pos;
+              new_shp.pos.at(vec_map[vp[j]+vp[(j+1)%4]])=(vp[j]+vp[(j+1)%4])/ym::vec3f(2);
+              new_shp.norm.at(vec_map[vp[j]+vp[(j+1)%4]])=(nr[j]+nr[(j+1)%4])/ym::vec3f(2);
+              new_shp.texcoord.at(vec_map[vp[j]+vp[(j+1)%4]])=(tx[j]+tx[(j+1)%4])/ym::vec2f(2);
               ++total_pos;
             }
 
             //add second edge vertex
             if(vec_map[vp[j]+vp[(j-1)%4]]==0) {
               vec_map.at(vp[j] + vp[(j - 1) % 4]) = total_pos;
+              new_shp.pos.at(vec_map[vp[j]+vp[(j-1)%4]])=(vp[j]+vp[(j-1)%4])/ym::vec3f(2);
+              new_shp.norm.at(vec_map[vp[j]+vp[(j-1)%4]])=(nr[j]+nr[(j-1)%4])/ym::vec3f(2);
+              new_shp.texcoord.at(vec_map[vp[j]+vp[(j-1)%4]])=(tx[j]+tx[(j-1)%4])/ym::vec2f(2);
               ++total_pos;
             }
 
-            new_shp.quads.push_back(ym::vec4i({vec_map[vp[j]+vp[(j+1)%4]],vec_map[vp[j]],vec_map[vp[j]+vp[(j-1)%4]],vec_map[poseC]}));
+            //new_shp.quads.push_back(ym::vec4i({vec_map[vp[j]+vp[(j+1)%4]],vec_map[vp[j]],vec_map[vp[j]+vp[(j-1)%4]],vec_map[poseC]}));
 
-
-            new_shp.pos.at(vec_map[vp[j]])=vp[j];//vertex
-            new_shp.pos.at(vec_map[vp[j]+vp[(j+1)%4]])=(vp[j]+vp[(j+1)%4])/ym::vec3f(2);//edge
-            new_shp.pos.at(vec_map[vp[j]+vp[(j-1)%4]])=(vp[j]+vp[(j-1)%4])/ym::vec3f(2);//edge
-            new_shp.pos.at(vec_map[poseC])=poseC;//center
-
-            new_shp.norm.at(vec_map[vp[j]])=nr[j];//vertex
-            new_shp.norm.at(vec_map[vp[j]+vp[(j+1)%4]])=(nr[j]+nr[(j+1)%4])/ym::vec3f(2);//edge
-            new_shp.norm.at(vec_map[vp[j]+vp[(j-1)%4]])=(nr[j]+nr[(j-1)%4])/ym::vec3f(2);//edge
-            new_shp.norm.at(vec_map[poseC])=normC;//center
-
-            new_shp.texcoord.at(vec_map[vp[j]])=tx[j];//vertex
-            new_shp.texcoord.at(vec_map[vp[j]+vp[(j+1)%4]])=(tx[j]+tx[(j+1)%4])/ym::vec2f(2);//edge
-            new_shp.texcoord.at(vec_map[vp[j]+vp[(j-1)%4]])=(tx[j]+tx[(j-1)%4])/ym::vec2f(2);//edge
-            new_shp.texcoord.at(vec_map[poseC])=texC;//center
+            new_shp.pos.at(vec_map[poseC])=poseC;
+            new_shp.norm.at(vec_map[poseC])=normC;
+            new_shp.texcoord.at(vec_map[poseC])=texC;
 
           }
+          new_shp.quads.push_back(ym::vec4i({vec_map[vp[0]],vec_map[vp[0]+vp[1]],vec_map[poseC],vec_map[vp[0]+vp[3]]}));
+          new_shp.quads.push_back(ym::vec4i({vec_map[vp[0]+vp[1]],vec_map[vp[1]],vec_map[vp[1]+vp[2]],vec_map[poseC]}));
+          new_shp.quads.push_back(ym::vec4i({vec_map[poseC],vec_map[vp[1]+vp[2]],vec_map[vp[2]],vec_map[vp[2]+vp[3]]}));
+          new_shp.quads.push_back(ym::vec4i({vec_map[vp[3]+vp[0]],vec_map[poseC],vec_map[vp[2]+vp[3]],vec_map[vp[3]]}));
 
         }
 
@@ -361,14 +361,21 @@ level=1;
       shp->norm=new_shp.norm;
       shp->texcoord=new_shp.texcoord;
 
+      /*shp->norm.resize(total_pos);
+      shp->pos.resize(total_pos);
+      shp->texcoord.resize(total_pos);*/
+      cerr<<"tot "<<total_pos<<" pos "<<endl;
+
+      printVector(shp->pos[total_pos-1],"zeri?");
+      printVector(shp->pos[total_pos+1],"zeri!");
     }
   }
   cerr<<"final quads "<<shp->quads.size()<<endl;
 
   cerr<<"norm "<<shp->norm.size()<<endl;
-  for(auto n:shp->norm)
-     printVector(n);
-  //printVector(shp->norm[0]);
+  //for(auto n:shp->norm)
+     //printVector(n);
+
   cerr<<"pos "<<shp->pos.size()<<endl;
 
 /*
@@ -400,7 +407,7 @@ for f: in mesh->face:
  tesselation->add_face(...)
    */
 
-  //ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
+  ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 }
 
 //
