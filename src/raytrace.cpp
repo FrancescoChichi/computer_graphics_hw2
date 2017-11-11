@@ -246,6 +246,7 @@ void tesselate(yscn::shape* shp, int level) {
   if(!shp->quads.empty()||!shp->triangles.empty()){
 
     !shp->quads.empty() ? vn=4 : vn=3;
+    int total_pos = 0;
 
     for(int l=0; l<level; ++l) {
 
@@ -259,17 +260,20 @@ void tesselate(yscn::shape* shp, int level) {
       new_shp.norm.resize(shp->pos.size()*vn);
       new_shp.texcoord.resize(shp->pos.size()*vn);
 
-      if(vn==4)
+      total_pos = 0;
+
+      if(vn==4) {
         vp.resize(shp->quads.size()*vn +1);
-      else
+      }
+      else {
         vp.resize(shp->triangles.size()*vn +1);
+      }
 
       nr.resize(shp->norm.size()*vn +1);
       tx.resize(shp->texcoord.size()*vn +1);
 
       std::map<ym::vec3f,int> vec_map;
 
-      int total_pos = 0;
 
       //for (auto& q :  (vn == 3 ? shp->triangles : shp->quads)) {
       for (int i = 0; i <(vn == 3 ? shp->triangles.size() : shp->quads.size()) ; ++i) {
@@ -407,7 +411,11 @@ void tesselate(yscn::shape* shp, int level) {
       shp->pos=new_shp.pos;
       shp->norm=new_shp.norm;
       shp->texcoord=new_shp.texcoord;
+
     }
+    shp->pos.resize(total_pos-1);
+    shp->norm.resize(total_pos-1);
+    shp->texcoord.resize(total_pos-1);
   }
 }
 

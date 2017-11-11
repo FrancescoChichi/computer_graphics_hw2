@@ -13,8 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
@@ -32,17 +32,16 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-167">
-              <caret line="343" column="11" lean-forward="false" selection-start-line="343" selection-start-column="11" selection-end-line="343" selection-end-column="11" />
+            <state relative-caret-position="284">
+              <caret line="427" column="2" lean-forward="true" selection-start-line="427" selection-start-column="2" selection-end-line="427" selection-end-column="2" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#137#540#0" expanded="false" />
                 <element signature="e#4827#5882#0" expanded="false" />
                 <element signature="e#5884#7282#0" expanded="false" />
-                <element signature="e#15310#15732#0" expanded="false" />
-                <element signature="e#15734#16352#0" expanded="false" />
-                <element signature="e#16354#16932#0" expanded="false" />
-                <element signature="e#16934#17422#0" expanded="false" />
+                <element signature="e#15883#16501#0" expanded="false" />
+                <element signature="e#16503#17081#0" expanded="false" />
+                <element signature="e#17083#17571#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -434,8 +433,8 @@
       <find>pose_map</find>
       <find>nr</find>
       <find>faces</find>
-      <find>4</find>
       <find>tangent</find>
+      <find>4</find>
     </findStrings>
     <replaceStrings>
       <replace>new_shp-&gt;</replace>
@@ -517,20 +516,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.raytrace">
+  <component name="RunManager" selected="Application.disp">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+    </configuration>
+    <configuration name="cube_smooth" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-r 360 -s 3 -S -o ../out/subdiv_cube_smooth.png ../in/subdiv_cube_pointlight/subdiv_cube_pointlight.obj " PASS_PARENT_ENVS_2="true" PROJECT_NAME="graphics17b_hw02" TARGET_NAME="raytrace" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="graphics17b_hw02" RUN_TARGET_NAME="raytrace">
+      <envs />
+    </configuration>
+    <configuration name="disp" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-r 360 -s 3 -T -o ../out/normdisp_smooth.png ../in/normdisp_pointlight/normdisp_pointlight.obj  " PASS_PARENT_ENVS_2="true" PROJECT_NAME="graphics17b_hw02" TARGET_NAME="raytrace" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="graphics17b_hw02" RUN_TARGET_NAME="raytrace">
       <envs />
     </configuration>
     <configuration name="hwlib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="graphics17b_hw02" TARGET_NAME="hwlib" CONFIG_NAME="Debug">
       <envs />
     </configuration>
-    <configuration name="raytrace" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-r 360 -s 3 -T -o ../out/normdisp_smooth.png ../in/normdisp_pointlight/normdisp_pointlight.obj  " PASS_PARENT_ENVS_2="true" PROJECT_NAME="graphics17b_hw02" TARGET_NAME="raytrace" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="graphics17b_hw02" RUN_TARGET_NAME="raytrace">
-      <envs />
-    </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application.hwlib" />
-      <item index="2" class="java.lang.String" itemvalue="Application.raytrace" />
+      <item index="2" class="java.lang.String" itemvalue="Application.disp" />
+      <item index="3" class="java.lang.String" itemvalue="Application.cube_smooth" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -544,12 +547,12 @@
       <option name="presentableId" value="Default" />
       <updated>1509988637325</updated>
       <workItem from="1509988639145" duration="94378000" />
-      <workItem from="1510365962533" duration="3345000" />
+      <workItem from="1510365962533" duration="5178000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97723000" />
+    <option name="totallyTimeSpent" value="99556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -619,10 +622,9 @@
             <element signature="e#137#540#0" expanded="false" />
             <element signature="e#4827#5882#0" expanded="false" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#15310#15732#0" expanded="false" />
-            <element signature="e#15734#16352#0" expanded="false" />
-            <element signature="e#16354#16932#0" expanded="false" />
-            <element signature="e#16934#17422#0" expanded="false" />
+            <element signature="e#15883#16501#0" expanded="false" />
+            <element signature="e#16503#17081#0" expanded="false" />
+            <element signature="e#17083#17571#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1022,17 +1024,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-167">
-          <caret line="343" column="11" lean-forward="false" selection-start-line="343" selection-start-column="11" selection-end-line="343" selection-end-column="11" />
+        <state relative-caret-position="284">
+          <caret line="427" column="2" lean-forward="true" selection-start-line="427" selection-start-column="2" selection-end-line="427" selection-end-column="2" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#137#540#0" expanded="false" />
             <element signature="e#4827#5882#0" expanded="false" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#15310#15732#0" expanded="false" />
-            <element signature="e#15734#16352#0" expanded="false" />
-            <element signature="e#16354#16932#0" expanded="false" />
-            <element signature="e#16934#17422#0" expanded="false" />
+            <element signature="e#15883#16501#0" expanded="false" />
+            <element signature="e#16503#17081#0" expanded="false" />
+            <element signature="e#17083#17571#0" expanded="false" />
           </folding>
         </state>
       </provider>
