@@ -341,9 +341,8 @@ void add_edge(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
 // v0, v1, v2, v2.
 // Implement a different algorithm for quead meshes and triangle meshes.
 //
-tesselation* tesselate(yscn::shape* shp, int level) {
+void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 
-  tesselation tes;
   yscn::shape new_shp;
   bool tex = true;
 
@@ -508,7 +507,6 @@ tesselation* tesselate(yscn::shape* shp, int level) {
       shp->texcoord.resize(total_pos-1);
   }
 
-  return &tes;
 }
 
 //
@@ -519,19 +517,19 @@ tesselation* tesselate(yscn::shape* shp, int level) {
 // At the end, smooth the normals with `ym::compute_normals()`.
 //
 void catmull_clark(yscn::shape* shp, int level) {
-  tesselation* tes = tesselate(shp,level);
+  tesselation tes;
+  tesselate(shp,level,tes);
   //step 2
-  cerr<<"cat "<<tes->get_vertices().size()<<endl;
 
   std::vector<ym::vec3f> avg_v;
   std::vector<ym::vec3f> avg_n;
-  avg_v.resize(tes->get_vertices().size());
-  avg_n.resize(tes->get_vertices().size());
+  avg_v.resize(tes.get_vertices().size());
+  avg_n.resize(tes.get_vertices().size());
 
   ym::vec3f c;
-  for(int f=0;f<tes->get_faces().size();++f){
-    c=tes->get_faces().at(f).c;
-    for(int i:tes->get_quads().at(f)){
+  for(int f=0;f<tes.get_faces().size();++f){
+    c=tes.get_faces().at(f).c;
+    for(int i:tes.get_quads().at(f)){
       avg_v.at(i) += c;
       avg_n.at(i) += ym::vec3f(1);
     }
@@ -542,8 +540,8 @@ void catmull_clark(yscn::shape* shp, int level) {
 
   //step 3
   ym::vec3f four = ym::vec3f(4);
-  for(int i=0; i<tes->get_vertices().size(); ++i)
-    tes->get_vertices().at(i) += avg_v.at(i)-(tes->get_vertices().at(i)*(four/avg_n.at(i)));
+  for(int i=0; i<tes.get_vertices().size(); ++i)
+    tes.get_vertices().at(i) += avg_v.at(i)-(tes.get_vertices().at(i)*(four/avg_n.at(i)));
 
 
 }
@@ -639,7 +637,8 @@ int main(int argc, char** argv) {
       if (subdiv) {
         catmull_clark(shp, level);
       } else {
-        tesselate(shp, level);
+        struct tesselation tes;
+        tesselate(shp, level,tes);
       }
     }
   }
