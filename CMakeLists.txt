@@ -35,7 +35,7 @@ add_library(hwlib STATIC
     src/yocto_img.cpp
     src/yocto_obj.cpp
     src/yocto_gltf.cpp
-    src/yocto_scn.cpp src/printData.h)
+    src/yocto_scn.cpp src/printData.h src/tesselation.h)
 
 add_executable(raytrace src/raytrace.cpp)
 target_link_libraries(raytrace hwlib)

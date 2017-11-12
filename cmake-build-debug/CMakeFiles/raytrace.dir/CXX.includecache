@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/s1r/Desktop/computer_graphics_hw2/src/printData.h
+yocto_math.h
+/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_math.h
+
 /Users/s1r/Desktop/computer_graphics_hw2/src/raytrace.cpp
 thread
 -
@@ -17,8 +21,14 @@ yocto_scn.h
 /Users/s1r/Desktop/computer_graphics_hw2/src/yocto_scn.h
 yocto_utils.h
 /Users/s1r/Desktop/computer_graphics_hw2/src/yocto_utils.h
-set
--
+tesselation.h
+/Users/s1r/Desktop/computer_graphics_hw2/src/tesselation.h
+printData.h
+/Users/s1r/Desktop/computer_graphics_hw2/src/printData.h
+
+/Users/s1r/Desktop/computer_graphics_hw2/src/tesselation.h
+yocto_math.h
+/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_math.h
 
 /Users/s1r/Desktop/computer_graphics_hw2/src/yocto_img.h
 array
