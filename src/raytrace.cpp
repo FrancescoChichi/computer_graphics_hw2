@@ -344,8 +344,11 @@ void add_edge(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
 void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 
   yscn::shape new_shp;
-  bool tex = true;
-
+  bool tex = !shp->texcoord.empty();
+  if(shp->norm.empty()) {
+    shp->norm.resize(shp->pos.size());
+    ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
+  }
   int vn;
   if(!shp->quads.empty()||!shp->triangles.empty()){
 
@@ -363,7 +366,8 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 
       new_shp.pos.resize(shp->pos.size()*vn);
       new_shp.norm.resize(shp->pos.size()*vn);
-      new_shp.texcoord.resize(shp->pos.size()*vn);
+      if(tex)
+        new_shp.texcoord.resize(shp->pos.size()*vn);
 
       total_pos = 0;
 
@@ -375,7 +379,8 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
       }
 
       nr.resize(shp->norm.size()*vn +1);
-      tx.resize(shp->texcoord.size()*vn +1);
+      if(tex)
+        tx.resize(shp->texcoord.size()*vn +1);
 
       std::map<ym::vec3f,int> vec_map;
 
@@ -385,14 +390,8 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
         ym::vec3f normC;
         ym::vec2f texC;
 
-        if(shp->norm.empty()) {
-          shp->norm.resize(shp->pos.size());
-          ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
-        }
-
-        tex=shp->texcoord.empty() ? false : true;
-
         for (int j = 0; j < vn; ++j) {
+
           if(vn==3){
             vp[j]=shp->pos[shp->triangles.at(i).operator[](j)];
             nr[j]=shp->norm[shp->triangles.at(i).operator[](j)];
@@ -407,13 +406,15 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
           }
           poseC+=vp[j];
           normC+=nr[j];
-          texC+=tx[j];
+          if(tex)
+            texC+=tx[j];
         }
 
         if(vn==4){
           poseC/=ym::vec3f(4);
           normC/=ym::vec3f(4);
-          texC/=ym::vec2f(4);
+          if(tex)
+            texC/=ym::vec2f(4);
 
           //add centroid
           vec_map[poseC]=total_pos;
@@ -475,7 +476,6 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
               ++total_pos;
             }
 
-
             if(vn==4){
               new_shp.pos.at(vec_map[poseC])=poseC;
               new_shp.norm.at(vec_map[poseC])=normC;
@@ -499,13 +499,15 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
       shp->norm=new_shp.norm;
       if(tex)
         shp->texcoord=new_shp.texcoord;
-
+      cerr<<"check "<<endl;
     }
+
     shp->pos.resize(total_pos-1);
     shp->norm.resize(total_pos-1);
     if(tex)
       shp->texcoord.resize(total_pos-1);
   }
+  cerr<<"check2 "<<endl;
 
 }
 
@@ -517,14 +519,14 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 // At the end, smooth the normals with `ym::compute_normals()`.
 //
 void catmull_clark(yscn::shape* shp, int level) {
+  cerr<<"catmull "<<endl;
   tesselation tes;
   tesselate(shp,level,tes);
   //step 2
-
-  std::vector<ym::vec3f> avg_v;
-  std::vector<ym::vec3f> avg_n;
-  avg_v.resize(tes.get_vertices().size());
-  avg_n.resize(tes.get_vertices().size());
+/*
+  cerr<<"size "<<tes.get_vertices().size()<<endl;
+  std::vector<ym::vec3f> avg_v = std::vector<ym::vec3f>(tes.get_vertices().size());
+  std::vector<ym::vec3f> avg_n = std::vector<ym::vec3f>(tes.get_vertices().size());
 
   ym::vec3f c;
   for(int f=0;f<tes.get_faces().size();++f){
@@ -542,7 +544,7 @@ void catmull_clark(yscn::shape* shp, int level) {
   ym::vec3f four = ym::vec3f(4);
   for(int i=0; i<tes.get_vertices().size(); ++i)
     tes.get_vertices().at(i) += avg_v.at(i)-(tes.get_vertices().at(i)*(four/avg_n.at(i)));
-
+*/
 
 }
 
