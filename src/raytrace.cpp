@@ -455,7 +455,7 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
             }
 
             //add first edge vertex
-            if(vec_map[vp[j]+vp[(j+1)%vn]]==0){
+            if(vec_map[vp[j]+vp[(j+1)%vn]]==0){//va diviso per 2
               add_edge(&new_shp, &vec_map, vp, tx, j, 1, total_pos, vn);
               ++total_pos;
             }

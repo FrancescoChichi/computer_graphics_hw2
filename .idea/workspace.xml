@@ -13,13 +13,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="ck">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/libhwlib.a" afterPath="$PROJECT_DIR$/bin/libhwlib.a" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" afterPath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/printData.h" afterPath="$PROJECT_DIR$/src/printData.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/link.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tesselation.h" afterPath="$PROJECT_DIR$/src/tesselation.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,14 +41,24 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="489" column="5" lean-forward="true" selection-start-line="489" selection-start-column="5" selection-end-line="489" selection-end-column="5" />
+            <state relative-caret-position="479">
+              <caret line="457" column="64" lean-forward="false" selection-start-line="457" selection-start-column="64" selection-end-line="457" selection-end-column="64" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#5909#7307#0" expanded="false" />
                 <element signature="e#7310#8100#0" expanded="false" />
                 <element signature="e#8102#8671#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,6 +134,7 @@
         <option value="$PROJECT_DIR$/src/yocto_scn.h" />
         <option value="$PROJECT_DIR$/src/printData.h" />
         <option value="$PROJECT_DIR$/src/tesselation.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/raytrace.cpp" />
       </list>
     </option>
@@ -215,18 +233,18 @@
       <updated>1509988637325</updated>
       <workItem from="1509988639145" duration="94378000" />
       <workItem from="1510365962533" duration="20145000" />
-      <workItem from="1510529658719" duration="15360000" />
+      <workItem from="1510529658719" duration="15774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129883000" />
+    <option name="totallyTimeSpent" value="130297000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3082353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -258,12 +276,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2882353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -279,7 +297,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="20" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1061,10 +1079,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="489" column="5" lean-forward="true" selection-start-line="489" selection-start-column="5" selection-end-line="489" selection-end-column="5" />
+        <state relative-caret-position="479">
+          <caret line="457" column="64" lean-forward="false" selection-start-line="457" selection-start-column="64" selection-end-line="457" selection-end-column="64" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5909#7307#0" expanded="false" />
