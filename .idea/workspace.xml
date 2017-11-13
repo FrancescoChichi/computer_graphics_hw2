@@ -20,9 +20,10 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/5" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/6" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o-9b116a97" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o-354472e2" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/build/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" afterPath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
@@ -40,11 +41,10 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="347" column="1" lean-forward="true" selection-start-line="347" selection-start-column="1" selection-end-line="350" selection-end-column="3" />
+            <state relative-caret-position="1424">
+              <caret line="526" column="37" lean-forward="true" selection-start-line="526" selection-start-column="37" selection-end-line="526" selection-end-column="37" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#8102#8671#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -418,9 +418,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>struct</find>
-      <find>edge</find>
-      <find>make_face</find>
       <find>make_faces</find>
       <find>make a quad</find>
       <find>tex</find>
@@ -448,6 +445,9 @@
       <find>tex=</find>
       <find>norm</find>
       <find>resize</find>
+      <find>check</find>
+      <find>total_pos</find>
+      <find>add_edge</find>
     </findStrings>
     <replaceStrings>
       <replace>new_shp-&gt;</replace>
@@ -528,7 +528,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.disp">
+  <component name="RunManager" selected="Application.cube_smooth">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
@@ -563,12 +563,12 @@
       <updated>1509988637325</updated>
       <workItem from="1509988639145" duration="94378000" />
       <workItem from="1510365962533" duration="20145000" />
-      <workItem from="1510529658719" duration="3260000" />
+      <workItem from="1510529658719" duration="5893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117783000" />
+    <option name="totallyTimeSpent" value="120416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -576,10 +576,10 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30941176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30941176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17294118" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2882353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -635,7 +635,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#8102#8671#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1002,7 +1001,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#8102#8671#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1407,11 +1405,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="347" column="1" lean-forward="true" selection-start-line="347" selection-start-column="1" selection-end-line="350" selection-end-column="3" />
+        <state relative-caret-position="1424">
+          <caret line="526" column="37" lean-forward="true" selection-start-line="526" selection-start-column="37" selection-end-line="526" selection-end-column="37" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#8102#8671#0" expanded="false" />
           </folding>
         </state>
       </provider>
