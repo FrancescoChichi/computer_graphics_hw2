@@ -22,14 +22,16 @@ void printMatrix(ym::mat<T, N, M> m){
 
 template <typename T, int N>
 void printVector(ym::vec<T, N> v,std::string s=""){
+  printf("%s \n",s.c_str());
   for(int i=0; i<N; i++) {
-    printf("%s %.6g;    ",s.c_str(), v.operator[](i));
+    printf(" %.6g;    ", v.operator[](i));
   }
   printf("\n");
 }
 
 template <typename T, int N>
-void printVectorInt(ym::vec<T, N> v){
+void printVectorInt(ym::vec<T, N> v,std::string s=""){
+  printf("%s \n",s.c_str());
   for(int i=0; i<N; i++) {
     printf(" %i;    ", v.operator[](i));
   }

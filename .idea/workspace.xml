@@ -13,10 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="ck">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" afterPath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/printData.h" afterPath="$PROJECT_DIR$/src/printData.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tesselation.h" afterPath="$PROJECT_DIR$/src/tesselation.h" />
     </list>
@@ -33,12 +34,13 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="515" column="0" lean-forward="true" selection-start-line="515" selection-start-column="0" selection-end-line="515" selection-end-column="0" />
+            <state relative-caret-position="277">
+              <caret line="489" column="5" lean-forward="true" selection-start-line="489" selection-start-column="5" selection-end-line="489" selection-end-column="5" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#5909#7307#0" expanded="false" />
+                <element signature="e#7310#8100#0" expanded="false" />
                 <element signature="e#8102#8671#0" expanded="false" />
-                <element signature="e#12503#17234#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -47,8 +49,18 @@
       <file leaf-file-name="tesselation.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tesselation.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="654">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="printData.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/printData.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -58,7 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tex</find>
       <find>displace</find>
       <find>point</find>
       <find>vertex</find>
@@ -79,7 +90,6 @@
       <find>add_quad</find>
       <find>struc</find>
       <find>texcoord</find>
-      <find>tes</find>
       <find>tex=</find>
       <find>norm</find>
       <find>resize</find>
@@ -88,6 +98,8 @@
       <find>add_edge</find>
       <find>level</find>
       <find>catmull_clark</find>
+      <find>add_face</find>
+      <find>tes</find>
     </findStrings>
     <replaceStrings>
       <replace>new_shp-&gt;</replace>
@@ -203,12 +215,12 @@
       <updated>1509988637325</updated>
       <workItem from="1509988639145" duration="94378000" />
       <workItem from="1510365962533" duration="20145000" />
-      <workItem from="1510529658719" duration="9843000" />
+      <workItem from="1510529658719" duration="15360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124366000" />
+    <option name="totallyTimeSpent" value="129883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -219,7 +231,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3082353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2882353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2882353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -243,7 +255,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2882353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2882353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -251,7 +263,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -264,7 +276,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -275,8 +290,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#7310#8100#0" expanded="false" />
             <element signature="e#8102#8671#0" expanded="false" />
-            <element signature="e#12503#17234#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -630,9 +646,9 @@
         <state relative-caret-position="475">
           <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
           <folding>
-            <element signature="e#303#329#0" expanded="true" />
-            <element signature="e#536#555#0" expanded="true" />
-            <element signature="e#722#741#0" expanded="true" />
+            <element signature="e#303#329#0" expanded="false" />
+            <element signature="e#536#555#0" expanded="false" />
+            <element signature="e#739#758#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -643,8 +659,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#7310#8100#0" expanded="false" />
             <element signature="e#8102#8671#0" expanded="false" />
-            <element signature="e#12503#17234#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -654,9 +671,9 @@
         <state relative-caret-position="475">
           <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
           <folding>
-            <element signature="e#303#329#0" expanded="true" />
-            <element signature="e#536#555#0" expanded="true" />
-            <element signature="e#722#741#0" expanded="true" />
+            <element signature="e#303#329#0" expanded="false" />
+            <element signature="e#536#555#0" expanded="false" />
+            <element signature="e#739#758#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,32 +1047,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/printData.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-          <folding>
-            <element signature="e#303#329#0" expanded="true" />
-            <element signature="e#536#555#0" expanded="true" />
-            <element signature="e#722#741#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="469">
+          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tesselation.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="654">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="515" column="0" lean-forward="true" selection-start-line="515" selection-start-column="0" selection-end-line="515" selection-end-column="0" />
+        <state relative-caret-position="277">
+          <caret line="489" column="5" lean-forward="true" selection-start-line="489" selection-start-column="5" selection-end-line="489" selection-end-column="5" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#7310#8100#0" expanded="false" />
             <element signature="e#8102#8671#0" expanded="false" />
-            <element signature="e#12503#17234#0" expanded="false" />
           </folding>
         </state>
       </provider>
