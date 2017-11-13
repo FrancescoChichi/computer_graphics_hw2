@@ -227,82 +227,82 @@ void displace(yscn::shape* shp, float scale) {
 }
 
 void add_triangle(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3f,int>* vec_map){
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at(vp[0]),vec_map->at(vp[0]+vp[1]),vec_map->at(vp[0]+vp[2])}));
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at(vp[0]+vp[1]),vec_map->at(vp[1]+vp[2]),vec_map->at(vp[0]+vp[2])}));
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at(vp[0]+vp[1]),vec_map->at(vp[1]),vec_map->at(vp[1]+vp[2])}));
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at(vp[0]+vp[2]),vec_map->at(vp[1]+vp[2]),vec_map->at(vp[2])}));
+  new_shp->triangles.push_back(ym::vec3i({vec_map->at(vp[0]),vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
+  new_shp->triangles.push_back(ym::vec3i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
+  new_shp->triangles.push_back(ym::vec3i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),vec_map->at(vp[1]),vec_map->at((vp[1]+vp[2])/ym::vec3f(2))}));
+  new_shp->triangles.push_back(ym::vec3i({vec_map->at((vp[0]+vp[2])/ym::vec3f(2)),vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),vec_map->at(vp[2])}));
 }
 void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3f,int>* vec_map, ym::vec3f poseC, tesselation* t, bool deg=false){
   if(!deg){
     new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
-                                        vec_map->at(vp[0]+vp[1]),
+                                        vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
                                         vec_map->at(poseC),
-                                        vec_map->at(vp[0]+vp[3])}));
+                                        vec_map->at((vp[0]+vp[3])/ym::vec3f(2))}));
     t->add_face(vp[0],
-                vp[0]+vp[1],
+                (vp[0]+vp[1]/ym::vec3f(2)),
                 poseC,
-                vp[0]+vp[3],
+                (vp[0]+vp[3]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]+vp[1]),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
                                         vec_map->at(vp[1]),
-                                        vec_map->at(vp[1]+vp[2]),
+                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
                                         vec_map->at(poseC)}));
-    t->add_face(vp[0]+vp[1],
+    t->add_face((vp[0]+vp[1]/ym::vec3f(2)),
                 vp[1],
-                vp[1]+vp[2],
+                (vp[1]+vp[2]/ym::vec3f(2)),
                 poseC,
                 new_shp->quads.back());
 
     new_shp->quads.push_back(ym::vec4i({vec_map->at(poseC),
-                                        vec_map->at(vp[1]+vp[2]),
+                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
                                         vec_map->at(vp[2]),
-                                        vec_map->at(vp[2]+vp[3])}));
+                                        vec_map->at((vp[2]+vp[3])/ym::vec3f(2))}));
     t->add_face(poseC,
-                vp[1]+vp[2],
+                (vp[1]+vp[2]/ym::vec3f(2)),
                 vp[2],
-                vp[2]+vp[3],
+                (vp[2]+vp[3]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[3]+vp[0]),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[3]+vp[0])/ym::vec3f(2)),
                                         vec_map->at(poseC),
-                                        vec_map->at(vp[2]+vp[3]),
+                                        vec_map->at((vp[2]+vp[3])/ym::vec3f(2)),
                                         vec_map->at(vp[3])}));
-    t->add_face(vp[3]+vp[0],
+    t->add_face((vp[3]+vp[0]/ym::vec3f(2)),
                 poseC,
-                vp[2]+vp[3],
+                (vp[2]+vp[3]/ym::vec3f(2)),
                 vp[3],
                 new_shp->quads.back());
   }
   else{
     new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
-                                        vec_map->at(vp[0]+vp[1]),
+                                        vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
                                         vec_map->at(poseC),
-                                        vec_map->at(vp[0]+vp[2])}));
+                                        vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
     t->add_face(vp[0],
-                vp[0]+vp[1],
+                (vp[0]+vp[1]/ym::vec3f(2)),
                 poseC,
-                vp[0]+vp[2],
+                (vp[0]+vp[2]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]+vp[1]),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
                                         vec_map->at(vp[1]),
-                                        vec_map->at(vp[1]+vp[2]),
+                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
                                         vec_map->at(poseC)}));
-    t->add_face(vp[0]+vp[1],
+    t->add_face((vp[0]+vp[1]/ym::vec3f(2)),
                 vp[1],
-                vp[1]+vp[2],
+                (vp[1]+vp[2]/ym::vec3f(2)),
                 poseC,
                 new_shp->quads.back());
 
     new_shp->quads.push_back(ym::vec4i({vec_map->at(poseC),
-                                        vec_map->at(vp[1]+vp[2]),
+                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
                                         vec_map->at(vp[2]),
-                                        vec_map->at(vp[0]+vp[2])}));
+                                        vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
     t->add_face(poseC,
-                vp[1]+vp[2],
+                (vp[1]+vp[2]/ym::vec3f(2)),
                 vp[2],
-                vp[0]+vp[2],
+                (vp[0]+vp[2]/ym::vec3f(2)),
                 new_shp->quads.back());
   }
 }
@@ -318,10 +318,10 @@ void add_corner(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
 void add_edge(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
               std::vector<ym::vec3f> vp,std::vector<ym::vec2f> tx,
               int j, int skip, int total_pos, int vn) {
-  vec_map->at(vp[j] + vp[(j + skip) % vn]) = total_pos;
-  new_shp->pos.at(vec_map->at(vp[j] + vp[(j + skip) % vn])) = (vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2);
+  vec_map->at((vp[j] + vp[(j + skip) % vn])/ ym::vec3f(2)) = total_pos;
+  new_shp->pos.at(vec_map->at((vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2))) = (vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2);
   if(!new_shp->texcoord.empty())
-    new_shp->texcoord.at(vec_map->at(vp[j] + vp[(j + skip) % vn])) = (tx[j] + tx[(j + skip) % vn]) / ym::vec2f(2);
+    new_shp->texcoord.at(vec_map->at((vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2))) = (tx[j] + tx[(j + skip) % vn]) / ym::vec2f(2);
 }
 
 
@@ -343,57 +343,50 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
   std::map<ym::vec3f,int> vec_map;
 
   std::vector<ym::vec3f> vp;
+  vp.resize(4);
   std::vector<ym::vec2f> tx;
+  tx.resize(4);
 
   ym::vec3f poseC;
   ym::vec2f texC;
 
   int vn;
+  int total_pos = 0;
+
   if(!shp->quads.empty()||!shp->triangles.empty()){
 
     !shp->quads.empty() ? vn=4 : vn=3;
-    int total_pos = 0;
 
     for(int l=0; l<level; ++l) {
 
       new_shp = yscn::shape();
       tes.clear();
       vec_map.clear();
-      vp.clear();
-      tx.clear();
-
-      new_shp.pos.resize(shp->pos.size()*(vn+1));
-      if(tex)
-        new_shp.texcoord.resize(shp->pos.size()*(vn+1));
-
       total_pos = 0;
 
-      if(vn==4) {
-        vp.resize(shp->quads.size()*vn +1);
-      }
-      else {
-        vp.resize(shp->triangles.size()*vn +1);
-      }
+      new_shp.pos.resize(shp->pos.size()*(vn+1));
 
-      if(tex)
+
+      if(tex) {
+        new_shp.texcoord.resize(shp->pos.size()*(vn+1));
         tx.resize(shp->texcoord.size()*vn +1);
+      }
 
       for (int i = 0; i <(vn == 3 ? shp->triangles.size() : shp->quads.size()) ; ++i) {
 
         poseC = ym::vec3f();
         texC = ym::vec2f();
-
         for (int j = 0; j < vn; ++j) {
 
           if(vn==3){
-            vp[j]=shp->pos[shp->triangles.at(i).operator[](j)];
+            vp.at(j)=shp->pos[shp->triangles.at(i).operator[](j)];
             if(tex)
-              tx[j]=shp->texcoord[shp->triangles.at(i).operator[](j)];
+              tx.at(j)=shp->texcoord[shp->triangles.at(i).operator[](j)];
           }
           else{
-            vp[j]=shp->pos[shp->quads.at(i).operator[](j)];
+            vp.at(j)=shp->pos[shp->quads.at(i).operator[](j)];
             if(tex)
-              tx[j]=shp->texcoord[shp->quads.at(i).operator[](j)];
+              tx.at(j)=shp->texcoord[shp->quads.at(i).operator[](j)];
           }
           poseC+=vp[j];
           if(tex)
@@ -423,13 +416,13 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
             }
 
             //add first edge vertex
-            if(vec_map[vp[j]+vp[(j+skip)%vn]]==0){
+            if(vec_map[(vp[j]+vp[(j+skip)%vn])/ym::vec3f(2)]==0){
               add_edge(&new_shp, &vec_map, vp, tx, j, skip, total_pos, vn);
               ++total_pos;
             }
 
             //add second edge vertex
-            if(vec_map[vp[j]+vp[(j+(vn-skip))%vn]]==0) {
+            if(vec_map[(vp[j]+vp[(j+(vn-skip))%vn])/ym::vec3f(2)]==0) {
               add_edge(&new_shp, &vec_map, vp, tx, j, vn-skip, total_pos, vn);
               ++total_pos;
             }
@@ -447,21 +440,21 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
         }
         else {
           for (int j = 0; j < vn; ++j) {
-            //add corner vertex
 
+            //add corner vertex
             if(vec_map[vp[j]]==0) {
               add_corner(&new_shp, &vec_map, vp, tx,j, total_pos);
               ++total_pos;
             }
 
             //add first edge vertex
-            if(vec_map[vp[j]+vp[(j+1)%vn]]==0){//va diviso per 2
+            if(vec_map[(vp[j]+vp[(j+1)%vn])/ym::vec3f(2)]==0){//va diviso per 2
               add_edge(&new_shp, &vec_map, vp, tx, j, 1, total_pos, vn);
               ++total_pos;
             }
 
             //add second edge vertex
-            if(vec_map[vp[j]+vp[(j+(vn-1))%vn]]==0) {
+            if(vec_map[(vp[j]+vp[(j+(vn-1))%vn])/ym::vec3f(2)]==0) {
               add_edge(&new_shp, &vec_map, vp, tx, j, (vn-1), total_pos, vn);
               ++total_pos;
             }
@@ -485,14 +478,13 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
       }//*******fine quad***********
       shp->quads=new_shp.quads;
       shp->pos=new_shp.pos;
-      if(tex)
+      shp->pos.resize(total_pos);
+      shp->norm.resize(total_pos);
+      if(tex) {
         shp->texcoord=new_shp.texcoord;
+        shp->texcoord.resize(total_pos);
+      }
     }
-
-    shp->pos.resize(total_pos);
-    shp->norm.resize(total_pos);
-    if(tex)
-      shp->texcoord.resize(total_pos);
   }
 
   tes.vec_map=vec_map;
@@ -631,7 +623,7 @@ int main(int argc, char** argv) {
         catmull_clark(shp, level);
       } else {
         struct tesselation tes;
-        tesselate(shp, level,tes);
+        tesselate(shp, level, tes);
       }
     }
   }
