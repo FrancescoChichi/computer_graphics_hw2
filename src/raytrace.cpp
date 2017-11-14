@@ -404,7 +404,7 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
         }
 
         if (vn ==4 && shp->quads.at(i).z == shp->quads.at(i).w) {
-          int skip = 0;
+          int skip;
           for (int j = 0; j < 4; ++j) {
 
             (j < 2 ? skip=1 : skip=2);
@@ -414,7 +414,6 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
               add_corner(&new_shp, &vec_map, vp, tx,j, total_pos);
               ++total_pos;
             }
-
             //add first edge vertex
             if(vec_map[(vp[j]+vp[(j+skip)%vn])/ym::vec3f(2)]==0){
               add_edge(&new_shp, &vec_map, vp, tx, j, skip, total_pos, vn);
@@ -427,11 +426,9 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
               ++total_pos;
             }
 
-            if(vn==4){
-              new_shp.pos.at(vec_map[poseC])=poseC;
-              if(tex)
-                new_shp.texcoord.at(vec_map[poseC])=texC;
-            }
+            new_shp.pos.at(vec_map[poseC])=poseC;
+            if(tex)
+              new_shp.texcoord.at(vec_map[poseC])=texC;
 
           }
 
@@ -448,7 +445,7 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
             }
 
             //add first edge vertex
-            if(vec_map[(vp[j]+vp[(j+1)%vn])/ym::vec3f(2)]==0){//va diviso per 2
+            if(vec_map[(vp[j]+vp[(j+1)%vn])/ym::vec3f(2)]==0){
               add_edge(&new_shp, &vec_map, vp, tx, j, 1, total_pos, vn);
               ++total_pos;
             }
@@ -503,7 +500,6 @@ void catmull_clark(yscn::shape* shp, int level) {
   tesselation tes;
   ym::vec3f four = ym::vec3f(4);
   ym::vec3f one = ym::vec3f(1);
-
   for(int j=0;j<level;++j) {
 
     //step 1
@@ -526,7 +522,7 @@ void catmull_clark(yscn::shape* shp, int level) {
       //for (int i = 0; i < shp->pos.size(); ++i)
       avg_v.at(i) /= avg_n.at(i);
       //step 3
-      shp->pos.at(i) = shp->pos.at(i) + ( (avg_v.at(i) - shp->pos.at(i)) * (four / avg_n.at(i)) );
+      shp->pos.at(i) += (avg_v.at(i) - shp->pos.at(i)) * (four / avg_n.at(i));
     }
   }
 }
@@ -542,7 +538,33 @@ void catmull_clark(yscn::shape* shp, int level) {
 yscn::shape* make_hair(
     const yscn::shape* shp, int nhair, float length, float radius) {
   auto hair = new yscn::shape();
-  // YOUR CODE GOES HERE
+  /* ym::sample_triangles_points((int)shp->triangles.size(), shp->triangles.data(),
+                               shp->pos.data(), shp->norm.data(), shp->texcoord.data(),
+                               (int)shp->pos.size(), hair->pos.data(), hair->norm.data(), hair->texcoord.data(), 0);*/
+  /*ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, (int)shp->pos.size(),
+                              hair->pos, hair->norm, hair->texcoord, 0);*/
+
+  ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, (int)shp->pos.size(),
+                              hair->pos, hair->norm, hair->texcoord, 0);
+
+  hair->pos.resize(nhair);
+  hair->norm.resize(nhair);
+  hair->texcoord.resize(nhair);
+  hair->radius=std::vector<float>(nhair,radius);
+
+  for(int i=0;i<nhair;++i){
+    ym::vec3f p = hair->norm.at(i)*ym::vec3f(length);
+    hair->pos.push_back(p);
+    hair->norm.push_back(hair->norm.at(i));
+    hair->texcoord.push_back(hair->texcoord.at(i));
+
+    hair->lines.push_back(ym::vec2i(i,hair->pos.size()-i));
+  }
+
+
+
+  //hair->bvh=ym::build_lines_bvh(hair->lines, hair->pos,std::vector<float>(hair->pos.size(),radius));
+
   return hair;
 }
 
