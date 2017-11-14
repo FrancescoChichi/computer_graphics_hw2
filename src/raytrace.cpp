@@ -264,11 +264,11 @@ void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3
                 (vp[2]+vp[3]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[3]+vp[0])/ym::vec3f(2)),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[3])/ym::vec3f(2)),
                                         vec_map->at(poseC),
                                         vec_map->at((vp[2]+vp[3])/ym::vec3f(2)),
                                         vec_map->at(vp[3])}));
-    t->add_face((vp[3]+vp[0]/ym::vec3f(2)),
+    t->add_face((vp[0]+vp[3]/ym::vec3f(2)),
                 poseC,
                 (vp[2]+vp[3]/ym::vec3f(2)),
                 vp[3],
@@ -487,7 +487,6 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
     }
   }
 
-  tes.vec_map=vec_map;
   ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 
 }
@@ -501,34 +500,35 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 //
 void catmull_clark(yscn::shape* shp, int level) {
 
-  //step 1
   tesselation tes;
-  tesselate(shp,level,tes);
+  ym::vec3f four = ym::vec3f(4);
+  ym::vec3f one = ym::vec3f(1);
 
-  //step 2
-  std::vector<ym::vec3f> avg_v = std::vector<ym::vec3f>(shp->pos.size());
-  std::vector<ym::vec3f> avg_n = std::vector<ym::vec3f>(shp->pos.size());
+  for(int j=0;j<level;++j) {
 
-  ym::vec3f c;
-  for(int f=0;f<tes.get_faces().size();++f){
-    c=tes.get_faces().at(f).c;
-    for(int i=0; i<4; ++i){
-      auto x=tes.get_quads().at(f).operator[](i);
-      avg_v.at(x) += c;
-      avg_n.at(x) += ym::vec3f(1);
+    //step 1
+    tesselate(shp,1,tes);
+
+    //step 2
+    std::vector<ym::vec3f> avg_v = std::vector<ym::vec3f>(shp->pos.size());
+    std::vector<ym::vec3f> avg_n = std::vector<ym::vec3f>(shp->pos.size());
+
+    ym::vec3f c;
+    for (int f = 0; f < tes.get_faces().size(); ++f) {
+      c = tes.get_faces().at(f).c;
+      for (int i = 0; i < 4; ++i) {
+        auto x = tes.get_quads().at(f).operator[](i);
+        avg_v.at(x) += c;
+        avg_n.at(x) += one;
+      }
+    }
+    for (int i = 0; i < avg_n.size(); ++i) {
+      //for (int i = 0; i < shp->pos.size(); ++i)
+      avg_v.at(i) /= avg_n.at(i);
+      //step 3
+      shp->pos.at(i) = shp->pos.at(i) + ( (avg_v.at(i) - shp->pos.at(i)) * (four / avg_n.at(i)) );
     }
   }
-  for(int i=0; i< avg_n.size(); ++i)
-    avg_v.at(i) /= avg_n.at(i);
-
-  //step 3
-  ym::vec3f four = ym::vec3f(4);
-  for(int i=0; i<shp->pos.size(); ++i)
-    shp->pos.at(i) += (avg_v.at(i)-shp->pos.at(i))*(four/avg_n.at(i));
-    //tes.get_vertices().at(i) +=
-      //  (avg_v.at(i)-tes.get_vertices().at(i))*(four/avg_n.at(i));
-
-
 }
 
 //

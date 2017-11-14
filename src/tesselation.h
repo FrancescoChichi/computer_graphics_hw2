@@ -17,7 +17,6 @@ struct tesselation {
 
   std::vector<face> faces;
   std::vector<ym::vec4i> quads;
-  std::map<ym::vec3f,int> vec_map;
 
 
   void add_face(ym::vec3f v0, ym::vec3f v1, ym::vec3f v2, ym::vec3f v3, ym::vec4i quad){
@@ -34,7 +33,6 @@ struct tesselation {
   void clear(){
     faces.clear();
     quads.clear();
-    vec_map.clear();
   }
 };
 #endif //GRAPHICS17B_HW02_TESSELATION_H
