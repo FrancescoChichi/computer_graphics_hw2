@@ -38,4 +38,4 @@ add_library(hwlib STATIC
     src/yocto_scn.cpp src/printData.h src/tesselation.h)
 
 add_executable(raytrace src/raytrace.cpp)
-target_link_libraries(raytrace hwlib)
+target_link_libraries(raytrace hwlib pthread)

@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/francesco/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /home/francesco/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/s1r/Desktop/computer_graphics_hw2
+CMAKE_SOURCE_DIR = /home/francesco/Documents/computer_graphics_hw2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/francesco/Documents/computer_graphics_hw2/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/raytrace.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug
 CMakeFiles/raytrace.dir/all: CMakeFiles/hwlib.dir/all
 	$(MAKE) -f CMakeFiles/raytrace.dir/build.make CMakeFiles/raytrace.dir/depend
 	$(MAKE) -f CMakeFiles/raytrace.dir/build.make CMakeFiles/raytrace.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles --progress-num=6,7 "Built target raytrace"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles --progress-num=6,7 "Built target raytrace"
 .PHONY : CMakeFiles/raytrace.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/raytrace.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/raytrace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/raytrace.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/raytrace.dir/rule
 
 # Convenience name for target.
@@ -103,7 +103,7 @@ clean: CMakeFiles/raytrace.dir/clean
 CMakeFiles/hwlib.dir/all:
 	$(MAKE) -f CMakeFiles/hwlib.dir/build.make CMakeFiles/hwlib.dir/depend
 	$(MAKE) -f CMakeFiles/hwlib.dir/build.make CMakeFiles/hwlib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target hwlib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target hwlib"
 .PHONY : CMakeFiles/hwlib.dir/all
 
 # Include target in all.
@@ -113,9 +113,9 @@ all: CMakeFiles/hwlib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hwlib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/hwlib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/hwlib.dir/rule
 
 # Convenience name for target.

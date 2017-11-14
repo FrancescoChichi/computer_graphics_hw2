@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/s1r/Desktop/computer_graphics_hw2/src/raytrace.cpp" "/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o"
+  "/home/francesco/Documents/computer_graphics_hw2/src/raytrace.cpp" "/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
@@ -14,7 +14,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/DependInfo.cmake"
+  "/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

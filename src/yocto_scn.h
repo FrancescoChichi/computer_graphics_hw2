@@ -95,7 +95,7 @@ namespace yscn {}
 
 #include "yocto_math.h"
 
-#include <string>
+#include <cstring>
 #include <vector>
 
 ///

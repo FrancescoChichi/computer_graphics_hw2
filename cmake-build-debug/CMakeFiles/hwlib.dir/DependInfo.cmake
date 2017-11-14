@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_gltf.cpp" "/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o"
-  "/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_img.cpp" "/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o"
-  "/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_obj.cpp" "/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o"
-  "/Users/s1r/Desktop/computer_graphics_hw2/src/yocto_scn.cpp" "/Users/s1r/Desktop/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o"
+  "/home/francesco/Documents/computer_graphics_hw2/src/yocto_gltf.cpp" "/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o"
+  "/home/francesco/Documents/computer_graphics_hw2/src/yocto_img.cpp" "/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o"
+  "/home/francesco/Documents/computer_graphics_hw2/src/yocto_obj.cpp" "/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o"
+  "/home/francesco/Documents/computer_graphics_hw2/src/yocto_scn.cpp" "/home/francesco/Documents/computer_graphics_hw2/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

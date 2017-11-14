@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/raytrace.dir/src/raytrace.cpp.o  -o ../bin/raytrace ../bin/libhwlib.a -lpthread 

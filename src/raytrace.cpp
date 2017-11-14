@@ -537,6 +537,7 @@ void catmull_clark(yscn::shape* shp, int level) {
 //
 yscn::shape* make_hair(
     const yscn::shape* shp, int nhair, float length, float radius) {
+nhair=1000;
   auto hair = new yscn::shape();
   /* ym::sample_triangles_points((int)shp->triangles.size(), shp->triangles.data(),
                                shp->pos.data(), shp->norm.data(), shp->texcoord.data(),
@@ -544,19 +545,16 @@ yscn::shape* make_hair(
   /*ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, (int)shp->pos.size(),
                               hair->pos, hair->norm, hair->texcoord, 0);*/
 
-  ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, (int)shp->pos.size(),
+  ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, nhair,
                               hair->pos, hair->norm, hair->texcoord, 0);
 
-  hair->pos.resize(nhair);
-  hair->norm.resize(nhair);
-  hair->texcoord.resize(nhair);
   hair->radius=std::vector<float>(nhair,radius);
 
   for(int i=0;i<nhair;++i){
-    ym::vec3f p = hair->norm.at(i)*ym::vec3f(length);
+    ym::vec3f p = hair->pos[i] + (ym::vec3f(length));
     hair->pos.push_back(p);
-    hair->norm.push_back(hair->norm.at(i));
-    hair->texcoord.push_back(hair->texcoord.at(i));
+    hair->norm.push_back(hair->norm[i]);
+    hair->texcoord.push_back(hair->texcoord[i]);
 
     hair->lines.push_back(ym::vec2i(i,hair->pos.size()-i));
   }

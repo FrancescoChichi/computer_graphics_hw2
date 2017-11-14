@@ -1,0 +1,4 @@
+/home/francesco/Documents/computer_graphics_hw2/build_ubuntu/CMakeFiles/edit_cache.dir
+/home/francesco/Documents/computer_graphics_hw2/build_ubuntu/CMakeFiles/rebuild_cache.dir
+/home/francesco/Documents/computer_graphics_hw2/build_ubuntu/CMakeFiles/hwlib.dir
+/home/francesco/Documents/computer_graphics_hw2/build_ubuntu/CMakeFiles/raytrace.dir
