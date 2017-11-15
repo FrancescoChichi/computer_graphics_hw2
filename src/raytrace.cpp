@@ -498,8 +498,7 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 void catmull_clark(yscn::shape* shp, int level) {
 
   tesselation tes;
-  ym::vec3f four = ym::vec3f(4);
-  ym::vec3f one = ym::vec3f(1);
+
   for(int j=0;j<level;++j) {
 
     //step 1
@@ -507,7 +506,7 @@ void catmull_clark(yscn::shape* shp, int level) {
 
     //step 2
     std::vector<ym::vec3f> avg_v = std::vector<ym::vec3f>(shp->pos.size());
-    std::vector<ym::vec3f> avg_n = std::vector<ym::vec3f>(shp->pos.size());
+    std::vector<int> avg_n = std::vector<int>(shp->pos.size());
 
     ym::vec3f c;
     for (int f = 0; f < tes.get_faces().size(); ++f) {
@@ -515,14 +514,14 @@ void catmull_clark(yscn::shape* shp, int level) {
       for (int i = 0; i < 4; ++i) {
         auto x = tes.get_quads().at(f).operator[](i);
         avg_v.at(x) += c;
-        avg_n.at(x) += one;
+        avg_n.at(x) += 1;
       }
     }
     for (int i = 0; i < avg_n.size(); ++i) {
       //for (int i = 0; i < shp->pos.size(); ++i)
-      avg_v.at(i) /= avg_n.at(i);
+      avg_v.at(i) = avg_v[i]*(1.0f/avg_n[i]);
       //step 3
-      shp->pos.at(i) += (avg_v.at(i) - shp->pos.at(i)) * (four / avg_n.at(i));
+      shp->pos.at(i) += (avg_v[i] - shp->pos[i]) * (4.0f / avg_n[i]);
     }
   }
 }
@@ -578,9 +577,11 @@ yscn::shape* make_curves(
   auto hair = new yscn::shape();
   ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, ncurve,
                               hair->pos, hair->norm, hair->texcoord, 0);
-  hair->radius=std::vector<float>(ncurve,radius);
+  hair->radius=std::vector<float>(2*ncurve,radius);
+  std::vector<std::array<ym::vec3f, 4>> curves;
   for(int i=0;i<ncurve;++i){
-    make_rnd_curve(hair->pos.at(i), hair->norm.at(i));
+    curves.push_back(make_rnd_curve(hair->pos.at(i), hair->norm.at(i)));
+
   }
   return hair;
 }
