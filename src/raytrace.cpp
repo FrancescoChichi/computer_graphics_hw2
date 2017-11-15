@@ -537,32 +537,19 @@ void catmull_clark(yscn::shape* shp, int level) {
 //
 yscn::shape* make_hair(
     const yscn::shape* shp, int nhair, float length, float radius) {
-nhair=1000;
   auto hair = new yscn::shape();
-  /* ym::sample_triangles_points((int)shp->triangles.size(), shp->triangles.data(),
-                               shp->pos.data(), shp->norm.data(), shp->texcoord.data(),
-                               (int)shp->pos.size(), hair->pos.data(), hair->norm.data(), hair->texcoord.data(), 0);*/
-  /*ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, (int)shp->pos.size(),
-                              hair->pos, hair->norm, hair->texcoord, 0);*/
 
   ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, nhair,
                               hair->pos, hair->norm, hair->texcoord, 0);
 
   hair->radius=std::vector<float>(nhair,radius);
-
   for(int i=0;i<nhair;++i){
-    ym::vec3f p = hair->pos[i] + (ym::vec3f(length));
+    ym::vec3f p =hair->pos[i]+(hair->norm[i]*length);
     hair->pos.push_back(p);
     hair->norm.push_back(hair->norm[i]);
     hair->texcoord.push_back(hair->texcoord[i]);
-
-    hair->lines.push_back(ym::vec2i(i,hair->pos.size()-i));
+    hair->lines.push_back(ym::vec2i({i,(int)hair->pos.size()-1}));
   }
-
-
-
-  //hair->bvh=ym::build_lines_bvh(hair->lines, hair->pos,std::vector<float>(hair->pos.size(),radius));
-
   return hair;
 }
 
@@ -589,7 +576,12 @@ inline std::array<ym::vec3f, 4> make_rnd_curve(
 yscn::shape* make_curves(
     const yscn::shape* shp, int ncurve, int nsegs, float radius) {
   auto hair = new yscn::shape();
-  // YOUR CODE GOES HERE
+  ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, ncurve,
+                              hair->pos, hair->norm, hair->texcoord, 0);
+  hair->radius=std::vector<float>(ncurve,radius);
+  for(int i=0;i<ncurve;++i){
+    make_rnd_curve(hair->pos.at(i), hair->norm.at(i));
+  }
   return hair;
 }
 
