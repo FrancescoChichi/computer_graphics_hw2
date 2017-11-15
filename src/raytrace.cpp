@@ -590,7 +590,7 @@ inline void split_curve(const std::array<ym::vec3f, 4> curve,std::vector<std::ar
   std::vector<std::array<ym::vec3f, 4>> ns;
   ns.push_back(curveL);
   ns.push_back(curveR);
-  //nsegs -= 2;
+
   if(nsegs<=2)
     splitted->insert(splitted->end(),ns.begin(),ns.end());
   else{
@@ -602,8 +602,6 @@ inline void split_curve(const std::array<ym::vec3f, 4> curve,std::vector<std::ar
 
     nsL.insert(nsL.end(),nsR.begin(),nsR.end());
     splitted->insert(splitted->end(),nsL.begin(),nsL.end());
-    //({split_curve(curveL,nsegs)[0],split_curve(curveL,nsegs)[1],split_curve(curveR,nsegs)[0],split_curve(curveR,nsegs)[1]});
-
   }
 };
 //
@@ -614,28 +612,38 @@ inline void split_curve(const std::array<ym::vec3f, 4> curve,std::vector<std::ar
 //
 yscn::shape* make_curves(
     const yscn::shape* shp, int ncurve, int nsegs, float radius) {
+
   auto hair = new yscn::shape();
   ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, ncurve,
                               hair->pos, hair->norm, hair->texcoord, 0);
   hair->radius=std::vector<float>(2*ncurve,radius);
 
+  std::vector<ym::vec3f> pos;
+  std::vector<ym::vec3f> norm;
+  std::vector<ym::vec2f> texcoord;
+
   for(int i=0;i<ncurve;++i){
     auto c = make_rnd_curve(hair->pos.at(i), hair->norm.at(i));
     std::vector<std::array<ym::vec3f, 4>> splitted ;
-    split_curve(c,&splitted,nsegs);
+    split_curve(c,&splitted,nsegs/2);
+    auto s = splitted.size();
     for(auto sc:splitted){
-      hair->pos.push_back(sc[0]);
-      hair->pos.push_back(sc[1]);
-      hair->lines.push_back(ym::vec2i({(int)hair->pos.size()-2,(int)hair->pos.size()-1}));
-      hair->pos.push_back(sc[2]);
-      hair->pos.push_back(sc[3]);
-      hair->lines.push_back(ym::vec2i({(int)hair->pos.size()-2,(int)hair->pos.size()-1}));
+      pos.push_back(sc[0]);
+      pos.push_back(sc[1]);
+      hair->lines.push_back(ym::vec2i({(int)pos.size()-2,(int)pos.size()-1}));
+      pos.push_back(sc[2]);
+      pos.push_back(sc[3]);
+      hair->lines.push_back(ym::vec2i({(int)pos.size()-2,(int)pos.size()-1}));
       for (int j = 0; j < 4; ++j) {
-        hair->texcoord.push_back(hair->texcoord[i]);
-        hair->norm.push_back(hair->norm[i]);
+        texcoord.push_back(hair->texcoord[i]);
+        norm.push_back(hair->norm[i]);
       }
     }
   }
+
+  hair->pos=pos;
+  hair->norm=norm;
+  hair->texcoord=texcoord;
 
 
   return hair;

@@ -15,7 +15,6 @@
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="ck">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/simple_curve.png" afterPath="$PROJECT_DIR$/out/simple_curve.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="629" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="797" selection-end-column="0" />
+            <state relative-caret-position="260">
+              <caret line="638" column="38" lean-forward="true" selection-start-line="638" selection-start-column="38" selection-end-line="638" selection-end-column="38" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#162#565#0" expanded="false" />
@@ -48,8 +47,18 @@
                 <element signature="e#12549#13105#0" expanded="false" />
                 <element signature="e#13108#17678#0" expanded="false" />
                 <element signature="e#17680#18821#0" expanded="false" />
-                <element signature="e#23014#28530#0" expanded="false" />
+                <element signature="e#23005#28521#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="yocto_scn.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="286" column="0" lean-forward="false" selection-start-line="286" selection-start-column="0" selection-end-line="290" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,7 +126,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="51" />
     <option name="y" value="-4" />
     <option name="width" value="935" />
@@ -210,12 +219,12 @@
       <workItem from="1510760516155" duration="2624000" />
       <workItem from="1510764367978" duration="3282000" />
       <workItem from="1510772545573" duration="1948000" />
-      <workItem from="1510775036599" duration="6172000" />
+      <workItem from="1510775036599" duration="8455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185565000" />
+    <option name="totallyTimeSpent" value="187848000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -227,7 +236,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="-4" width="1871" height="1092" extended-state="7" />
+    <frame x="51" y="-4" width="1871" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16180556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -283,14 +292,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/raytrace.cpp</url>
-          <line>638</line>
-          <option name="timeStamp" value="105" />
+          <line>647</line>
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="106" />
+      <option name="time" value="113" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -299,6 +308,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40040">
           <caret line="1540" column="39" lean-forward="false" selection-start-line="1540" selection-start-column="39" selection-end-line="1540" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -649,7 +659,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -666,6 +676,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40040">
           <caret line="1540" column="39" lean-forward="false" selection-start-line="1540" selection-start-column="39" selection-end-line="1540" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,7 +1027,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1033,6 +1044,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40040">
           <caret line="1540" column="39" lean-forward="false" selection-start-line="1540" selection-start-column="39" selection-end-line="1540" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,7 +1395,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1407,6 +1419,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46410">
           <caret line="1785" column="65" lean-forward="false" selection-start-line="1785" selection-start-column="59" selection-end-line="1785" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1757,7 +1770,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1781,6 +1794,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46410">
           <caret line="1785" column="65" lean-forward="false" selection-start-line="1785" selection-start-column="59" selection-end-line="1785" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2131,7 +2145,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2148,6 +2162,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46410">
           <caret line="1785" column="65" lean-forward="false" selection-start-line="1785" selection-start-column="59" selection-end-line="1785" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2498,7 +2513,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2872,7 +2887,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3246,7 +3261,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3617,13 +3632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="613">
           <caret line="1523" column="1" lean-forward="true" selection-start-line="1523" selection-start-column="1" selection-end-line="1523" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="278" column="25" lean-forward="false" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -3636,10 +3644,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="286" column="0" lean-forward="false" selection-start-line="286" selection-start-column="0" selection-end-line="290" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="629" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="797" selection-end-column="0" />
+        <state relative-caret-position="260">
+          <caret line="638" column="38" lean-forward="true" selection-start-line="638" selection-start-column="38" selection-end-line="638" selection-end-column="38" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#162#565#0" expanded="false" />
@@ -3655,7 +3671,7 @@
             <element signature="e#12549#13105#0" expanded="false" />
             <element signature="e#13108#17678#0" expanded="false" />
             <element signature="e#17680#18821#0" expanded="false" />
-            <element signature="e#23014#28530#0" expanded="false" />
+            <element signature="e#23005#28521#0" expanded="false" />
           </folding>
         </state>
       </provider>
