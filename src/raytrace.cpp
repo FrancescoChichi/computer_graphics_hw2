@@ -616,7 +616,6 @@ yscn::shape* make_curves(
   auto hair = new yscn::shape();
   ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, ncurve,
                               hair->pos, hair->norm, hair->texcoord, 0);
-  hair->radius=std::vector<float>(2*ncurve,radius);
 
   std::vector<ym::vec3f> pos;
   std::vector<ym::vec3f> norm;
@@ -644,6 +643,7 @@ yscn::shape* make_curves(
   hair->pos=pos;
   hair->norm=norm;
   hair->texcoord=texcoord;
+  hair->radius=std::vector<float>(hair->pos.size(),radius);
 
 
   return hair;
