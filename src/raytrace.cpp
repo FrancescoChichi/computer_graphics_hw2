@@ -566,8 +566,48 @@ inline std::array<ym::vec3f, 4> make_rnd_curve(
   return {{v0, v1, v2, v3}};
 }
 
+inline void split_curve(const std::array<ym::vec3f, 4> curve,std::vector<std::array<ym::vec3f, 4>>* splitted, int nsegs){
+  std::array<ym::vec3f, 4> curveL;
+  std::array<ym::vec3f, 4> curveR;
+
+  auto v12 = (curve[0]+curve[2])/2.0f;
+  auto v23 = (curve[1]+curve[2])/2.0f;
+  auto v34 = (curve[2]+curve[3])/2.0f;
+  auto v123 = (v12+v23)/2.0f;
+  auto v234 = (v23+v34)/2.0f;
+  auto v1234 = (v123+v234)/2.0f;
+
+  curveL[0]=curve[0];
+  curveL[1]=v12;
+  curveL[2]=v123;
+  curveL[3]=v1234;
+
+  curveR[0]=v1234;
+  curveR[1]=v234;
+  curveR[2]=v34;
+  curveR[3]=curve[3];
+
+  std::vector<std::array<ym::vec3f, 4>> ns;
+  ns.push_back(curveL);
+  ns.push_back(curveR);
+  //nsegs -= 2;
+  if(nsegs<=2)
+    splitted->insert(splitted->end(),ns.begin(),ns.end());
+  else{
+    std::vector<std::array<ym::vec3f, 4>> nsL;
+    std::vector<std::array<ym::vec3f, 4>> nsR;
+
+    split_curve(curveL, &nsL, nsegs/2);
+    split_curve(curveR, &nsR, nsegs/2);
+
+    nsL.insert(nsL.end(),nsR.begin(),nsR.end());
+    splitted->insert(splitted->end(),nsL.begin(),nsL.end());
+    //({split_curve(curveL,nsegs)[0],split_curve(curveL,nsegs)[1],split_curve(curveR,nsegs)[0],split_curve(curveR,nsegs)[1]});
+
+  }
+};
 //
-// Add ncurve Bezier curves to the shape. Each curcve should be sampled with
+// Add ncurve Bezier curves to the shape. Each curve should be sampled with
 // `ym::sample_triangles_points()` and then created using `make_rnd_curve()`.
 // The curve is then tesselated as lines using uniform subdivision with `nsegs`
 // segments per curve. the final shape contains all tesselated curves as lines.
@@ -578,19 +618,26 @@ yscn::shape* make_curves(
   ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, ncurve,
                               hair->pos, hair->norm, hair->texcoord, 0);
   hair->radius=std::vector<float>(2*ncurve,radius);
-  std::vector<std::array<ym::vec3f, 4>> curves;
+
   for(int i=0;i<ncurve;++i){
     auto c = make_rnd_curve(hair->pos.at(i), hair->norm.at(i));
-    for(int j=0; j<4; j++){
-      std::array<ym::vec3f, 4> a;
-      a.at(0)=c.at(j);
-      a.at(1)=(c.at(j)+c.at(j+1))*(1/4);
-      a.at(2)=(c.at(j)+c.at(j+1))*(3/4);
-      a.at(3)=c.at(j+1);
-      curves.push_back(a);
-
+    std::vector<std::array<ym::vec3f, 4>> splitted ;
+    split_curve(c,&splitted,nsegs);
+    for(auto sc:splitted){
+      hair->pos.push_back(sc[0]);
+      hair->pos.push_back(sc[1]);
+      hair->lines.push_back(ym::vec2i({(int)hair->pos.size()-2,(int)hair->pos.size()-1}));
+      hair->pos.push_back(sc[2]);
+      hair->pos.push_back(sc[3]);
+      hair->lines.push_back(ym::vec2i({(int)hair->pos.size()-2,(int)hair->pos.size()-1}));
+      for (int j = 0; j < 4; ++j) {
+        hair->texcoord.push_back(hair->texcoord[i]);
+        hair->norm.push_back(hair->norm[i]);
+      }
     }
   }
+
+
   return hair;
 }
 
