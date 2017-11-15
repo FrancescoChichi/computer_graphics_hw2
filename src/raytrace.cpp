@@ -580,8 +580,16 @@ yscn::shape* make_curves(
   hair->radius=std::vector<float>(2*ncurve,radius);
   std::vector<std::array<ym::vec3f, 4>> curves;
   for(int i=0;i<ncurve;++i){
-    curves.push_back(make_rnd_curve(hair->pos.at(i), hair->norm.at(i)));
+    auto c = make_rnd_curve(hair->pos.at(i), hair->norm.at(i));
+    for(int j=0; j<4; j++){
+      std::array<ym::vec3f, 4> a;
+      a.at(0)=c.at(j);
+      a.at(1)=(c.at(j)+c.at(j+1))*(1/4);
+      a.at(2)=(c.at(j)+c.at(j+1))*(3/4);
+      a.at(3)=c.at(j+1);
+      curves.push_back(a);
 
+    }
   }
   return hair;
 }
