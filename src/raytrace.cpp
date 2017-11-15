@@ -542,7 +542,7 @@ yscn::shape* make_hair(
   ym::sample_triangles_points(shp->triangles, shp->pos, shp->norm, shp->texcoord, nhair,
                               hair->pos, hair->norm, hair->texcoord, 0);
 
-  hair->radius=std::vector<float>(nhair,radius);
+  hair->radius=std::vector<float>(2*nhair,radius);
   for(int i=0;i<nhair;++i){
     ym::vec3f p =hair->pos[i]+(hair->norm[i]*length);
     hair->pos.push_back(p);
