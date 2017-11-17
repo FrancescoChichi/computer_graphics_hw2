@@ -4082,6 +4082,13 @@ namespace ym {
       return eid;
     }
 
+    bool contain(const vec2i& e) {
+      auto ee = vec2i{min(e.x, e.y), max(e.x, e.y)};
+      auto it = _map.find(ee);
+      return (it != _map.end());
+    }
+
+
     /// add an edge to the edge map if not already present
     int operator[](const vec2i& e) { return add_edge(e); }
 

@@ -2,6 +2,8 @@
 
 #ifndef GRAPHICS17B_HW02_TESSELATION_H
 #define GRAPHICS17B_HW02_TESSELATION_H
+namespace ts{
+
 struct face {
   ym::vec3f v[4];
   ym::vec3f c;
@@ -35,4 +37,6 @@ struct tesselation {
     quads.clear();
   }
 };
+
+}
 #endif //GRAPHICS17B_HW02_TESSELATION_H
