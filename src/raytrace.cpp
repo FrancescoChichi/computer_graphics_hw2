@@ -211,27 +211,13 @@ ym::image4f raytrace_mt(const yscn::scene* scn, const ym::vec3f& amb,
 //
 void displace(yscn::shape* shp, float scale) {
 
-  scale=0.25f;
   auto tex = shp->mat->disp_txt.txt;
-
-  for(auto q:shp->quads)
-  {
-    shp->pos[q.x]+=((eval_texture(tex,shp->texcoord[q.x])).xyz()*scale)*shp->norm[q.x];
-    shp->pos[q.y]+=((eval_texture(tex,shp->texcoord[q.y])).xyz()*scale)*shp->norm[q.y];
-    shp->pos[q.z]+=((eval_texture(tex,shp->texcoord[q.z])).xyz()*scale)*shp->norm[q.z];
-    shp->pos[q.w]+=((eval_texture(tex,shp->texcoord[q.w])).xyz()*scale)*shp->norm[q.w];
-  }
-
+  for(int i=0;i<shp->pos.size();++i)
+    shp->pos[i]+=((eval_texture(tex,shp->texcoord[i])).xyz()*scale)*shp->norm[i];
   ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
-
 }
 
-void add_triangle(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3f,int>* vec_map){
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at(vp[0]),vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),vec_map->at(vp[1]),vec_map->at((vp[1]+vp[2])/ym::vec3f(2))}));
-  new_shp->triangles.push_back(ym::vec3i({vec_map->at((vp[0]+vp[2])/ym::vec3f(2)),vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),vec_map->at(vp[2])}));
-}
+
 void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3f,int>* vec_map, ym::vec3f poseC, tesselation* t, bool deg=false){
   if(!deg){
     new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
@@ -325,6 +311,7 @@ void add_edge(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
 }
 
 
+
 //
 // Linear tesselation thta split each triangle in 4 triangles and each quad in
 // four quad. Vertices are placed in teh middle of edges and faces. See slides
@@ -350,7 +337,6 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
   ym::vec3f poseC;
   ym::vec2f texC;
 
-  int vn=4;
   int total_pos = 0;
 
   bool deg;
@@ -365,19 +351,19 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
       vec_map.clear();
       total_pos = 0;
 
-      new_shp.pos.resize(shp->pos.size()*(vn+1));
+      new_shp.pos.resize(shp->pos.size()*4+1);
 
 
       if(tex) {
-        new_shp.texcoord.resize(shp->pos.size()*(vn+1));
-        tx.resize(shp->texcoord.size()*vn +1);
+        new_shp.texcoord.resize(shp->pos.size()*4+1);
+        tx.resize(shp->texcoord.size()*4 +1);
       }
 
       for (int i = 0; i <shp->quads.size(); ++i) {
 
         poseC = ym::vec3f();
         texC = ym::vec2f();
-        for (int j = 0; j < vn; ++j) {
+        for (int j = 0; j < 4; ++j) {
           vp.at(j)=shp->pos[shp->quads.at(i).operator[](j)];
           if(tex)
             tx.at(j)=shp->texcoord[shp->quads.at(i).operator[](j)];
@@ -387,9 +373,9 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
             texC+=tx[j];
         }
 
-        poseC/=ym::vec3f(4);
+        poseC*=1.0f/4;
         if(tex)
-          texC/=ym::vec2f(4);
+          texC*=1.0f/4;
 
         //add centroid
         vec_map[poseC]=total_pos;
@@ -397,10 +383,13 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 
         deg=shp->quads.at(i).z == shp->quads.at(i).w;
         int skip=1;
+        int vn = 4;
         for (int j = 0; j < 4; ++j) {
 
-          if(deg)
+          if(deg){
             (j < 2 ? skip=1 : skip=2);
+            vn = 3;
+          }
 
           //add corner vertex
           if(vec_map[vp[j]]==0) {
@@ -425,7 +414,7 @@ void tesselate(yscn::shape* shp, int level, tesselation &tes) {
 
         }
 
-        add_quad(&new_shp, vp, &vec_map,poseC,&tes, deg);
+        add_quad(&new_shp, vp, &vec_map, poseC, &tes, deg);
 
       }//*******fine quad***********
       shp->quads=new_shp.quads;
@@ -472,12 +461,12 @@ void catmull_clark(yscn::shape* shp, int level) {
         avg_n.at(x) += 1;
       }
     }
-    for (int i = 0; i < avg_n.size(); ++i) {
-      //for (int i = 0; i < shp->pos.size(); ++i)
-      avg_v.at(i) = avg_v[i]*(1.0f/avg_n[i]);
-      //step 3
-      shp->pos.at(i) += (avg_v[i] - shp->pos[i]) * (4.0f / avg_n[i]);
-    }
+    for (int i = 0; i < avg_n.size(); ++i)
+      shp->pos.at(i) = avg_v[i]*(1.0f/avg_n[i]);
+
+    //step 3
+//    for (int i = 0; i < avg_n.size(); ++i)
+//      shp->pos.at(i) += (avg_v[i] - shp->pos[i]) * (4.0f / avg_n[i]);
   }
 }
 

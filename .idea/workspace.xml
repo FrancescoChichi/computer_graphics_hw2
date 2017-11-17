@@ -15,6 +15,8 @@
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="ck">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" afterPath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
     </list>
@@ -31,8 +33,8 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="440" column="0" lean-forward="true" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+            <state relative-caret-position="92">
+              <caret line="283" column="9" lean-forward="false" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#162#565#0" expanded="false" />
@@ -41,6 +43,10 @@
                 <element signature="e#1857#4850#0" expanded="false" />
                 <element signature="e#4852#5907#0" expanded="false" />
                 <element signature="e#5909#7307#0" expanded="false" />
+                <element signature="e#16435#17514#0" expanded="false" />
+                <element signature="e#17516#18094#0" expanded="false" />
+                <element signature="e#18096#19120#0" expanded="false" />
+                <element signature="e#19122#20623#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -50,8 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pose_map</find>
-      <find>nr</find>
       <find>faces</find>
       <find>tangent</find>
       <find>4</find>
@@ -64,7 +68,6 @@
       <find>resize</find>
       <find>check</find>
       <find>total_pos</find>
-      <find>add_edge</find>
       <find>level</find>
       <find>catmull_clark</find>
       <find>add_face</find>
@@ -80,6 +83,9 @@
       <find>radius</find>
       <find>hair</find>
       <find>subdivision</find>
+      <find>vn</find>
+      <find>compute_</find>
+      <find>add_edge</find>
     </findStrings>
     <replaceStrings>
       <replace>new_shp-&gt;</replace>
@@ -147,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.disp">
+  <component name="RunManager" selected="Application.cube_smooth">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
@@ -214,12 +220,16 @@
       <workItem from="1510789226194" duration="680000" />
       <workItem from="1510789927655" duration="664000" />
       <workItem from="1510840643813" duration="2900000" />
-      <workItem from="1510850200037" duration="175000" />
+      <workItem from="1510850200037" duration="1053000" />
+      <workItem from="1510851270026" duration="152000" />
+      <workItem from="1510851838688" duration="87000" />
+      <workItem from="1510852813553" duration="1528000" />
+      <workItem from="1510855016120" duration="1242000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193325000" />
+    <option name="totallyTimeSpent" value="197212000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -232,27 +242,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="346" y="-4" width="1871" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16180556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30674848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28732106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30674848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28732106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -287,18 +296,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="116" />
+      <option name="time" value="118" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7228">
-          <caret line="278" column="25" lean-forward="false" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/yocto_scn.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40040">
@@ -325,6 +327,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -362,6 +368,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -406,6 +416,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -450,6 +464,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -487,6 +505,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -532,6 +554,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -576,6 +602,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -611,13 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="4103" column="4" lean-forward="true" selection-start-line="4103" selection-start-column="3" selection-end-line="4103" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -663,10 +686,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9210">
+          <caret line="3869" column="22" lean-forward="false" selection-start-line="3869" selection-start-column="14" selection-end-line="3869" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/subdiv_cube_faceted.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="440" column="0" lean-forward="true" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+        <state relative-caret-position="92">
+          <caret line="283" column="9" lean-forward="false" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#162#565#0" expanded="false" />
@@ -675,6 +710,10 @@
             <element signature="e#1857#4850#0" expanded="false" />
             <element signature="e#4852#5907#0" expanded="false" />
             <element signature="e#5909#7307#0" expanded="false" />
+            <element signature="e#16435#17514#0" expanded="false" />
+            <element signature="e#17516#18094#0" expanded="false" />
+            <element signature="e#18096#19120#0" expanded="false" />
+            <element signature="e#19122#20623#0" expanded="false" />
           </folding>
         </state>
       </provider>
