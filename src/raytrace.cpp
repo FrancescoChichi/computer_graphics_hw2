@@ -220,18 +220,18 @@ void displace(yscn::shape* shp, float scale) {
 void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3f,int>* vec_map, ym::vec3f poseC, ts::tesselation* t, bool deg=false){
   if(!deg){
     new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
-                                        vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
+                                        vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
                                         vec_map->at(poseC),
-                                        vec_map->at((vp[0]+vp[3])/ym::vec3f(2))}));
+                                        vec_map->at((vp[0]+vp[3]) * (1.0f/2))}));
     t->add_face(vp[0],
                 (vp[0]+vp[1]/ym::vec3f(2)),
                 poseC,
                 (vp[0]+vp[3]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
                                         vec_map->at(vp[1]),
-                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
                                         vec_map->at(poseC)}));
     t->add_face((vp[0]+vp[1]/ym::vec3f(2)),
                 vp[1],
@@ -240,18 +240,18 @@ void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3
                 new_shp->quads.back());
 
     new_shp->quads.push_back(ym::vec4i({vec_map->at(poseC),
-                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
                                         vec_map->at(vp[2]),
-                                        vec_map->at((vp[2]+vp[3])/ym::vec3f(2))}));
+                                        vec_map->at((vp[2]+vp[3]) * (1.0f/2))}));
     t->add_face(poseC,
                 (vp[1]+vp[2]/ym::vec3f(2)),
                 vp[2],
                 (vp[2]+vp[3]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[3])/ym::vec3f(2)),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[3]) * (1.0f/2)),
                                         vec_map->at(poseC),
-                                        vec_map->at((vp[2]+vp[3])/ym::vec3f(2)),
+                                        vec_map->at((vp[2]+vp[3]) * (1.0f/2)),
                                         vec_map->at(vp[3])}));
     t->add_face((vp[0]+vp[3]/ym::vec3f(2)),
                 poseC,
@@ -261,18 +261,18 @@ void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3
   }
   else{
     new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
-                                        vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
+                                        vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
                                         vec_map->at(poseC),
-                                        vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
+                                        vec_map->at((vp[0]+vp[2]) * (1.0f/2))}));
     t->add_face(vp[0],
                 (vp[0]+vp[1]/ym::vec3f(2)),
                 poseC,
                 (vp[0]+vp[2]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1])/ym::vec3f(2)),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
                                         vec_map->at(vp[1]),
-                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
                                         vec_map->at(poseC)}));
     t->add_face((vp[0]+vp[1]/ym::vec3f(2)),
                 vp[1],
@@ -281,9 +281,9 @@ void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3
                 new_shp->quads.back());
 
     new_shp->quads.push_back(ym::vec4i({vec_map->at(poseC),
-                                        vec_map->at((vp[1]+vp[2])/ym::vec3f(2)),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
                                         vec_map->at(vp[2]),
-                                        vec_map->at((vp[0]+vp[2])/ym::vec3f(2))}));
+                                        vec_map->at((vp[0]+vp[2]) * (1.0f/2))}));
     t->add_face(poseC,
                 (vp[1]+vp[2]/ym::vec3f(2)),
                 vp[2],
@@ -303,9 +303,9 @@ void add_corner(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
 void add_edge(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
               std::vector<ym::vec3f> vp,std::vector<ym::vec2f> tx,
               int j, int skip, int total_pos, int vn) {
-  new_shp->pos.at(vec_map->at((vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2))) = (vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2);
+  new_shp->pos.at(vec_map->at((vp[j] + vp[(j + skip) % vn])  * (1.0f/2))) = (vp[j] + vp[(j + skip) % vn]) * (1.0f/2);
   if(!new_shp->texcoord.empty())
-    new_shp->texcoord.at(vec_map->at((vp[j] + vp[(j + skip) % vn]) / ym::vec3f(2))) = (tx[j] + tx[(j + skip) % vn]) / ym::vec2f(2);
+    new_shp->texcoord.at(vec_map->at((vp[j] + vp[(j + skip) % vn])  * (1.0f/2))) = (tx[j] + tx[(j + skip) % vn])  * (1.0f/2);
 }
 
 
@@ -373,12 +373,15 @@ void tesselate(yscn::shape* shp, int level, ts::tesselation &tes) {
             texC+=tx[j];
         }
 
-        poseC/=ym::vec3f(4);
+        poseC *= 1.0f/4;
         if(tex)
-          texC/=ym::vec2f(4);
+          texC*= 1.0f/4;
 
         //add centroid
         vec_map[poseC]=total_pos;
+        new_shp.pos.at(vec_map[poseC])=poseC;
+        if(tex)
+          new_shp.texcoord.at(vec_map[poseC])=texC;
         ++total_pos;
 
         deg=shp->quads.at(i).z == shp->quads.at(i).w;
@@ -417,9 +420,6 @@ void tesselate(yscn::shape* shp, int level, ts::tesselation &tes) {
             ++total_pos;
           }
 
-          new_shp.pos.at(vec_map[poseC])=poseC;
-          if(tex)
-            new_shp.texcoord.at(vec_map[poseC])=texC;
 
         }
 
@@ -471,8 +471,8 @@ void catmull_clark(yscn::shape* shp, int level) {
       }
     }
     for (int i = 0; i < avg_n.size(); ++i){
-      avg_v[i] = avg_v[i]*(1.0f/avg_n[i]);
-      shp->pos.at(i) += (avg_v[i] - shp->pos[i]) * (4.0f / avg_n[i]);
+      shp->pos.at(i) = avg_v[i]*(1.0f/avg_n[i]);
+//      shp->pos.at(i) += (avg_v[i] - shp->pos[i]) * (4.0f / avg_n[i]);
     }
 
     //step 3

@@ -12,7 +12,7 @@ struct face {
     v[1]=v1;
     v[2]=v2;
     v[3]=v3;
-    c=(v0+v1+v2+v3)/ym::vec3f(4);
+    c=(v0+v1+v2+v3) * (1.0f/4);
   }
 };
 struct tesselation {
