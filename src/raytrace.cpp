@@ -222,41 +222,41 @@ void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3
     new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
                                         vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
                                         vec_map->at(poseC),
-                                        vec_map->at((vp[0]+vp[3]) * (1.0f/2))}));
+                                        vec_map->at((vp[3]+vp[0]) * (1.0f/2))}));
     t->add_face(vp[0],
                 (vp[0]+vp[1]/ym::vec3f(2)),
                 poseC,
-                (vp[0]+vp[3]/ym::vec3f(2)),
+                (vp[3]+vp[0]/ym::vec3f(2)),
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
-                                        vec_map->at(vp[1]),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[1]),
                                         vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
-                                        vec_map->at(poseC)}));
-    t->add_face((vp[0]+vp[1]/ym::vec3f(2)),
-                vp[1],
-                (vp[1]+vp[2]/ym::vec3f(2)),
-                poseC,
-                new_shp->quads.back());
-
-    new_shp->quads.push_back(ym::vec4i({vec_map->at(poseC),
-                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
-                                        vec_map->at(vp[2]),
-                                        vec_map->at((vp[2]+vp[3]) * (1.0f/2))}));
-    t->add_face(poseC,
-                (vp[1]+vp[2]/ym::vec3f(2)),
-                vp[2],
-                (vp[2]+vp[3]/ym::vec3f(2)),
-                new_shp->quads.back());
-
-    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[3]) * (1.0f/2)),
                                         vec_map->at(poseC),
+                                        vec_map->at((vp[0]+vp[1]) * (1.0f/2))}));
+    t->add_face(vp[1],
+                (vp[1]+vp[2]/ym::vec3f(2)),
+                poseC,
+                (vp[0]+vp[1]/ym::vec3f(2)),
+                new_shp->quads.back());
+
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[2]),
                                         vec_map->at((vp[2]+vp[3]) * (1.0f/2)),
-                                        vec_map->at(vp[3])}));
-    t->add_face((vp[0]+vp[3]/ym::vec3f(2)),
+                                        vec_map->at(poseC),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2))}));
+    t->add_face(vp[2],
+                (vp[2]+vp[3]/ym::vec3f(2)),
+                poseC,
+                (vp[1]+vp[2]/ym::vec3f(2)),
+                new_shp->quads.back());
+
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[3]),
+                                        vec_map->at((vp[3]+vp[0]) * (1.0f/2)),
+                                        vec_map->at(poseC),
+                                        vec_map->at((vp[2]+vp[3]) * (1.0f/2))}));
+    t->add_face(vp[3],
+                (vp[3]+vp[0]/ym::vec3f(2)),
                 poseC,
                 (vp[2]+vp[3]/ym::vec3f(2)),
-                vp[3],
                 new_shp->quads.back());
   }
   else{
@@ -280,14 +280,14 @@ void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3
                 poseC,
                 new_shp->quads.back());
 
-    new_shp->quads.push_back(ym::vec4i({vec_map->at(poseC),
+    new_shp->quads.push_back(ym::vec4i({vec_map->at((vp[0]+vp[2]) * (1.0f/2)),
+                                        vec_map->at(poseC),
                                         vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
-                                        vec_map->at(vp[2]),
-                                        vec_map->at((vp[0]+vp[2]) * (1.0f/2))}));
-    t->add_face(poseC,
+                                        vec_map->at(vp[2])}));
+    t->add_face((vp[0]+vp[2]/ym::vec3f(2)),
+                poseC,
                 (vp[1]+vp[2]/ym::vec3f(2)),
                 vp[2],
-                (vp[0]+vp[2]/ym::vec3f(2)),
                 new_shp->quads.back());
   }
 }
@@ -386,7 +386,7 @@ void tesselate(yscn::shape* shp, int level, ts::tesselation &tes) {
 
         deg=shp->quads.at(i).z == shp->quads.at(i).w;
         int skip=1;
-        for (int j = 0; j < 4; ++j) {
+        for (int j = 0; j < 3; ++j) {
 
           if(deg)
             (j < 2 ? skip=1 : skip=2);
@@ -407,15 +407,14 @@ void tesselate(yscn::shape* shp, int level, ts::tesselation &tes) {
           //add first edge vertex
           if(!edge_map.contain(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+skip)%vn]]))){
             edge_map.add_edge(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+skip)%vn]]));
-            vec_map[(vp[j] + vp[(j + skip) % vn])/ ym::vec3f(2)] = total_pos;
+            vec_map[(vp[j] + vp[(j + skip) % vn]) * (1.0f/2)] = total_pos;
             add_edge(&new_shp, &vec_map, vp, tx, j, skip, total_pos, vn);
             ++total_pos;
           }
-
           //add second edge vertex
           if(!edge_map.contain(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+(vn-skip))%vn]]))){
             edge_map.add_edge(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+(vn-skip))%vn]]));
-            vec_map[(vp[j] + vp[(j+(vn-skip))%vn])/ ym::vec3f(2)] = total_pos;
+            vec_map[(vp[j] + vp[(j+(vn-skip))%vn]) * (1.0f/2)] = total_pos;
             add_edge(&new_shp, &vec_map, vp, tx, j, vn-skip, total_pos, vn);
             ++total_pos;
           }
@@ -441,6 +440,87 @@ void tesselate(yscn::shape* shp, int level, ts::tesselation &tes) {
 
 }
 
+void tesselate2(yscn::shape* shp, int level, ts::tesselation &tes){
+
+  // allocate a working Mesh copied from the subdiv
+
+
+  auto new_shp = new yscn::shape(*shp);
+  bool tex = !new_shp->texcoord.empty();
+  auto texcoord = vector<ym::vec2f>();
+  // foreach level
+  for(int l=0; l<level; ++l) {
+    // make empty pos and quad arrays
+    auto pos = vector<ym::vec3f>();
+    auto quad = vector<ym::vec4i>();
+    if(tex) texcoord = vector<ym::vec2f>();
+    tes.clear();
+    // create edge_map from current mesh
+    auto edge_map = ym::edge_map(new_shp->quads);
+    // linear subdivision - create vertices
+    // copy all vertices from the current mesh
+    for(auto p : new_shp->pos) pos.push_back(p);
+    if(tex) for(auto t : new_shp->texcoord) texcoord.push_back(t);
+    // add vertices in the middle of each edge (use EdgeMap)
+    for(auto e : edge_map.get_edges()) {
+      pos.push_back((new_shp->pos[e.x]+new_shp->pos[e.y])*(1.0f/2));
+      if(tex)texcoord.push_back((new_shp->texcoord[e.x]+new_shp->texcoord[e.y])*(1.0f/2));
+    }
+    // add vertices in the middle of each triangle
+//    for(auto f : mesh->triangle) pos.push_back((mesh->pos[f.x]+mesh->pos[f.y]+mesh->pos[f.z])/3);
+    // add vertices in the middle of each quad
+    for(auto f : new_shp->quads) {
+      pos.push_back((new_shp->pos[f.x]+new_shp->pos[f.y]+new_shp->pos[f.z]+new_shp->pos[f.w])*(1.0f/4));
+      if(tex)texcoord.push_back((new_shp->texcoord[f.x]+new_shp->texcoord[f.y]+new_shp->texcoord[f.z]+new_shp->texcoord[f.w])*(1.0f/4));
+    }
+    // subdivision pass --------------------------------
+    // compute an offset for the edge vertices
+    auto evo = (int)new_shp->pos.size();
+    // compute an offset for the triangle vertices
+    auto tvo = evo + (int)edge_map.get_edges().size();
+    // compute an offset for the quad vertices
+    auto qvo = tvo ;//+ (int)mesh->triangles.size();
+    // foreach triangle
+//    for(int fi=0; fi<mesh->triangles.size(); ++fi) {
+//      auto f = mesh->triangles[fi];
+//      // add three quads to the new quad array
+//      for(int i=0;i<3;++i)
+//        quad.push_back(ym::vec4i({f[i],evo+edge_map[{f[i],f[(i+1)%3]}],
+//                                  tvo+fi,evo+edge_map[{f[i],f[(i+2)%3]}]}));
+//    }
+    // foreach quad
+    for(int fi=0; fi<new_shp->quads.size(); ++fi) {
+      auto f = new_shp->quads[fi];
+      // add four quads to the new quad array
+      for(int i=0;i<4;++i){
+        quad.push_back(ym::vec4i({f[i],evo+edge_map[{f[i],f[(i+1)%4]}],
+                                  qvo+fi,evo+edge_map[{f[i],f[(i+3)%4]}]}));
+        tes.add_face(pos[f[i]],
+                     pos[evo+edge_map[{f[i],f[(i+1)%4]}]],
+                     pos[qvo+fi],
+                     pos[evo+edge_map[{f[i],f[(i+3)%4]}]],
+                     ym::vec4i({f[i],evo+edge_map[{f[i],f[(i+1)%4]}],
+                                qvo+fi,evo+edge_map[{f[i],f[(i+3)%4]}]}));
+      }
+    }
+
+    new_shp->pos = pos;
+    if(tex)new_shp->texcoord = texcoord;
+    new_shp->triangles = vector<ym::vec3i>();
+    new_shp->quads = quad;
+  }
+//  // according to smooth, either smooth_normals or facet_normals
+//  if(subdiv->subdivision_catmullclark_smooth) smooth_normals(mesh);
+//  else facet_normals(mesh);
+  // copy back
+  *shp = *new_shp;
+  // clear
+  delete new_shp;
+
+  shp->norm.resize(shp->pos.size());
+  ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
+
+}
 //
 // Implement Catmull-Clark subdivision with the algorithm specified in class.
 // You should only handle quad meshes, but note that some quad might be
@@ -455,30 +535,111 @@ void catmull_clark(yscn::shape* shp, int level) {
   for(int j=0;j<level;++j) {
 
     //step 1
-    tesselate(shp,1,tes);
-
-    //step 2
+    tesselate2(shp,1,tes);
+    auto siz = shp->quads.size();
+    auto sa = shp->pos.size();
+//    //step 2
     std::vector<ym::vec3f> avg_v = std::vector<ym::vec3f>(shp->pos.size());
-    std::vector<int> avg_n = std::vector<int>(shp->pos.size());
-
-    ym::vec3f c;
-    for (int f = 0; f < tes.get_faces().size(); ++f) {
-      c = tes.get_faces().at(f).c;
-      for (int i = 0; i < 4; ++i) {
-        auto x = tes.get_quads().at(f).operator[](i);
-        avg_v.at(x) += c;
-        avg_n.at(x) += 1;
-      }
-    }
-    for (int i = 0; i < avg_n.size(); ++i){
-      shp->pos.at(i) = avg_v[i]*(1.0f/avg_n[i]);
+//    std::vector<float> avg_n = std::vector<float>(shp->pos.size());
+//
+//    ym::vec3f c;
+//    for (int f = 0; f < tes.get_faces().size(); ++f) {
+//      c = tes.get_faces().at(f).c;
+//      for (int i = 0; i < 4; ++i) {
+//        auto x = tes.get_quads().at(f).operator[](i);
+//        avg_v.at(x) += c;
+//        avg_n.at(x) += 1.0f;
+//      }
+//    }
+//    for (int i = 0; i < avg_n.size(); ++i){
+//      avg_v[i] = avg_v[i]*(1.0f/avg_n[i]);
 //      shp->pos.at(i) += (avg_v[i] - shp->pos[i]) * (4.0f / avg_n[i]);
-    }
-
-    //step 3
-//    for (int i = 0; i < avg_n.size(); ++i)
+//    }
+//
+//    //step 3
+////    for (int i = 0; i < avg_n.size(); ++i)
   }
 }
+
+
+void subdivide_catmullclark(yscn::shape* shp, int level) {
+
+  // allocate a working Mesh copied from the subdiv
+  auto mesh = new yscn::shape(*shp);
+  // foreach level
+  for(int l=0; l<level; ++l) {
+    // make empty pos and quad arrays
+    auto pos = vector<ym::vec3f>();
+    auto quad = vector<ym::vec4i>();
+    // create edge_map from current mesh
+    auto edge_map = ym::edge_map(mesh->quads);
+    // linear subdivision - create vertices
+    // copy all vertices from the current mesh
+    for(auto p : mesh->pos) pos.push_back(p);
+    // add vertices in the middle of each edge (use EdgeMap)
+    for(auto e : edge_map.get_edges()) pos.push_back((mesh->pos[e.x]+mesh->pos[e.y])*(1.0f/2));
+    // add vertices in the middle of each triangle
+//    for(auto f : mesh->triangle) pos.push_back((mesh->pos[f.x]+mesh->pos[f.y]+mesh->pos[f.z])/3);
+    // add vertices in the middle of each quad
+    for(auto f : mesh->quads) pos.push_back((mesh->pos[f.x]+mesh->pos[f.y]+mesh->pos[f.z]+mesh->pos[f.w])*(1.0f/4));
+    // subdivision pass --------------------------------
+    // compute an offset for the edge vertices
+    auto evo = (int)mesh->pos.size();
+    // compute an offset for the triangle vertices
+    auto tvo = evo + (int)edge_map.get_edges().size();
+    // compute an offset for the quad vertices
+    auto qvo = tvo + (int)mesh->triangles.size();
+    // foreach triangle
+    for(int fi=0; fi<mesh->triangles.size(); ++fi) {
+      auto f = mesh->triangles[fi];
+      // add three quads to the new quad array
+      for(int i=0;i<3;++i)
+        quad.push_back(ym::vec4i({f[i],evo+edge_map[{f[i],f[(i+1)%3]}],
+                        tvo+fi,evo+edge_map[{f[i],f[(i+2)%3]}]}));
+    }
+    // foreach quad
+      for(int fi=0; fi<mesh->quads.size(); ++fi) {
+        auto f = mesh->quads[fi];
+      // add four quads to the new quad array
+        for(int i=0;i<4;++i)
+        quad.push_back(ym::vec4i({f[i],evo+edge_map[{f[i],f[(i+1)%4]}],
+                        qvo+fi,evo+edge_map[{f[i],f[(i+3)%4]}]}));
+    }
+    // averaging pass ----------------------------------
+    // create arrays to compute pos averages (avg_pos, avg_count)
+    // arrays have the same length as the new pos array, and are init to zero
+    auto avg_pos = vector<ym::vec3f>(pos.size(),ym::zero3f);
+    auto avg_count = vector<int>(pos.size(),0);
+    // for each new quad
+    for(auto f : quad) {
+      // compute quad center using the new pos array
+      auto fc = (pos[f.x]+pos[f.y]+pos[f.z]+pos[f.w])*(1.0f/4);
+      // foreach vertex index in the quad
+      for(int i=0;i<4;++i){
+        // accumulate face center to the avg_pos and add 1 to avg_count
+        avg_pos[f[i]] += fc;
+        avg_count[f[i]] += 1;
+      }
+    }
+    // normalize avg_pos with its count avg_count
+  for(int i=0;i<pos.size();++i) avg_pos[i] *= (1.0f / avg_count[i]);
+    // correction pass ----------------------------------
+    // foreach pos, compute correction p = p + (avg_p - p) * (4/avg_count)
+    for(int i=0;i<pos.size();++i) pos[i] = pos[i] + (avg_pos[i] - pos[i]) * (4.0f / avg_count[i]);
+    // set new arrays pos, quad back into the working mesh; clear triangle array
+    mesh->pos = pos;
+    mesh->triangles = vector<ym::vec3i>();
+    mesh->quads = quad;
+  }
+//  // according to smooth, either smooth_normals or facet_normals
+//  if(subdiv->subdivision_catmullclark_smooth) smooth_normals(mesh);
+//  else facet_normals(mesh);
+  // copy back
+  *shp = *mesh;
+  // clear
+  delete mesh;
+}
+
 
 //
 // Add nhair to surfaces by creating a hair shape, made of lines, that is
@@ -650,10 +811,11 @@ int main(int argc, char** argv) {
       if (yu::string::startswith(shp->name, "subdiv_03_")) level = 3;
       if (yu::string::startswith(shp->name, "subdiv_04_")) level = 4;
       if (subdiv) {
+//        subdivide_catmullclark(shp, level);
         catmull_clark(shp, level);
       } else {
         struct ts::tesselation tes;
-        tesselate(shp, level, tes);
+        tesselate2(shp, level, tes);
       }
     }
   }
