@@ -16,6 +16,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/normdisp_smooth.png" afterPath="$PROJECT_DIR$/out/normdisp_smooth.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,14 +34,13 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4476">
-              <caret line="540" column="0" lean-forward="false" selection-start-line="540" selection-start-column="0" selection-end-line="540" selection-end-column="0" />
+            <state relative-caret-position="-1608">
+              <caret line="403" column="11" lean-forward="false" selection-start-line="403" selection-start-column="11" selection-end-line="403" selection-end-column="11" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#5884#7282#0" expanded="false" />
-                <element signature="e#7285#7791#0" expanded="false" />
-                <element signature="e#13055#13633#0" expanded="false" />
-                <element signature="e#13635#14659#0" expanded="false" />
+                <element signature="e#17828#18406#0" expanded="false" />
+                <element signature="e#18408#19432#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -46,28 +49,18 @@
       <file leaf-file-name="yocto_scn.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/yocto_scn.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="1577" column="0" lean-forward="false" selection-start-line="1577" selection-start-column="0" selection-end-line="1577" selection-end-column="0" />
+            <state relative-caret-position="316">
+              <caret line="1576" column="38" lean-forward="true" selection-start-line="1576" selection-start-column="38" selection-end-line="1576" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new_allocator.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
+      <file leaf-file-name="yocto_scn.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yocto_math.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="4104" column="5" lean-forward="false" selection-start-line="4104" selection-start-column="5" selection-end-line="4104" selection-end-column="5" />
+            <state relative-caret-position="317">
+              <caret line="290" column="3" lean-forward="true" selection-start-line="290" selection-start-column="3" selection-end-line="290" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -77,9 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>struc</find>
-      <find>texcoord</find>
-      <find>tex=</find>
       <find>norm</find>
       <find>resize</find>
       <find>check</find>
@@ -97,7 +87,6 @@
       <find>radius</find>
       <find>hair</find>
       <find>subdivision</find>
-      <find>vn</find>
       <find>compute_</find>
       <find>vec_map</find>
       <find>add_edge</find>
@@ -107,6 +96,10 @@
       <find>edge_map</find>
       <find>quad</find>
       <find>edge_</find>
+      <find>tracing</find>
+      <find>texcoord</find>
+      <find>vn</find>
+      <find>tesse</find>
     </findStrings>
     <replaceStrings>
       <replace>new_shp-&gt;</replace>
@@ -270,11 +263,12 @@
       <workItem from="1511031956676" duration="1493000" />
       <workItem from="1511058452167" duration="5267000" />
       <workItem from="1511093202778" duration="9496000" />
+      <workItem from="1511105219458" duration="5536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244673000" />
+    <option name="totallyTimeSpent" value="250209000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -342,7 +336,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="206" />
+      <option name="time" value="225" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -373,9 +367,8 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -415,9 +408,8 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -457,9 +449,8 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -492,9 +483,8 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -507,13 +497,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tesselation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tesselation.h" />
     <entry file="file://$PROJECT_DIR$/src/printData.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -535,20 +519,13 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tesselation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tesselation.h" />
     <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5358">
@@ -577,9 +554,8 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -641,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23634">
           <caret line="909" column="6" lean-forward="false" selection-start-line="909" selection-start-column="6" selection-end-line="909" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,64 +636,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="286" column="27" lean-forward="false" selection-start-line="286" selection-start-column="27" selection-end-line="286" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
+        <state relative-caret-position="106704">
           <caret line="4104" column="5" lean-forward="false" selection-start-line="4104" selection-start-column="5" selection-end-line="4104" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tesselation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tesselation.h" />
     <entry file="file:///usr/include/c++/7/bits/vector.tcc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
+        <state relative-caret-position="3510">
           <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="290" column="3" lean-forward="true" selection-start-line="290" selection-start-column="3" selection-end-line="290" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/yocto_scn.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="1577" column="0" lean-forward="false" selection-start-line="1577" selection-start-column="0" selection-end-line="1577" selection-end-column="0" />
+        <state relative-caret-position="316">
+          <caret line="1576" column="38" lean-forward="true" selection-start-line="1576" selection-start-column="38" selection-end-line="1576" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4476">
-          <caret line="540" column="0" lean-forward="false" selection-start-line="540" selection-start-column="0" selection-end-line="540" selection-end-column="0" />
+        <state relative-caret-position="-1608">
+          <caret line="403" column="11" lean-forward="false" selection-start-line="403" selection-start-column="11" selection-end-line="403" selection-end-column="11" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#5884#7282#0" expanded="false" />
-            <element signature="e#7285#7791#0" expanded="false" />
-            <element signature="e#13055#13633#0" expanded="false" />
-            <element signature="e#13635#14659#0" expanded="false" />
+            <element signature="e#17828#18406#0" expanded="false" />
+            <element signature="e#18408#19432#0" expanded="false" />
           </folding>
         </state>
       </provider>

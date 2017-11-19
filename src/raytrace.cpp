@@ -216,6 +216,162 @@ void displace(yscn::shape* shp, float scale) {
   ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
 }
 
+
+
+
+
+
+void add_quad(yscn::shape* new_shp, std::vector<ym::vec3f> vp, std::map<ym::vec3f,int>* vec_map, ym::vec3f poseC){
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[0]),
+                                        vec_map->at((vp[0]+vp[1]) * (1.0f/2)),
+                                        vec_map->at(poseC),
+                                        vec_map->at((vp[3]+vp[0]) * (1.0f/2))}));
+
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[1]),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2)),
+                                        vec_map->at(poseC),
+                                        vec_map->at((vp[0]+vp[1]) * (1.0f/2))}));
+
+
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[2]),
+                                        vec_map->at((vp[2]+vp[3]) * (1.0f/2)),
+                                        vec_map->at(poseC),
+                                        vec_map->at((vp[1]+vp[2]) * (1.0f/2))}));
+
+    new_shp->quads.push_back(ym::vec4i({vec_map->at(vp[3]),
+                                        vec_map->at((vp[3]+vp[0]) * (1.0f/2)),
+                                        vec_map->at(poseC),
+                                        vec_map->at((vp[2]+vp[3]) * (1.0f/2))}));
+
+}
+
+void add_corner(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
+                std::vector<ym::vec3f> vp,std::vector<ym::vec2f> tx,
+                int j, int total_pos){
+  vec_map->at(vp[j]) = total_pos;
+  new_shp->pos.at(vec_map->at(vp[j]))=vp[j];
+  if(!new_shp->texcoord.empty())
+    new_shp->texcoord.at(vec_map->at(vp[j]))=tx[j];
+}
+void add_edge(yscn::shape* new_shp, std::map<ym::vec3f,int>* vec_map,
+              std::vector<ym::vec3f> vp,std::vector<ym::vec2f> tx,
+              int j, int skip, int total_pos, int vn) {
+  new_shp->pos.at(vec_map->at((vp[j] + vp[(j + skip) % vn])  * (1.0f/2))) = (vp[j] + vp[(j + skip) % vn]) * (1.0f/2);
+  if(!new_shp->texcoord.empty())
+    new_shp->texcoord.at(vec_map->at((vp[j] + vp[(j + skip) % vn])  * (1.0f/2))) = (tx[j] + tx[(j + skip) % vn])  * (1.0f/2);
+}
+
+//vecchia versione del tesselate, non so per quale motivo ma questa funziona nel normdisp_smooth.png, l'altra no...
+void tesselate2(yscn::shape* shp, int level) {
+
+  yscn::shape new_shp;
+  bool tex = !shp->texcoord.empty();
+  std::map<ym::vec3f,int> vec_map;
+  ym::edge_map edge_map;
+
+  std::vector<ym::vec3f> vp;
+  vp.resize(4);
+  std::vector<ym::vec2f> tx;
+  tx.resize(4);
+
+  ym::vec3f poseC;
+  ym::vec2f texC;
+
+  int total_pos = 0;
+
+  if(!shp->quads.empty()){
+
+
+    for(int l=0; l<level; ++l) {
+
+      new_shp = yscn::shape();
+      vec_map.clear();
+      edge_map=ym::edge_map();
+      total_pos = 0;
+
+      new_shp.pos.resize(shp->pos.size()*(5));
+
+      if(tex) {
+        new_shp.texcoord.resize(shp->pos.size()*(5));
+        tx.resize(shp->texcoord.size()*4 +1);
+      }
+
+      for (int i = 0; i <shp->quads.size(); ++i) {
+
+        poseC = ym::vec3f();
+        texC = ym::vec2f();
+        for (int j = 0; j < 4; ++j) {
+          vp.at(j)=shp->pos[shp->quads.at(i).operator[](j)];
+          if(tex)
+            tx.at(j)=shp->texcoord[shp->quads.at(i).operator[](j)];
+
+          poseC+=vp[j];
+          if(tex)
+            texC+=tx[j];
+        }
+
+        poseC *= 1.0f/4;
+        if(tex)
+          texC*= 1.0f/4;
+
+        //add centroid
+        vec_map[poseC]=total_pos;
+        new_shp.pos.at(vec_map[poseC])=poseC;
+        if(tex)
+          new_shp.texcoord.at(vec_map[poseC])=texC;
+        ++total_pos;
+
+        for (int j = 0; j < 3; ++j) {
+
+          //add corner vertex
+          if(vec_map[vp[j]]==0) {
+            add_corner(&new_shp, &vec_map, vp, tx,j, total_pos);
+            ++total_pos;
+          }
+          if(vec_map[vp[(j+1)%4]]==0) {
+            add_corner(&new_shp, &vec_map, vp, tx,(j+1)%4, total_pos);
+            ++total_pos;
+          }
+          if(vec_map[vp[(j+3)%4]]==0) {
+            add_corner(&new_shp, &vec_map, vp, tx,(j+3)%4, total_pos);
+            ++total_pos;
+          }
+          //add first edge vertex
+          if(!edge_map.contain(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+1)%4]]))){
+            edge_map.add_edge(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+1)%4]]));
+            vec_map[(vp[j] + vp[(j + 1) % 4]) * (1.0f/2)] = total_pos;
+            add_edge(&new_shp, &vec_map, vp, tx, j, 1, total_pos, 4);
+            ++total_pos;
+          }
+          //add second edge vertex
+          if(!edge_map.contain(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+3)%4]]))){
+            edge_map.add_edge(ym::vec2i(vec_map[vp[j]],vec_map[vp[(j+3)%4]]));
+            vec_map[(vp[j] + vp[(j+3)%4]) * (1.0f/2)] = total_pos;
+            add_edge(&new_shp, &vec_map, vp, tx, j, 3, total_pos, 4);
+            ++total_pos;
+          }
+
+
+        }
+
+        add_quad(&new_shp, vp, &vec_map,poseC);
+
+      }//*******fine quad***********
+      shp->quads=new_shp.quads;
+      shp->pos=new_shp.pos;
+      shp->pos.resize(total_pos);
+      shp->norm.resize(total_pos);
+      if(tex) {
+        shp->texcoord=new_shp.texcoord;
+        shp->texcoord.resize(total_pos);
+      }
+    }
+  }
+
+  ym::compute_normals((int)shp->quads.size(), shp->quads.data(), (int)shp->pos.size(), shp->pos.data(), shp->norm.data());
+
+}
+
 //
 // Linear tesselation thta split each triangle in 4 triangles and each quad in
 // four quad. Vertices are placed in teh middle of edges and faces. See slides
@@ -230,32 +386,22 @@ void displace(yscn::shape* shp, float scale) {
 void tesselate(yscn::shape* shp, int level) {
 
   auto new_shp = new yscn::shape(*shp);
-  bool tex = !new_shp->texcoord.empty();
-  auto texcoord = vector<ym::vec2f>();
+
+  if(!new_shp->texcoord.empty()) return tesselate2(shp,level);
   for(int l=0; l<level; ++l) {
     auto pos = vector<ym::vec3f>();
     auto quad = vector<ym::vec4i>();
-    if(tex) texcoord = vector<ym::vec2f>();
-
+    std::vector<ym::vec2f> texV = vector<ym::vec2f>();
     auto edge_map = ym::edge_map(shp->quads);
 
     for(auto p : new_shp->pos) pos.push_back(p);
-    if(tex) for(auto t : new_shp->texcoord) texcoord.push_back(t);
-    for(auto e : edge_map.get_edges()) {
-      pos.push_back((new_shp->pos[e.x]+new_shp->pos[e.y])*(1.0f/2));
-      if(tex)texcoord.push_back((new_shp->texcoord[e.x]+new_shp->texcoord[e.y])*(1.0f/2));
-    }
+    for(auto t : new_shp->texcoord) texV.push_back(t);
+    for(auto e : edge_map.get_edges()) pos.push_back((new_shp->pos[e.x]+new_shp->pos[e.y])*(1.0f/2));
     for(auto f : new_shp->quads) {
       //normal quad
-      if(f.z!=f.w){
-        pos.push_back((new_shp->pos[f.x]+new_shp->pos[f.y]+new_shp->pos[f.z]+new_shp->pos[f.w])*(1.0f/4));
-        if(tex)texcoord.push_back((new_shp->texcoord[f.x]+new_shp->texcoord[f.y]+new_shp->texcoord[f.z]+new_shp->texcoord[f.w])*(1.0f/4));
-      }
+      if(f.z!=f.w) pos.push_back((new_shp->pos[f.x]+new_shp->pos[f.y]+new_shp->pos[f.z]+new_shp->pos[f.w])*(1.0f/4));
         //deg quad
-      else{
-        pos.push_back((new_shp->pos[f.x]+new_shp->pos[f.y]+new_shp->pos[f.z])*(1.0f/3));
-        if(tex)texcoord.push_back((new_shp->texcoord[f.x]+new_shp->texcoord[f.y]+new_shp->texcoord[f.z])*(1.0f/3));
-      }
+      else pos.push_back((new_shp->pos[f.x]+new_shp->pos[f.y]+new_shp->pos[f.z])*(1.0f/3));
     }
     // position where starts the edge nodes
     auto pe = (int)new_shp->pos.size();
@@ -284,7 +430,7 @@ void tesselate(yscn::shape* shp, int level) {
     }
 
     new_shp->pos = pos;
-    if(tex)new_shp->texcoord = texcoord;
+    new_shp->texcoord = texV;
     new_shp->triangles = vector<ym::vec3i>();
     new_shp->quads = quad;
   }
@@ -497,7 +643,6 @@ int main(int argc, char** argv) {
       if (yu::string::startswith(shp->name, "subdiv_03_")) level = 3;
       if (yu::string::startswith(shp->name, "subdiv_04_")) level = 4;
       if (subdiv) {
-//        subdivide_catmullclark(shp, level);
         catmull_clark(shp, level);
       } else {
         tesselate(shp, level);
