@@ -13,12 +13,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2136c27-da41-4c06-aa2c-803732c2e654" name="Default" comment="ck">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/subdiv_cube_smooth level1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/tesselation.h" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/libhwlib.a" afterPath="$PROJECT_DIR$/bin/libhwlib.a" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/raytrace" afterPath="$PROJECT_DIR$/bin/raytrace" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_gltf.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_img.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_obj.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/hwlib.dir/src/yocto_scn.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/src/raytrace.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_cube_faceted.png" afterPath="$PROJECT_DIR$/out/subdiv_cube_faceted.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" afterPath="$PROJECT_DIR$/out/subdiv_cube_smooth.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_suzanne_curve.png" afterPath="$PROJECT_DIR$/out/subdiv_suzanne_curve.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_suzanne_faceted.png" afterPath="$PROJECT_DIR$/out/subdiv_suzanne_faceted.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_suzanne_hair.png" afterPath="$PROJECT_DIR$/out/subdiv_suzanne_hair.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/subdiv_suzanne_smooth.png" afterPath="$PROJECT_DIR$/out/subdiv_suzanne_smooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/depend.internal" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/depend.make" afterPath="$PROJECT_DIR$/build_ubuntu/CMakeFiles/raytrace.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/raytrace.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/graphics17b_hw02.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/graphics17b_hw02.cbp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytrace.cpp" afterPath="$PROJECT_DIR$/src/raytrace.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/yocto_math.h" afterPath="$PROJECT_DIR$/src/yocto_math.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,63 +59,24 @@
       <file leaf-file-name="raytrace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="510" column="3" lean-forward="true" selection-start-line="510" selection-start-column="3" selection-end-line="510" selection-end-column="3" />
+            <state relative-caret-position="728">
+              <caret line="310" column="12" lean-forward="true" selection-start-line="310" selection-start-column="12" selection-end-line="310" selection-end-column="12" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#5909#7307#0" expanded="false" />
-                <element signature="e#7310#7816#0" expanded="false" />
-                <element signature="e#20573#24023#0" expanded="false" />
+                <element signature="e#5884#7282#0" expanded="false" />
+                <element signature="e#7285#7791#0" expanded="false" />
+                <element signature="e#13055#13633#0" expanded="false" />
+                <element signature="e#13635#14659#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yocto_scn.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+      <file leaf-file-name="new_allocator.h" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-713">
-              <caret line="266" column="9" lean-forward="false" selection-start-line="266" selection-start-column="9" selection-end-line="266" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vector.tcc" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/7/bits/vector.tcc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tesselation.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tesselation.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stl_vector.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/7/bits/stl_vector.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="798" column="0" lean-forward="false" selection-start-line="798" selection-start-column="0" selection-end-line="798" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stl_map.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/7/bits/stl_map.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13832">
-              <caret line="532" column="0" lean-forward="false" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
+            <state relative-caret-position="508">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -98,18 +85,8 @@
       <file leaf-file-name="yocto_math.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="4046" column="4" lean-forward="false" selection-start-line="4046" selection-start-column="4" selection-end-line="4046" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unordered_map.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/7/bits/unordered_map.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23634">
-              <caret line="909" column="6" lean-forward="false" selection-start-line="909" selection-start-column="6" selection-end-line="909" selection-end-column="6" />
+            <state relative-caret-position="327">
+              <caret line="4104" column="5" lean-forward="false" selection-start-line="4104" selection-start-column="5" selection-end-line="4104" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -165,8 +142,8 @@
         <option value="$PROJECT_DIR$/src/printData.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/yocto_scn.h" />
-        <option value="$PROJECT_DIR$/src/yocto_math.h" />
         <option value="$PROJECT_DIR$/src/tesselation.h" />
+        <option value="$PROJECT_DIR$/src/yocto_math.h" />
         <option value="$PROJECT_DIR$/src/raytrace.cpp" />
       </list>
     </option>
@@ -185,7 +162,7 @@
     <option name="height" value="1068" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -198,7 +175,24 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="graphics17b_hw02" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="computer_graphics_hw2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="graphics17b_hw02" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="computer_graphics_hw2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -216,7 +210,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.cube_smooth">
+  <component name="RunManager" selected="Application.subdiv_suzanne_curve">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
@@ -294,12 +288,12 @@
       <workItem from="1511014944479" duration="6563000" />
       <workItem from="1511031956676" duration="1493000" />
       <workItem from="1511058452167" duration="5267000" />
-      <workItem from="1511093202778" duration="3351000" />
+      <workItem from="1511093202778" duration="9075000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238528000" />
+    <option name="totallyTimeSpent" value="244252000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -314,17 +308,17 @@
     <frame x="346" y="-4" width="1871" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16180556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16158374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30674848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28732106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28732106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -334,27 +328,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30674848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28732106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16180556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -364,41 +337,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/raytrace.cpp</url>
-          <line>578</line>
-          <option name="timeStamp" value="181" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/raytrace.cpp</url>
-          <line>580</line>
-          <option name="timeStamp" value="182" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/raytrace.cpp</url>
-          <line>606</line>
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/raytrace.cpp</url>
-          <line>510</line>
-          <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/raytrace.cpp</url>
-          <line>509</line>
-          <option name="timeStamp" value="201" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="202" />
+      <option name="time" value="206" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="quad" />
+        <watch expression="pos" />
       </configuration>
     </watches-manager>
   </component>
@@ -423,9 +370,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -464,9 +412,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -505,9 +454,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -539,9 +489,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -581,9 +532,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -622,9 +574,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -660,13 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="613">
           <caret line="1523" column="1" lean-forward="true" selection-start-line="1523" selection-start-column="1" selection-end-line="1523" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3510">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -712,26 +658,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tesselation.h">
+    <entry file="file:///usr/include/c++/7/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="186">
+          <caret line="798" column="0" lean-forward="false" selection-start-line="798" selection-start-column="0" selection-end-line="798" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="286" column="27" lean-forward="false" selection-start-line="286" selection-start-column="27" selection-end-line="286" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/yocto_math.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="4046" column="4" lean-forward="false" selection-start-line="4046" selection-start-column="4" selection-end-line="4046" selection-end-column="4" />
+        <state relative-caret-position="327">
+          <caret line="4104" column="5" lean-forward="false" selection-start-line="4104" selection-start-column="5" selection-end-line="4104" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/c++/7/bits/stl_vector.h">
+    <entry file="file://$PROJECT_DIR$/src/tesselation.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="798" column="0" lean-forward="false" selection-start-line="798" selection-start-column="0" selection-end-line="798" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -744,23 +698,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/yocto_scn.h">
+    <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-713">
-          <caret line="266" column="9" lean-forward="false" selection-start-line="266" selection-start-column="9" selection-end-line="266" selection-end-column="9" />
+        <state relative-caret-position="508">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/raytrace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="510" column="3" lean-forward="true" selection-start-line="510" selection-start-column="3" selection-end-line="510" selection-end-column="3" />
+        <state relative-caret-position="728">
+          <caret line="310" column="12" lean-forward="true" selection-start-line="310" selection-start-column="12" selection-end-line="310" selection-end-column="12" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#5909#7307#0" expanded="false" />
-            <element signature="e#7310#7816#0" expanded="false" />
-            <element signature="e#20573#24023#0" expanded="false" />
+            <element signature="e#5884#7282#0" expanded="false" />
+            <element signature="e#7285#7791#0" expanded="false" />
+            <element signature="e#13055#13633#0" expanded="false" />
+            <element signature="e#13635#14659#0" expanded="false" />
           </folding>
         </state>
       </provider>

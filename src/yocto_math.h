@@ -4099,9 +4099,8 @@ namespace ym {
 
     /// get all edges
     const std::vector<vec2i> get_edges() const {
-      auto edges = std::vector<vec2i>();
-      edges.reserve(size());
-      for (auto& kv : _map) edges.push_back(kv.first);
+      auto edges = std::vector<vec2i>(size());
+      for (auto& kv : _map) edges[kv.second] = kv.first;
       return edges;
     }
 

@@ -3,7 +3,6 @@
 
 CMakeFiles/raytrace.dir/src/raytrace.cpp.o: ../src/printData.h
 CMakeFiles/raytrace.dir/src/raytrace.cpp.o: ../src/raytrace.cpp
-CMakeFiles/raytrace.dir/src/raytrace.cpp.o: ../src/tesselation.h
 CMakeFiles/raytrace.dir/src/raytrace.cpp.o: ../src/yocto_img.h
 CMakeFiles/raytrace.dir/src/raytrace.cpp.o: ../src/yocto_math.h
 CMakeFiles/raytrace.dir/src/raytrace.cpp.o: ../src/yocto_scn.h
